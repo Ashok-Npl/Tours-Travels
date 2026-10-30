@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Your Journey | Wanderlux</title>
+  <meta name="description" content="Start planning your private Wanderlux journey with a dedicated travel designer.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-sand-50 text-slate-800 antialiased">
+  <header class="glass-nav sticky top-0 z-40">
+    <div class="page-shell nav-shell">
+      <a href="index.html" class="brand-lockup"><span class="brand-mark"><i class="fa-solid fa-paper-plane"></i></span><span><strong>Wander<span>lux</span></strong><small>Curated Journeys</small></span></a>
+      <nav class="page-nav">
+        <a href="about.html">About</a><a href="destinations.html">Destinations</a><a href="index.html#styles">Experiences</a><a href="packages.html">Packages</a><a href="index.html#blog">Journal</a><a href="contact.html">Contact</a>
+      </nav>
+      <a href="book.html" class="page-cta is-current">Plan my trip <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero booking-hero">
+      <div class="page-shell booking-hero-grid">
+        <div>
+          <span class="eyebrow">Your journey starts here</span>
+          <h1>Let’s make your<br><em>next story unforgettable.</em></h1>
+          <p>Tell us what you are imagining. A dedicated Wanderlux designer will shape the details, source the right stays and return with a thoughtful first itinerary.</p>
+        </div>
+        <figure class="booking-hero-image">
+          <img src="assets/images/book-page.png" alt="Travelers ready to begin their next journey">
+        </figure>
+      </div>
+    </section>
+
+    <section class="page-section booking-section">
+      <div class="page-shell booking-layout">
+        <form class="booking-form" id="booking-form">
+          <div class="booking-form-heading">
+            <span class="eyebrow">Tell us a little more</span>
+            <h2>Plan your escape.</h2>
+            <p>There is no commitment. This first conversation is complimentary.</p>
+          </div>
+          <div class="booking-progress" aria-label="Booking enquiry steps">
+            <span class="is-active"><b>01</b>Your details</span><i></i><span><b>02</b>Your journey</span><i></i><span><b>03</b>Finishing touches</span>
+          </div>
+          <div class="booking-form-grid">
+            <div class="booking-section-label booking-field-wide"><span>01</span><div><strong>About you</strong><small>So we know how to reach you.</small></div></div>
+            <label>Full name *<input name="name" type="text" required autocomplete="name" placeholder="How should we call you?"></label>
+            <label>Email address *<input name="email" type="email" required autocomplete="email" placeholder="you@example.com"></label>
+            <label>Phone number<input name="phone" type="tel" autocomplete="tel" placeholder="+1 (555) 000-0000"></label>
+            <label>Best way to reach you<select name="contact"><option>Email</option><option>Phone call</option><option>WhatsApp</option></select></label>
+            <div class="booking-section-label booking-field-wide"><span>02</span><div><strong>Your journey</strong><small>Give us the first details that come to mind.</small></div></div>
+            <label class="booking-field-wide">Where would you like to go?<input id="booking-journey" name="journey" type="text" placeholder="A destination, region or simply a feeling"></label>
+            <label>Preferred departure<input id="booking-date" name="date" type="date"></label>
+            <label>Number of travelers<select name="travelers"><option>2 travelers</option><option>1 traveler</option><option>3 travelers</option><option>4 travelers</option><option>5+ travelers</option></select></label>
+            <label>Journey style<select name="style"><option>Luxury & bespoke</option><option>Slow travel</option><option>Adventure & trekking</option><option>Wildlife & safari</option><option>Culture & cuisine</option><option>Beach escape</option></select></label>
+            <label>Estimated budget<select name="budget"><option>Prefer to discuss</option><option>$2,500–$5,000 per person</option><option>$5,000–$10,000 per person</option><option>$10,000+ per person</option></select></label>
+            <div class="booking-section-label booking-field-wide"><span>03</span><div><strong>Make it yours</strong><small>The details turn a trip into your trip.</small></div></div>
+            <label>What are you celebrating?<select name="occasion"><option>Just travelling</option><option>Honeymoon or romance</option><option>Birthday or anniversary</option><option>Family time</option><option>A milestone</option></select></label>
+            <label>How soon are you planning?<select name="timing"><option>Just exploring</option><option>Within 3 months</option><option>3–6 months</option><option>6–12 months</option><option>Next year or later</option></select></label>
+            <label class="booking-field-wide">What would make it meaningful?<textarea name="message" rows="5" placeholder="Occasion, must-see places, pace, dietary needs or anything else we should know..."></textarea></label>
+          </div>
+          <label class="booking-consent"><input name="consent" type="checkbox" required><span>I agree to be contacted by the Wanderlux concierge team about this enquiry.</span></label>
+          <button class="page-button booking-submit" type="submit">Send my enquiry <i class="fa-solid fa-arrow-right"></i></button>
+          <p class="booking-success" id="booking-success" hidden><i class="fa-solid fa-circle-check"></i> Thank you. Your journey brief is with our concierge team.</p>
+        </form>
+
+        <aside class="booking-aside">
+          <span class="eyebrow">The Wanderlux promise</span>
+          <h2>Travel well.<br><em>Feel more.</em></h2>
+          <div class="booking-benefits">
+            <div><i class="fa-solid fa-compass"></i><span><strong>A human designer</strong>One thoughtful expert from first idea to final detail.</span></div>
+            <div><i class="fa-solid fa-sliders"></i><span><strong>Built around you</strong>Your pace, preferences and little rituals lead the way.</span></div>
+            <div><i class="fa-solid fa-headset"></i><span><strong>Always within reach</strong>24/7 support while you are on the road.</span></div>
+          </div>
+          <a href="tel:+18009263375" class="booking-call"><i class="fa-solid fa-phone"></i><span><small>Prefer to talk?</small>+1 (800) 926-3375</span></a>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="page-footer"><div class="page-shell footer-line"><span>© 2026 Wanderlux Curated Journeys Ltd.</span><span><a href="index.html">Home</a><a href="contact.html">Contact</a><a href="destinations.html">Destinations</a></span></div></footer>
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var journey = params.get('journey');
+      var dateInput = document.getElementById('booking-date');
+      var today = new Date();
+      dateInput.min = today.getFullYear() + '-' + String(today.getMonth() + 1).padStart(2, '0') + '-' + String(today.getDate()).padStart(2, '0');
+      if (journey) document.getElementById('booking-journey').value = journey;
+      document.getElementById('booking-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+        document.getElementById('booking-success').hidden = false;
+        this.reset();
+        if (journey) document.getElementById('booking-journey').value = journey;
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const currSelM       = $('mobile-currency-selector');
   const nav            = $('main-nav');
   const topBtn         = $('back-to-top');
+  const progressBar    = $('scroll-progress');
 
   /* ── Helpers ──────────────────────────────────────────────────────────── */
   function fmtPrice(usd) {
@@ -100,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between">
             <div><span class="text-[10px] text-slate-400 block">From</span><span class="text-xl font-extrabold text-teal-600 dp" data-usd="${d.priceUSD}">${fmtPrice(d.priceUSD)}</span><span class="text-[10px] text-slate-400"> /person</span></div>
             <div class="flex gap-2">
-              <button class="view-dest-btn px-3.5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-lg transition" data-id="${d.id}">Details</button>
+              <a href="destination-details.html?id=${encodeURIComponent(d.id)}" class="view-dest-btn px-3.5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-lg transition" data-id="${d.id}">Details</a>
               <button class="book-dest-btn px-3.5 py-2 bg-primary-500 hover:bg-primary-600 text-white text-xs font-bold rounded-lg shadow-sm shadow-primary-200 transition" data-id="${d.id}" data-name="${d.name}" data-price="${d.priceUSD}">Book</button>
             </div>
           </div>
@@ -110,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function bindDestEvents() {
-    $$('.view-dest-btn').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();openDestModal(b.dataset.id);}));
+    $$('.view-dest-btn').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();}));
     $$('.book-dest-btn').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();openBooking({name:b.dataset.name,price:b.dataset.price});}));
     $$('.wishlist-btn').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();b.querySelector('i').classList.toggle('fa-solid');b.querySelector('i').classList.toggle('fa-regular');toast('Saved to Wishlist ❤️','success');}));
   }
@@ -281,7 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ══════════════════════════════════════════════════════════════════════
      SEARCH BAR
      ══════════════════════════════════════════════════════════════════════ */
-  const sInput=$('search-destination-input'), sBtn=$('search-itineraries-btn'), bSlider=$('budget-slider'), bVal=$('budget-val'), acList=$('dest-autocomplete-list');
+  const sInput=$('search-destination-input'), pageDestInput=$('destination-page-search'), sBtn=$('search-itineraries-btn'), bSlider=$('budget-slider'), bVal=$('budget-val'), acList=$('dest-autocomplete-list');
 
   // Autocomplete
   if (sInput && acList) {
@@ -297,6 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
     sInput.addEventListener('focus',()=>{if(sInput.value.trim())autoSuggest(sInput.value);});
     document.addEventListener('click',e=>{if(!sInput.contains(e.target)&&!acList.contains(e.target))acList.classList.add('hidden');});
   }
+  pageDestInput?.addEventListener('input', e=>{S.keyword=e.target.value;renderDest();});
 
   if(bSlider&&bVal){bSlider.addEventListener('input',e=>{S.budget=+e.target.value;bVal.textContent=`$${S.budget.toLocaleString()}+`;renderDest();});}
   sBtn?.addEventListener('click',()=>{if(sInput)S.keyword=sInput.value;renderDest();$('destinations')?.scrollIntoView({behavior:'smooth'});toast(`Searching for "${S.keyword||'All'}"…`,'info');});
@@ -382,7 +384,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // -- Booking inquiry modal
   function openBooking({name,price}){
-    openModal(`
+    window.location.href = `book.html?journey=${encodeURIComponent(name)}&price=${encodeURIComponent(price)}`;
+    return;
+    /* openModal(`
       <div class="max-w-lg mx-auto text-center">
         <div class="w-14 h-14 bg-primary-50 text-primary-500 rounded-full flex items-center justify-center mx-auto text-2xl mb-3"><i class="fa-solid fa-paper-plane"></i></div>
         <h3 class="text-2xl font-bold text-slate-800">Reserve Your Journey</h3>
@@ -401,7 +405,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <button type="submit" class="w-full py-3 bg-primary-500 hover:bg-primary-600 text-white font-extrabold text-sm rounded-xl shadow-md transition flex items-center justify-center gap-2">Confirm Request <i class="fa-solid fa-arrow-right text-xs"></i></button>
         </form>
       </div>`);
-    $('bk-form')?.addEventListener('submit',e=>{e.preventDefault();closeModal();confettiBurst();toast('🎉 Booking Submitted! Check your email.','success',6000);});
+    $('bk-form')?.addEventListener('submit',e=>{e.preventDefault();closeModal();confettiBurst();toast('🎉 Booking Submitted! Check your email.','success',6000);}); */
   }
 
   /* ══════════════════════════════════════════════════════════════════════
@@ -422,15 +426,47 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ══════════════════════════════════════════════════════════════════════
      SCROLL EFFECTS
      ══════════════════════════════════════════════════════════════════════ */
-  window.addEventListener('scroll',()=>{
-    if(window.scrollY>40){nav?.classList.add('scrolled');}else{nav?.classList.remove('scrolled');}
-    if(topBtn){if(window.scrollY>500){topBtn.classList.remove('opacity-0','pointer-events-none','translate-y-4');}else{topBtn.classList.add('opacity-0','pointer-events-none','translate-y-4');}}
-  });
+  let scrollTicking = false;
+  function updateScrollEffects() {
+    const scrollY = window.scrollY;
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = maxScroll > 0 ? Math.min(100, (scrollY / maxScroll) * 100) : 0;
+    if (progressBar) progressBar.style.width = `${progress}%`;
+    if (nav) nav.classList.toggle('scrolled', scrollY > 40);
+    if (topBtn) {
+      topBtn.classList.toggle('opacity-0', scrollY <= 500);
+      topBtn.classList.toggle('pointer-events-none', scrollY <= 500);
+      topBtn.classList.toggle('translate-y-4', scrollY <= 500);
+    }
+    scrollTicking = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (!scrollTicking) {
+      window.requestAnimationFrame(updateScrollEffects);
+      scrollTicking = true;
+    }
+  }, { passive: true });
+  updateScrollEffects();
+
+  const navLinks = [...document.querySelectorAll('.nav-link')];
+  const observedSections = navLinks
+    .map(link => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
+  if ('IntersectionObserver' in window && observedSections.length) {
+    const sectionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`));
+      });
+    }, { rootMargin: '-28% 0px -62% 0px', threshold: 0 });
+    observedSections.forEach(section => sectionObserver.observe(section));
+  }
   topBtn?.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 
   /* ══════════════════════════════════════════════════════════════════════
      AOS INIT + FIRST PAINT
      ══════════════════════════════════════════════════════════════════════ */
-  if(typeof AOS!=='undefined') AOS.init({duration:700,once:true,offset:60,easing:'ease-out-cubic'});
+  if(typeof AOS!=='undefined') AOS.init({duration:750,once:true,offset:70,easing:'ease-out-cubic'});
   renderDest(); renderPkgs(); renderStyles(); renderRevs(); renderBlog(); renderFAQs(); reCalc();
+  if(typeof AOS!=='undefined') AOS.refreshHard();
 });

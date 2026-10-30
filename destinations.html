@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Destinations | Wanderlux Curated Journeys</title>
+  <meta name="description" content="Explore Wanderlux luxury destinations across Europe, Asia, Africa, the Americas and the Arctic.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { colors: {
+      primary: { 50:'#fef7ed', 100:'#fdecd6', 500:'#e07a2f', 600:'#cc5f1a' },
+      teal: { 500:'#14b8a6', 600:'#0d9488' }, sand: { 50:'#fdfcfb' }
+    }}}};
+  </script>
+</head>
+<body class="bg-sand-50 text-slate-800 antialiased">
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+  <header class="glass-nav sticky top-0 z-40">
+    <div class="page-shell nav-shell">
+      <a href="index.html" class="brand-lockup"><span class="brand-mark"><i class="fa-solid fa-paper-plane"></i></span><span><strong>Wander<span>lux</span></strong><small>Curated Journeys</small></span></a>
+      <nav class="page-nav">
+        <a href="about.html">About</a><a href="destinations.html" class="is-current">Destinations</a><a href="index.html#styles">Experiences</a><a href="packages.html">Packages</a><a href="index.html#blog">Journal</a><a href="contact.html">Contact</a>
+      </nav>
+      <a href="book.html" class="page-cta">Plan my trip <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="destination-page-hero">
+      <div class="page-shell destination-hero-grid">
+        <div>
+          <span class="eyebrow">Go somewhere unforgettable</span>
+          <h1>Find the place<br>that feels like <em>you.</em></h1>
+          <p>From Aegean sunsets to Arctic skies, discover journeys shaped around the way you want to travel.</p>
+        </div>
+        <div class="destination-hero-side">
+          <figure class="destination-hero-image"><img src="assets/images/destination.png" alt="Travelers exploring a mountain destination"></figure>
+          <div class="destination-hero-note"><span>120+</span><small>destinations<br>with local expertise</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="destination-directory">
+      <div class="page-shell">
+        <div class="destination-toolbar">
+          <div>
+            <span class="eyebrow">The directory</span>
+            <h2>Where will you go next?</h2>
+          </div>
+          <div class="destination-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input id="destination-page-search" type="search" placeholder="Search a place or region" aria-label="Search destinations">
+          </div>
+        </div>
+        <div class="destination-filters" role="group" aria-label="Filter destinations">
+          <button class="dest-filter-btn active px-4 py-2 rounded-full text-xs font-bold bg-primary-500 text-white transition" data-filter="All">All places</button>
+          <button class="dest-filter-btn px-4 py-2 rounded-full text-xs font-bold bg-slate-100 text-slate-600 transition" data-filter="Europe">Europe</button>
+          <button class="dest-filter-btn px-4 py-2 rounded-full text-xs font-bold bg-slate-100 text-slate-600 transition" data-filter="Asia">Asia</button>
+          <button class="dest-filter-btn px-4 py-2 rounded-full text-xs font-bold bg-slate-100 text-slate-600 transition" data-filter="Africa">Africa</button>
+          <button class="dest-filter-btn px-4 py-2 rounded-full text-xs font-bold bg-slate-100 text-slate-600 transition" data-filter="Americas">Americas</button>
+          <button class="dest-filter-btn px-4 py-2 rounded-full text-xs font-bold bg-slate-100 text-slate-600 transition" data-filter="Arctic">Arctic</button>
+        </div>
+        <div id="destinations-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 destination-directory-grid"></div>
+      </div>
+    </section>
+
+    <section class="destination-cta">
+      <div class="page-shell destination-cta-inner">
+        <div><span class="eyebrow">Can’t choose?</span><h2>Tell us what you’re looking for.</h2><p>Our destination designers will match you with the right place, pace and point of view.</p></div>
+        <a href="contact.html" class="page-button">Speak to a designer <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="page-footer"><div class="page-shell footer-line"><span>© 2026 Wanderlux Curated Journeys Ltd.</span><span><a href="index.html">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a></span></div></footer>
+  <div id="generic-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/40 backdrop-blur-sm"><div class="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-5 sm:p-8 relative shadow-2xl"><button id="modal-close-btn" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center"><i class="fa-solid fa-xmark"></i></button><div id="modal-dynamic-content"></div></div></div>
+  <div id="toast-container" class="fixed bottom-6 left-6 z-50 flex flex-col gap-2.5 pointer-events-none"></div>
+  <script src="js/data.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

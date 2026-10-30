@@ -73,6 +73,8 @@
 
 <body class="bg-white text-slate-800 antialiased overflow-x-hidden">
 
+<div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
 <!-- ═══════════════════════════════════════════════════════════════════════════
      1 ▸ TOP ANNOUNCEMENT BAR
      ═══════════════════════════════════════════════════════════════════════ -->
@@ -106,35 +108,26 @@
      2 ▸ STICKY HEADER / NAVIGATION
      ═══════════════════════════════════════════════════════════════════════ -->
 <header id="main-nav" class="sticky top-0 z-40 transition-all duration-300 glass-nav">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[72px] flex items-center justify-between">
+  <div class="page-shell nav-shell">
     <!-- Logo -->
-    <a href="#" class="flex items-center gap-2.5 group">
-      <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center shadow-md shadow-primary-200 group-hover:scale-105 transition">
-        <i class="fa-solid fa-paper-plane text-white text-lg -rotate-12"></i>
-      </div>
-      <div class="leading-none">
-        <span class="font-serif font-extrabold text-[22px] text-slate-800">Wander<span class="text-primary-500">lux</span></span>
-        <span class="block text-[9px] font-bold tracking-[0.22em] text-slate-400 uppercase">Curated Journeys</span>
-      </div>
+    <a href="index.html" class="brand-lockup group">
+      <span class="brand-mark"><i class="fa-solid fa-paper-plane"></i></span>
+      <span><strong>Wander<span>lux</span></strong><small>Curated Journeys</small></span>
     </a>
 
     <!-- Desktop Nav -->
-    <nav class="hidden lg:flex items-center gap-7 text-[13px] font-semibold text-slate-600">
-      <a href="#destinations" class="nav-link hover:text-primary-600 transition py-1">Destinations</a>
-      <a href="#packages"     class="nav-link hover:text-primary-600 transition py-1">Tour Packages</a>
-      <a href="#styles"       class="nav-link hover:text-primary-600 transition py-1">Experiences</a>
-      <a href="#calculator"   class="nav-link hover:text-primary-600 transition py-1">Trip Planner</a>
-      <a href="#reviews"      class="nav-link hover:text-primary-600 transition py-1">Reviews</a>
-      <a href="#blog"         class="nav-link hover:text-primary-600 transition py-1">Journal</a>
-      <a href="#faqs"         class="nav-link hover:text-primary-600 transition py-1">FAQs</a>
+    <nav class="page-nav">
+      <a href="about.html">About</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="#styles">Experiences</a>
+      <a href="packages.html">Packages</a>
+      <a href="#blog">Journal</a>
+      <a href="contact.html">Contact</a>
     </nav>
 
     <!-- Right CTA -->
     <div class="hidden sm:flex items-center gap-3">
-      <a href="#destinations" class="w-9 h-9 rounded-lg border border-slate-200 text-slate-400 hover:text-rose-500 hover:border-rose-200 flex items-center justify-center transition" title="Wishlist"><i class="fa-regular fa-heart text-sm"></i></a>
-      <a href="#calculator" class="btn-shimmer px-5 py-2.5 bg-primary-500 hover:bg-primary-600 text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-md shadow-primary-200 transition">
-        <i class="fa-solid fa-paper-plane mr-1.5 text-[11px]"></i> Plan My Trip
-      </a>
+      <a href="book.html" class="page-cta">Plan my trip <i class="fa-solid fa-arrow-right"></i></a>
     </div>
 
     <!-- Mobile Hamburger -->
@@ -153,13 +146,12 @@
       <button id="mobile-menu-close-btn" class="p-2 text-slate-400 hover:text-slate-700"><i class="fa-solid fa-xmark text-xl"></i></button>
     </div>
     <nav class="flex-1 p-5 space-y-1 text-[15px] font-semibold text-slate-700 overflow-y-auto">
-      <a href="#destinations" class="mobile-nav-link block py-3 px-3 rounded-xl hover:bg-primary-50 hover:text-primary-600 transition">Destinations</a>
-      <a href="#packages"     class="mobile-nav-link block py-3 px-3 rounded-xl hover:bg-primary-50 hover:text-primary-600 transition">Tour Packages</a>
+      <a href="about.html" class="mobile-nav-link block py-3 px-3 rounded-xl hover:bg-primary-50 hover:text-primary-600 transition">About Wanderlux</a>
+      <a href="destinations.html" class="mobile-nav-link block py-3 px-3 rounded-xl hover:bg-primary-50 hover:text-primary-600 transition">Destinations</a>
       <a href="#styles"       class="mobile-nav-link block py-3 px-3 rounded-xl hover:bg-primary-50 hover:text-primary-600 transition">Experiences</a>
-      <a href="#calculator"   class="mobile-nav-link block py-3 px-3 rounded-xl hover:bg-primary-50 hover:text-primary-600 transition">Trip Planner</a>
-      <a href="#reviews"      class="mobile-nav-link block py-3 px-3 rounded-xl hover:bg-primary-50 hover:text-primary-600 transition">Reviews</a>
-      <a href="#blog"         class="mobile-nav-link block py-3 px-3 rounded-xl hover:bg-primary-50 hover:text-primary-600 transition">Journal</a>
-      <a href="#faqs"         class="mobile-nav-link block py-3 px-3 rounded-xl hover:bg-primary-50 hover:text-primary-600 transition">FAQs</a>
+      <a href="packages.html" class="mobile-nav-link block py-3 px-3 rounded-xl hover:bg-primary-50 hover:text-primary-600 transition">Tour Packages</a>
+      <a href="#blog"         class="mobile-nav-link block py-3 px-3 rounded-xl hover:bg-primary-50 hover:text-primary-600 transition">Travel Journal</a>
+      <a href="contact.html" class="mobile-nav-link block py-3 px-3 rounded-xl hover:bg-primary-50 hover:text-primary-600 transition">Contact Us</a>
       <div class="pt-4 border-t border-slate-100 mt-4">
         <label class="block text-xs text-slate-400 mb-1 font-normal">Currency</label>
         <select id="mobile-currency-selector" class="w-full border border-slate-200 rounded-xl py-2 px-3 text-sm focus:outline-none focus:border-primary-400">
@@ -169,7 +161,7 @@
       </div>
     </nav>
     <div class="p-5 border-t border-slate-100">
-      <a href="#calculator" class="mobile-nav-link block w-full py-3 bg-primary-500 hover:bg-primary-600 text-white font-bold text-center rounded-xl text-sm transition">Plan My Trip</a>
+      <a href="book.html" class="mobile-nav-link block w-full py-3 bg-primary-500 hover:bg-primary-600 text-white font-bold text-center rounded-xl text-sm transition">Start Planning</a>
     </div>
   </div>
 </div>
@@ -177,23 +169,15 @@
 <!-- ═══════════════════════════════════════════════════════════════════════════
      3 ▸ HERO — Full-bleed cinematic image with search bar overlay
      ═══════════════════════════════════════════════════════════════════════ -->
-<section class="hero-section relative min-h-[92vh] flex items-center justify-center">
+<section class="hero-section relative flex items-center">
   <!-- Background image -->
-  <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=80"
+  <img id="hero-image" src="./assets/images/hero.png"
        alt="Beautiful tropical beach at sunset — luxury travel destination"
        class="absolute inset-0 w-full h-full object-cover" />
   <div class="hero-overlay absolute inset-0"></div>
 
   <!-- Content -->
   <div class="relative z-10 max-w-6xl mx-auto px-4 text-center text-white pt-10 pb-28 lg:pb-36">
-
-    <!-- Trust badge -->
-    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-sm font-medium mb-8" data-aos="fade-down">
-      <span class="flex text-yellow-400 text-xs gap-0.5"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
-      <span>Rated <strong>4.96</strong> by 4,800+ travelers</span>
-      <span class="hidden sm:inline text-white/50">•</span>
-      <span class="hidden sm:inline text-yellow-300 font-semibold">Condé Nast Top Operator 2026</span>
-    </div>
 
     <!-- Main headline -->
     <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[1.10] max-w-4xl mx-auto mb-6" data-aos="fade-up">
@@ -204,7 +188,7 @@
     </p>
 
     <!-- Quick stat pills -->
-    <div class="flex items-center justify-center gap-3 sm:gap-5 flex-wrap mb-10" data-aos="fade-up" data-aos-delay="140">
+    <div class="hero-stats flex items-center justify-center gap-3 sm:gap-5 flex-wrap mb-10" data-aos="fade-up" data-aos-delay="140">
       <div class="px-5 py-2.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 text-center">
         <span class="block text-2xl font-black">120+</span><span class="text-[11px] text-white/70 uppercase tracking-wider font-semibold">Destinations</span>
       </div>
@@ -221,9 +205,16 @@
   </div>
 
   <!-- ── Search bar floating at bottom ────────────────────────────────────── -->
-  <div class="absolute bottom-0 left-0 right-0 translate-y-1/2 z-20 px-4" data-aos="fade-up" data-aos-delay="200">
-    <div class="max-w-5xl mx-auto bg-white rounded-2xl shadow-xl shadow-slate-900/10 border border-slate-100 p-4 sm:p-5">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 items-end">
+  <div class="home-planner absolute bottom-0 left-0 right-0 translate-y-1/2 z-20 px-4">
+    <div class="home-planner-card max-w-5xl mx-auto bg-white rounded-2xl shadow-xl shadow-slate-900/10 border border-slate-100 p-4 sm:p-5">
+      <div class="planner-intro">
+        <div>
+          <span class="planner-kicker"><i class="fa-solid fa-compass"></i> Your journey, made personal</span>
+          <h2>Where will you go next?</h2>
+        </div>
+        <span class="planner-note"><i class="fa-solid fa-shield-heart"></i> Expert-planned escapes</span>
+      </div>
+      <div class="home-planner-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 items-end">
         <!-- Destination -->
         <div class="relative lg:col-span-1">
           <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1"><i class="fa-solid fa-location-dot text-primary-400 mr-1"></i>Destination</label>
@@ -268,7 +259,7 @@
         </div>
       </div>
       <!-- Budget slider row -->
-      <div class="mt-4 pt-3 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+      <div class="home-planner-budget mt-4 pt-3 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
         <div class="flex items-center gap-3 w-full sm:w-auto">
           <span class="font-semibold text-slate-600 whitespace-nowrap"><i class="fa-solid fa-wallet text-primary-400 mr-1"></i>Max Budget:</span>
           <input id="budget-slider" type="range" min="1500" max="5000" step="250" value="5000" class="w-full sm:w-40 accent-primary-500 cursor-pointer" />
@@ -289,7 +280,7 @@
 <!-- ═══════════════════════════════════════════════════════════════════════════
      4 ▸ TRUST / MEDIA BAR
      ═══════════════════════════════════════════════════════════════════════ -->
-<section class="py-10 bg-sand-50 border-b border-slate-100">
+<section class="home-trust-strip py-10 bg-sand-50 border-b border-slate-100">
   <div class="max-w-7xl mx-auto px-4">
     <p class="text-center text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-7">Featured &amp; Endorsed By</p>
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 items-center justify-center opacity-40 hover:opacity-70 transition-opacity duration-500">
@@ -304,7 +295,28 @@
 </section>
 
 <!-- ═══════════════════════════════════════════════════════════════════════════
-     5 ▸ DESTINATIONS — Filterable grid
+     5 ▸ SEASONAL OFFERS — Editorial promotional band
+     ═══════════════════════════════════════════════════════════════════════ -->
+<section id="offers" class="offers-section">
+  <div class="page-shell">
+    <div class="offers-heading">
+      <div><span class="eyebrow">Wanderlux offers</span><h2>More reasons to<br><em>go beautifully.</em></h2></div>
+      <p>Thoughtful extras, preferred rates and little surprises that make your next journey feel even more personal.</p>
+    </div>
+    <div class="offer-grid">
+      <article class="offer-tile offer-tile-main" data-aos="fade-up">
+        <img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=1400&q=85" alt="Couple enjoying a private oceanfront escape" loading="eager">
+        <div class="offer-tile-overlay"></div>
+        <div class="offer-tile-content"><span class="offer-label">Most loved</span><h3>Honeymoon<br>in Santorini</h3><p>Room upgrade, sunset sailing and a private arrival experience.</p><a href="book.html?journey=Honeymoon%20in%20Santorini">Build this escape <i class="fa-solid fa-arrow-right"></i></a></div>
+      </article>
+      <article class="offer-tile offer-tile-light" data-aos="fade-up" data-aos-delay="80"><span class="offer-icon"><i class="fa-solid fa-calendar-star"></i></span><span class="offer-label">Book ahead</span><h3>Early Bird<br>2027</h3><p>Save up to <strong>$450 per traveler</strong> on select Europe and Africa departures.</p><a href="#packages">See departures <i class="fa-solid fa-arrow-right"></i></a></article>
+      <article class="offer-tile offer-tile-teal" data-aos="fade-up" data-aos-delay="160"><span class="offer-icon"><i class="fa-solid fa-leaf"></i></span><span class="offer-label">Travel consciously</span><h3>Travel<br>lighter</h3><p>Choose a carbon-neutral itinerary and receive a complimentary low-impact upgrade.</p><a href="book.html?journey=Carbon-neutral%20journey">Plan consciously <i class="fa-solid fa-arrow-right"></i></a></article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     6 ▸ DESTINATIONS — Filterable grid
      ═══════════════════════════════════════════════════════════════════════ -->
 <section id="destinations" class="py-20 sm:py-28 bg-white">
   <div class="max-w-7xl mx-auto px-4">
@@ -566,7 +578,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-14">
       <!-- Brand -->
       <div class="lg:col-span-2">
-        <a href="#" class="flex items-center gap-2.5 mb-4">
+        <a href="index.html" class="flex items-center gap-2.5 mb-4">
           <div class="w-10 h-10 rounded-xl bg-primary-500 flex items-center justify-center"><i class="fa-solid fa-paper-plane text-white text-lg -rotate-12"></i></div>
           <span class="font-serif font-extrabold text-xl text-white">Wander<span class="text-primary-400">lux</span></span>
         </a>
@@ -579,26 +591,27 @@
         </div>
       </div>
       <div>
-        <h4 class="font-bold text-white text-sm uppercase tracking-wider mb-4">Destinations</h4>
-        <ul class="space-y-2"><li><a href="#" class="hover:text-primary-400 transition">Santorini, Greece</a></li><li><a href="#" class="hover:text-primary-400 transition">Kyoto & Tokyo</a></li><li><a href="#" class="hover:text-primary-400 transition">Serengeti Safari</a></li><li><a href="#" class="hover:text-primary-400 transition">Amalfi & Capri</a></li><li><a href="#" class="hover:text-primary-400 transition">Swiss Alps</a></li><li><a href="#" class="hover:text-primary-400 transition">Tromsø Aurora</a></li></ul>
+        <h4 class="font-bold text-white text-sm uppercase tracking-wider mb-4">Explore</h4>
+        <ul class="space-y-2"><li><a href="index.html#destinations" class="hover:text-primary-400 transition">Destinations</a></li><li><a href="packages.html" class="hover:text-primary-400 transition">Tour packages</a></li><li><a href="index.html#offers" class="hover:text-primary-400 transition">Current offers</a></li><li><a href="index.html#styles" class="hover:text-primary-400 transition">Travel styles</a></li><li><a href="index.html#blog" class="hover:text-primary-400 transition">Travel journal</a></li><li><a href="about.html" class="hover:text-primary-400 transition">About Wanderlux</a></li></ul>
       </div>
       <div>
-        <h4 class="font-bold text-white text-sm uppercase tracking-wider mb-4">Experiences</h4>
-        <ul class="space-y-2"><li><a href="#" class="hover:text-primary-400 transition">Private Yachts</a></li><li><a href="#" class="hover:text-primary-400 transition">Safari Lodges</a></li><li><a href="#" class="hover:text-primary-400 transition">Culinary Tours</a></li><li><a href="#" class="hover:text-primary-400 transition">Polar Expeditions</a></li><li><a href="#" class="hover:text-primary-400 transition">Island Retreats</a></li><li><a href="#" class="hover:text-primary-400 transition">Heritage Walks</a></li></ul>
+        <h4 class="font-bold text-white text-sm uppercase tracking-wider mb-4">Plan with us</h4>
+        <ul class="space-y-2"><li><a href="index.html#calculator" class="hover:text-primary-400 transition">Trip planner</a></li><li><a href="contact.html" class="hover:text-primary-400 transition">Speak to a designer</a></li><li><a href="contact.html#faq" class="hover:text-primary-400 transition">Help centre</a></li><li><a href="index.html#faqs" class="hover:text-primary-400 transition">FAQs</a></li><li><a href="index.html#blog" class="hover:text-primary-400 transition">Private Circle</a></li><li><a href="contact.html" class="hover:text-primary-400 transition">Request a callback</a></li></ul>
       </div>
       <div>
         <h4 class="font-bold text-white text-sm uppercase tracking-wider mb-4">Contact</h4>
         <address class="not-italic space-y-2">
           <p><i class="fa-solid fa-map-pin text-primary-400 mr-1.5"></i>75 Rockefeller Plaza, NY 10019</p>
           <p><i class="fa-solid fa-phone text-primary-400 mr-1.5"></i>+1 (800) 926-3375</p>
-          <p><i class="fa-solid fa-envelope text-primary-400 mr-1.5"></i>hello@wanderlux.com</p>
+          <p><i class="fa-solid fa-envelope text-primary-400 mr-1.5"></i><a href="mailto:hello@wanderlux.com" class="hover:text-white">hello@wanderlux.com</a></p>
+          <p><a href="contact.html" class="inline-flex items-center gap-2 text-white font-bold hover:text-primary-400 transition"><i class="fa-solid fa-arrow-right text-primary-400"></i>Visit contact centre</a></p>
           <p class="pt-2 text-emerald-400 font-bold flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>Concierge Online 24/7</p>
         </address>
       </div>
     </div>
     <div class="pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-500">
       <span>© 2026 Wanderlux Curated Journeys Ltd. All rights reserved.</span>
-      <div class="flex items-center gap-4"><a href="#" class="hover:text-slate-300 transition">Privacy</a><span>•</span><a href="#" class="hover:text-slate-300 transition">Terms</a><span>•</span><a href="#" class="hover:text-slate-300 transition">Sitemap</a></div>
+      <div class="flex items-center gap-4"><a href="contact.html" class="hover:text-slate-300 transition">Privacy</a><span>•</span><a href="contact.html" class="hover:text-slate-300 transition">Terms</a><span>•</span><a href="index.html" class="hover:text-slate-300 transition">Sitemap</a></div>
     </div>
   </div>
 </footer>
