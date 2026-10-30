@@ -1,0 +1,183 @@
+/* ==========================================================================
+   Wanderlux Tours & Travels — Premium Warm Light Theme
+   ========================================================================== */
+
+/* ── Base ─────────────────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+  color: #1e293b;
+  background: #ffffff;
+}
+
+::selection {
+  background: #e07a2f;
+  color: #fff;
+}
+
+/* ── Utility fonts ────────────────────────────────────────────────────────── */
+.font-serif-luxury {
+  font-family: 'Playfair Display', Georgia, Cambria, 'Times New Roman', serif;
+}
+
+/* ── Custom scrollbar ─────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #f8fafc; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #e07a2f; }
+
+/* ── Glassmorphic nav ─────────────────────────────────────────────────────── */
+.glass-nav {
+  background: rgba(255,255,255,0.82);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.glass-nav.scrolled {
+  box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+}
+
+/* ── Hero section ─────────────────────────────────────────────────────────── */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+}
+.hero-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.32) 0%,
+    rgba(0,0,0,0.18) 50%,
+    rgba(0,0,0,0.52) 100%
+  );
+}
+
+/* ── Card hover zoom ──────────────────────────────────────────────────────── */
+.card-zoom img {
+  transition: transform 0.65s cubic-bezier(0.16,1,0.3,1);
+}
+.card-zoom:hover img {
+  transform: scale(1.07);
+}
+
+/* ── Shimmer button ───────────────────────────────────────────────────────── */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(60deg, transparent 25%, rgba(255,255,255,0.3) 50%, transparent 75%);
+  transform: rotate(30deg) translateX(-120%);
+  transition: transform 0.7s ease;
+}
+.btn-shimmer:hover::after {
+  transform: rotate(30deg) translateX(120%);
+}
+
+/* ── Active nav indicator ─────────────────────────────────────────────────── */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #e07a2f;
+  border-radius: 2px;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+  left: 0;
+}
+
+/* ── Swiper overrides ─────────────────────────────────────────────────────── */
+.swiper-pagination-bullet {
+  background: #cbd5e1 !important;
+  opacity: 0.6;
+  width: 8px;
+  height: 8px;
+  transition: all 0.3s ease;
+}
+.swiper-pagination-bullet-active {
+  background: #e07a2f !important;
+  opacity: 1;
+  width: 26px !important;
+  border-radius: 4px !important;
+}
+
+/* ── FAQ accordion ────────────────────────────────────────────────────────── */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0,1,0,1);
+}
+.faq-item.active .faq-answer {
+  max-height: 600px;
+  transition: max-height 0.4s ease-in-out;
+}
+.faq-item.active .faq-chevron {
+  transform: rotate(180deg);
+}
+
+/* ── Soft rounded cards used everywhere ───────────────────────────────────── */
+.soft-card {
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+  border-radius: 1.25rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.03);
+  transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+}
+.soft-card:hover {
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  border-color: #e2e8f0;
+  transform: translateY(-4px);
+}
+
+/* ── Section divider wave (top of light sections) ─────────────────────────── */
+.section-wave {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  line-height: 0;
+}
+.section-wave svg {
+  display: block;
+  width: 100%;
+  height: 48px;
+}
+
+/* ── Pill tag badges ──────────────────────────────────────────────────────── */
+.pill { border-radius: 9999px; }
+
+/* ── No-scrollbar utility ─────────────────────────────────────────────────── */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ── Price tag accent ─────────────────────────────────────────────────────── */
+.price-accent { color: #0d9488; }
+
+/* ── Toast animation helper ───────────────────────────────────────────────── */
+.toast-enter {
+  transform: translateY(12px);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.toast-enter.show {
+  transform: translateY(0);
+  opacity: 1;
+}
