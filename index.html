@@ -171,48 +171,40 @@
      ═══════════════════════════════════════════════════════════════════════ -->
 <section class="hero-section relative flex items-center">
   <!-- Background image -->
-  <img id="hero-image" src="./assets/images/hero.png"
-       alt="Beautiful tropical beach at sunset — luxury travel destination"
-       class="absolute inset-0 w-full h-full object-cover" />
+  <picture class="hero-image-wrap absolute inset-0">
+    <source media="(max-width: 640px)" srcset="./assets/images/mobile-hero.png" />
+    <img id="hero-image" src="./assets/images/hero.png"
+         alt="Beautiful tropical beach at sunset — luxury travel destination"
+         class="w-full h-full object-cover" />
+  </picture>
   <div class="hero-overlay absolute inset-0"></div>
 
   <!-- Content -->
   <div class="relative z-10 max-w-6xl mx-auto px-4 text-center text-white pt-10 pb-28 lg:pb-36">
 
     <!-- Main headline -->
+    <div class="hero-kicker" data-aos="fade-up">Curated journeys, beautifully planned</div>
     <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[1.10] max-w-4xl mx-auto mb-6" data-aos="fade-up">
-      Discover the World in <span class="italic text-yellow-300">Unrivaled Luxury</span>
+      Your next great<br><span class="hero-accent italic">escape awaits.</span>
     </h1>
     <p class="text-white/80 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 font-normal leading-relaxed" data-aos="fade-up" data-aos-delay="80">
-      Handcrafted private expeditions, 5-star cliffside sanctuaries, chartered catamarans &amp; Michelin dining across <strong class="text-white">120+ destinations</strong>.
+      Thoughtfully planned escapes, unforgettable places, and every detail taken care of.
     </p>
 
-    <!-- Quick stat pills -->
-    <div class="hero-stats flex items-center justify-center gap-3 sm:gap-5 flex-wrap mb-10" data-aos="fade-up" data-aos-delay="140">
-      <div class="px-5 py-2.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 text-center">
-        <span class="block text-2xl font-black">120+</span><span class="text-[11px] text-white/70 uppercase tracking-wider font-semibold">Destinations</span>
-      </div>
-      <div class="px-5 py-2.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 text-center">
-        <span class="block text-2xl font-black">4,800+</span><span class="text-[11px] text-white/70 uppercase tracking-wider font-semibold">Happy Travelers</span>
-      </div>
-      <div class="px-5 py-2.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 text-center">
-        <span class="block text-2xl font-black">100%</span><span class="text-[11px] text-white/70 uppercase tracking-wider font-semibold">Carbon Neutral</span>
-      </div>
-      <div class="px-5 py-2.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 text-center hidden sm:block">
-        <span class="block text-2xl font-black">24/7</span><span class="text-[11px] text-white/70 uppercase tracking-wider font-semibold">Concierge</span>
-      </div>
+    <div class="hero-actions" data-aos="fade-up" data-aos-delay="180">
+      <a href="#packages" class="hero-primary-action">Explore your escape <i class="fa-solid fa-arrow-right"></i></a>
     </div>
   </div>
 
   <!-- ── Search bar floating at bottom ────────────────────────────────────── -->
   <div class="home-planner absolute bottom-0 left-0 right-0 translate-y-1/2 z-20 px-4">
-    <div class="home-planner-card max-w-5xl mx-auto bg-white rounded-2xl shadow-xl shadow-slate-900/10 border border-slate-100 p-4 sm:p-5">
+    <div class="home-planner-card max-w-5xl mx-auto rounded-2xl p-4 sm:p-5">
       <div class="planner-intro">
         <div>
           <span class="planner-kicker"><i class="fa-solid fa-compass"></i> Your journey, made personal</span>
           <h2>Where will you go next?</h2>
         </div>
-        <span class="planner-note"><i class="fa-solid fa-shield-heart"></i> Expert-planned escapes</span>
+        <span class="planner-note"><i class="fa-solid fa-shield-heart"></i> Personalised planning</span>
       </div>
       <div class="home-planner-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 items-end">
         <!-- Destination -->
@@ -275,7 +267,7 @@
 </section>
 
 <!-- spacer for floating search bar -->
-<div class="h-24 sm:h-28 bg-sand-50"></div>
+<div class="hero-planner-spacer bg-sand-50" aria-hidden="true"></div>
 
 <!-- ═══════════════════════════════════════════════════════════════════════════
      4 ▸ TRUST / MEDIA BAR
@@ -283,13 +275,19 @@
 <section class="home-trust-strip py-10 bg-sand-50 border-b border-slate-100">
   <div class="max-w-7xl mx-auto px-4">
     <p class="text-center text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-7">Featured &amp; Endorsed By</p>
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 items-center justify-center opacity-40 hover:opacity-70 transition-opacity duration-500">
+    <div class="endorsement-marquee opacity-40 hover:opacity-70 transition-opacity duration-500">
       <div class="text-center font-serif text-xl font-bold tracking-widest text-slate-500">FORBES</div>
       <div class="text-center font-serif text-lg font-bold tracking-wider text-slate-500">CONDÉ NAST</div>
       <div class="text-center font-serif text-lg font-semibold text-slate-500">NAT GEO</div>
       <div class="text-center font-serif text-base font-bold text-slate-500">TRAVEL+LEISURE</div>
       <div class="text-center font-sans text-sm font-black tracking-widest text-slate-500">LONELY PLANET</div>
       <div class="text-center font-serif text-lg italic font-bold text-slate-500">VOGUE</div>
+      <div class="text-center font-serif text-xl font-bold tracking-widest text-slate-500" aria-hidden="true">FORBES</div>
+      <div class="text-center font-serif text-lg font-bold tracking-wider text-slate-500" aria-hidden="true">CONDÉ NAST</div>
+      <div class="text-center font-serif text-lg font-semibold text-slate-500" aria-hidden="true">NAT GEO</div>
+      <div class="text-center font-serif text-base font-bold tracking-wider text-slate-500" aria-hidden="true">TRAVEL+LEISURE</div>
+      <div class="text-center font-sans text-sm font-black tracking-widest text-slate-500" aria-hidden="true">LONELY PLANET</div>
+      <div class="text-center font-serif text-lg italic font-bold text-slate-500" aria-hidden="true">VOGUE</div>
     </div>
   </div>
 </section>
@@ -303,6 +301,22 @@
       <div><span class="eyebrow">Wanderlux offers</span><h2>More reasons to<br><em>go beautifully.</em></h2></div>
       <p>Thoughtful extras, preferred rates and little surprises that make your next journey feel even more personal.</p>
     </div>
+    <article class="special-offer-banner" data-aos="fade-up">
+      <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1600&q=85" alt="Golden sunset over a peaceful tropical beach" loading="lazy">
+      <div class="special-offer-shade"></div>
+      <div class="special-offer-content">
+        <span class="special-offer-tag"><i class="fa-solid fa-bolt"></i> Special offer</span>
+        <p class="special-offer-season">Summer 2027 escapes</p>
+        <h3>Sun, sea &amp; a<br><em>little more time.</em></h3>
+        <p class="special-offer-description">Stay 7 nights in our handpicked coastal retreats and receive a complimentary sunset sailing experience plus daily breakfast.</p>
+        <div class="special-offer-details">
+          <span><strong>15%</strong> off selected stays</span>
+          <span><i class="fa-solid fa-calendar-check"></i> Reserve by 31 March 2027</span>
+        </div>
+        <a href="book.html?offer=summer-2027" class="special-offer-button">Unlock this offer <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="special-offer-stamp"><strong>15%</strong><span>save</span></div>
+    </article>
     <div class="offer-grid">
       <article class="offer-tile offer-tile-main" data-aos="fade-up">
         <img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=1400&q=85" alt="Couple enjoying a private oceanfront escape" loading="eager">
@@ -346,6 +360,15 @@
      ═══════════════════════════════════════════════════════════════════════ -->
 <section id="packages" class="py-20 sm:py-28 bg-sand-50 relative overflow-hidden">
   <div class="max-w-7xl mx-auto px-4 relative z-10">
+    <div class="package-promo mb-8" data-aos="fade-up">
+      <div class="package-promo-icon"><i class="fa-solid fa-ticket"></i></div>
+      <div class="package-promo-copy">
+        <span class="package-promo-kicker">Limited-time package offer</span>
+        <strong>Save up to $710 per traveler</strong>
+        <span>on selected 2027 departures when you reserve before 31 December.</span>
+      </div>
+      <a href="book.html?offer=early-bird-2027" class="package-promo-cta">Claim the offer <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
       <div>
         <span class="text-xs font-extrabold uppercase tracking-widest text-teal-600 mb-2 block">Signature Expeditions</span>

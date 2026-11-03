@@ -121,13 +121,17 @@ document.addEventListener('DOMContentLoaded', () => {
      ══════════════════════════════════════════════════════════════════════ */
   function renderPkgs() {
     if (!pkgWrap) return;
-    pkgWrap.innerHTML = travelData.packages.map(p=>`
+    pkgWrap.innerHTML = travelData.packages.map(p=>{
+      const savings = p.originalPriceUSD - p.currentPriceUSD;
+      const savingsPercent = Math.round((savings / p.originalPriceUSD) * 100);
+      return `
       <div class="swiper-slide h-auto">
         <div class="h-full soft-card overflow-hidden flex flex-col">
           <div class="relative h-56 overflow-hidden card-zoom">
             <img src="${p.image}" alt="${p.title}" loading="lazy" class="w-full h-full object-cover"/>
             <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
             <span class="absolute top-3 left-3 px-2.5 py-1 bg-primary-500 text-white text-[11px] font-bold rounded-full shadow">${p.badge}</span>
+            <span class="package-save-badge">Save ${savingsPercent}%</span>
             <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[11px] text-white">
               <span class="bg-black/40 backdrop-blur-sm px-2 py-1 rounded-lg"><i class="fa-solid fa-clock text-primary-300 mr-1"></i>${p.duration}</span>
               <span class="bg-black/40 backdrop-blur-sm px-2 py-1 rounded-lg text-yellow-300 font-bold"><i class="fa-solid fa-star mr-0.5"></i>${p.rating}</span>
@@ -150,13 +154,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 <span class="text-xs text-slate-400 line-through dp" data-usd="${p.originalPriceUSD}">${fmtPrice(p.originalPriceUSD)}</span>
                 <span class="text-xl font-extrabold text-teal-600 ml-1 dp" data-usd="${p.currentPriceUSD}">${fmtPrice(p.currentPriceUSD)}</span>
                 <span class="text-[10px] text-slate-400"> /person</span>
+                <span class="package-save-amount">Save ${fmtPrice(savings)}</span>
               </div>
-              <button class="view-package-btn px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white text-xs font-bold rounded-lg shadow-sm shadow-primary-200 transition flex items-center gap-1" data-id="${p.id}">Itinerary <i class="fa-solid fa-arrow-right text-[10px]"></i></button>
+              <button class="view-package-btn px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white text-xs font-bold rounded-lg shadow-sm shadow-primary-200 transition flex items-center gap-1" data-id="${p.id}">View offer <i class="fa-solid fa-arrow-right text-[10px]"></i></button>
             </div>
           </div>
         </div>
-      </div>`).join('');
-    $$('.view-package-btn').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();openPkgModal(b.dataset.id);}));
+      </div>`;
+    }).join('');
+    $$('.view-package-btn').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();window.location.href=`package-details.html?id=${encodeURIComponent(b.dataset.id)}`;}));
     initPkgSwiper();
   }
 

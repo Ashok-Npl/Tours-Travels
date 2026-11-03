@@ -9,26 +9,62 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-sand-50 text-slate-800 antialiased">
+<body class="bg-sand-50 text-slate-800 antialiased about-page">
+  <div class="scroll-progress" aria-hidden="true"></div>
   <header class="glass-nav sticky top-0 z-40">
     <div class="page-shell nav-shell">
       <a href="index.html" class="brand-lockup"><span class="brand-mark"><i class="fa-solid fa-paper-plane"></i></span><span><strong>Wander<span>lux</span></strong><small>Curated Journeys</small></span></a>
-      <nav class="page-nav"><a href="about.html" class="is-current">About</a><a href="destinations.html">Destinations</a><a href="index.html#styles">Experiences</a><a href="packages.html">Packages</a><a href="index.html#blog">Journal</a><a href="contact.html">Contact</a></nav>
+      <nav class="page-nav"><a href="about.html" class="is-current">About</a><a href="destinations.html">Destinations</a><a href="destination-details.html?id=santorini-greece">Demo Details</a><a href="index.html#styles">Experiences</a><a href="packages.html">Packages</a><a href="index.html#blog">Journal</a><a href="contact.html">Contact</a></nav>
       <a href="book.html" class="page-cta">Plan my trip <i class="fa-solid fa-arrow-right"></i></a>
     </div>
   </header>
   <main>
-    <section class="page-hero">
-      <div class="page-shell page-hero-grid">
-        <div><span class="eyebrow">The Wanderlux story</span><h1>Travel should feel like a <em>beautiful secret.</em></h1><p>We are a small team of destination designers, local fixers and curious people who believe the best journeys are deeply personal.</p><a href="contact.html" class="page-button">Talk to a designer <i class="fa-solid fa-arrow-right"></i></a></div>
-        <div class="page-hero-image"><img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=1200&q=85" alt="Travellers walking together through a landscape"></div>
+    <section class="page-hero about-hero about-reveal">
+      <div class="about-hero-shell">
+        <div class="about-hero-grid">
+          <div class="about-hero-copy">
+            <span class="eyebrow">The Wanderlux story</span>
+            <h1>Travel should feel like a <em>beautiful secret.</em></h1>
+            <p>We are a small team of destination designers, local fixers and curious people who believe the best journeys are deeply personal.</p>
+            <a href="contact.html" class="page-button">Talk to a designer <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+          <div class="about-hero-image">
+            <img src="assets/images/about.png" alt="Travellers planning a beautiful journey">
+          </div>
+        </div>
       </div>
     </section>
-    <section class="page-section">
+    <section class="page-section about-reveal">
       <div class="page-shell story-grid"><div><span class="eyebrow">Our point of view</span><h2>More meaning. Less rushing.</h2></div><div class="story-copy"><p>Wanderlux began with one simple frustration: beautiful places were being reduced to checklists. So we set out to build journeys around the feeling a place leaves behind.</p><p>Today, our specialists design private escapes across 120+ destinations, pairing considered stays with people, food and moments you could not find in a search result.</p></div></div>
     </section>
-    <section class="page-section page-section-tint"><div class="page-shell"><div class="section-heading"><span class="eyebrow">What we stand for</span><h2>The details make the difference.</h2></div><div class="value-grid"><article><i class="fa-solid fa-compass"></i><h3>Local perspective</h3><p>Every itinerary is shaped with people who live there, not just people who sell it.</p></article><article><i class="fa-solid fa-sparkles"></i><h3>Quietly exceptional</h3><p>We look for the room, table and view that make a trip feel entirely yours.</p></article><article><i class="fa-solid fa-seedling"></i><h3>Travel with care</h3><p>We choose responsible partners and invest in the communities that welcome you.</p></article></div></div></section>
+    <section class="page-section page-section-tint about-reveal"><div class="page-shell"><div class="section-heading"><span class="eyebrow">What we stand for</span><h2>The details make the difference.</h2></div><div class="value-grid"><article><i class="fa-solid fa-compass"></i><h3>Local perspective</h3><p>Every itinerary is shaped with people who live there, not just people who sell it.</p></article><article><i class="fa-solid fa-sparkles"></i><h3>Quietly exceptional</h3><p>We look for the room, table and view that make a trip feel entirely yours.</p></article><article><i class="fa-solid fa-seedling"></i><h3>Travel with care</h3><p>We choose responsible partners and invest in the communities that welcome you.</p></article></div></div></section>
   </main>
   <footer class="page-footer"><div class="page-shell footer-line"><span>© 2026 Wanderlux Curated Journeys Ltd.</span><span><a href="index.html">Home</a><a href="contact.html">Contact</a><a href="index.html#faqs">FAQs</a></span></div></footer>
+  <script>
+    (function () {
+      var progress = document.querySelector('.scroll-progress');
+      var updateProgress = function () {
+        var maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        progress.style.width = (maxScroll > 0 ? (window.scrollY / maxScroll) * 100 : 0) + '%';
+      };
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      updateProgress();
+
+      var items = document.querySelectorAll('.about-reveal');
+      if (!('IntersectionObserver' in window)) {
+        items.forEach(function (item) { item.classList.add('is-visible'); });
+        return;
+      }
+      var observer = new IntersectionObserver(function (entries, instance) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            instance.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      items.forEach(function (item) { observer.observe(item); });
+    })();
+  </script>
 </body>
 </html>

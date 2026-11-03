@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Package Details | Wanderlux</title>
+  <meta name="description" content="Explore a detailed Wanderlux luxury travel package, including itinerary, inclusions, pricing and booking information.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="package-detail-page">
+  <header class="glass-nav sticky top-0 z-40">
+    <div class="page-shell nav-shell">
+      <a href="index.html" class="brand-lockup"><span class="brand-mark"><i class="fa-solid fa-paper-plane"></i></span><span><strong>Wander<span>lux</span></strong><small>Curated Journeys</small></span></a>
+      <nav class="page-nav"><a href="about.html">About</a><a href="destinations.html">Destinations</a><a href="index.html#styles">Experiences</a><a href="packages.html" class="is-current">Packages</a><a href="index.html#blog">Journal</a><a href="contact.html">Contact</a></nav>
+      <a href="book.html" class="page-cta">Plan my trip <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </header>
+
+  <main id="package-detail"></main>
+
+  <footer class="page-footer"><div class="page-shell footer-line"><span>© 2026 Wanderlux Curated Journeys Ltd.</span><span><a href="index.html">Home</a><a href="packages.html">Packages</a><a href="contact.html">Contact</a></span></div></footer>
+  <script src="js/data.js"></script>
+  <script>
+    (function () {
+      var root = document.getElementById('package-detail');
+      var id = new URLSearchParams(window.location.search).get('id');
+      var pkg = travelData.packages.find(function (item) { return item.id === id; }) || travelData.packages[0];
+      var money = function (value) { return '$' + value.toLocaleString(); };
+      var savings = pkg.originalPriceUSD - pkg.currentPriceUSD;
+      document.title = pkg.title + ' | Wanderlux';
+      root.innerHTML =
+        '<section class="package-detail-hero"><div class="page-shell"><a class="package-back-link" href="packages.html"><i class="fa-solid fa-arrow-left"></i> All packages</a><div class="package-detail-hero-grid"><div><div class="package-detail-tags"><span>' + pkg.badge + '</span><span>' + pkg.category + '</span><span><i class="fa-solid fa-star"></i> ' + pkg.rating + ' (' + pkg.reviewsCount + ' reviews)</span></div><h1>' + pkg.title + '</h1><p>' + pkg.overview + '</p><div class="package-detail-hero-facts"><span><i class="fa-solid fa-clock"></i>' + pkg.duration + '</span><span><i class="fa-solid fa-users"></i>' + pkg.groupSize + '</span><span><i class="fa-solid fa-mountain-sun"></i>' + pkg.difficulty + '</span></div></div><div class="package-detail-hero-image"><img src="' + pkg.image + '" alt="' + pkg.title + '"></div></div></div></section>' +
+        '<section class="package-detail-body"><div class="page-shell package-detail-grid"><div class="package-detail-main"><section class="package-detail-panel"><span class="eyebrow">The journey</span><h2>A beautifully planned way to see the world.</h2><p>Every Wanderlux package balances meaningful discovery with generous time to slow down. Your local experts, considered stays and seamless transfers are arranged before you arrive.</p></section><section class="package-detail-panel"><span class="eyebrow">Your itinerary</span><h2>Day by day</h2><div class="package-itinerary">' + pkg.itinerary.map(function (item, index) { return '<article><span class="package-day">' + item.day + '</span><div><h3>' + item.title + '</h3><p>' + item.desc + '</p></div><span class="package-day-number">' + String(index + 1).padStart(2, '0') + '</span></article>'; }).join('') + '</div></section><section class="package-detail-panel"><span class="eyebrow">Included</span><h2>Everything considered.</h2><div class="package-inclusions">' + pkg.inclusions.map(function (item) { return '<span><i class="fa-solid fa-circle-check"></i>' + item + '</span>'; }).join('') + '</div></section></div><aside class="package-booking-card"><span class="eyebrow">Ready when you are</span><h2>Make this journey yours.</h2><p>Reserve your place and a Wanderlux designer will confirm availability and tailor the details around you.</p><div class="package-price"><small>From</small><strong>' + money(pkg.currentPriceUSD) + '</strong><span>per person</span><del>' + money(pkg.originalPriceUSD) + '</del><b>Save ' + money(savings) + '</b></div><a href="book.html?journey=' + encodeURIComponent(pkg.title) + '&price=' + encodeURIComponent(pkg.currentPriceUSD) + '" class="page-button">Book this journey <i class="fa-solid fa-arrow-right"></i></a><a href="contact.html" class="package-consult-link">Speak to a travel designer <i class="fa-solid fa-arrow-up-right-from-square"></i></a><div class="package-trust"><span><i class="fa-solid fa-shield-halved"></i> Financial protection</span><span><i class="fa-solid fa-headset"></i> 24/7 concierge support</span><span><i class="fa-solid fa-rotate-left"></i> Flexible cancellation</span></div></aside></div></section>';
+    })();
+  </script>
+</body>
+</html>
