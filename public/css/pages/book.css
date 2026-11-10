@@ -1,0 +1,5 @@
+/* Booking page-specific styles. Shared primitives live in ../style.css. */
+.booking-page .booking-hero,
+.booking-page .booking-section {
+  width: 100%;
+}

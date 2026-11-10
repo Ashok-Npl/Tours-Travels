@@ -1,0 +1,6 @@
+/* About page-specific styles. Shared primitives live in ../style.css. */
+.about-page .about-hero,
+.about-page .story-grid,
+.about-page .value-grid {
+  width: 100%;
+}

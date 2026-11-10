@@ -1,9 +1,9 @@
-/**
- * Wanderlux Tours & Travels — Main Application (Light-Theme Version)
+﻿/**
+ * Veron Crest Tours & Travels â€” Main Application (Light-Theme Version)
  */
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ── State ────────────────────────────────────────────────────────────── */
+  /* â”€â”€ State â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   const S = {
     currency: 'USD',
     filter: 'All',
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     travelers: { adults: 2, children: 0 }
   };
 
-  /* ── Shorthand DOM queries ────────────────────────────────────────────── */
+  /* â”€â”€ Shorthand DOM queries â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   const $ = (id) => document.getElementById(id);
   const $$ = (sel) => document.querySelectorAll(sel);
 
@@ -28,13 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const topBtn         = $('back-to-top');
   const progressBar    = $('scroll-progress');
 
-  /* ── Helpers ──────────────────────────────────────────────────────────── */
+  /* â”€â”€ Helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   function fmtPrice(usd) {
     const c = travelData.currencies[S.currency] || travelData.currencies.USD;
     return `${c.symbol}${Math.round(usd * c.rate).toLocaleString()}`;
   }
 
-  /* ── TOAST ────────────────────────────────────────────────────────────── */
+  /* â”€â”€ TOAST â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   function toast(msg, type='info', ms=3500) {
     const box = $('toast-container'); if (!box) return;
     const colors = { success:'border-emerald-400 bg-white text-emerald-700', info:'border-primary-400 bg-white text-primary-700', warning:'border-amber-400 bg-white text-amber-700' };
@@ -49,12 +49,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function confettiBurst() { if(typeof confetti==='function') confetti({particleCount:80,spread:70,origin:{y:0.6}}); }
 
-  /* ── Price updater ────────────────────────────────────────────────────── */
+  /* â”€â”€ Price updater â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   function syncPrices() { $$('.dp').forEach(e=>{const u=parseFloat(e.dataset.usd);if(!isNaN(u))e.textContent=fmtPrice(u);}); }
 
-  /* ══════════════════════════════════════════════════════════════════════
-     RENDER — Destinations
-     ══════════════════════════════════════════════════════════════════════ */
+  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     RENDER â€” Destinations
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
   function renderDest() {
     if (!destGrid) return;
     let list = travelData.destinations;
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     destGrid.innerHTML = list.map(d=>`
       <div class="group soft-card overflow-hidden flex flex-col" data-aos="fade-up">
         <div class="relative h-60 overflow-hidden card-zoom">
-          <img src="${d.image}" alt="${d.name}, ${d.country} — luxury tour" loading="lazy" class="w-full h-full object-cover"/>
+          <img src="${d.image}" alt="${d.name}, ${d.country} â€” luxury tour" loading="lazy" class="w-full h-full object-cover"/>
           <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
           <div class="absolute top-3 left-3 flex gap-2 flex-wrap">
             <span class="px-2.5 py-1 rounded-full text-[11px] font-bold text-white shadow ${d.badgeColor}">${d.badge}</span>
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         <div class="p-5 flex-1 flex flex-col justify-between">
           <div>
-            <span class="text-[11px] font-bold uppercase tracking-wider text-primary-500"><i class="fa-solid fa-location-dot mr-1"></i>${d.country} · ${d.region}</span>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-primary-500"><i class="fa-solid fa-location-dot mr-1"></i>${d.country} Â· ${d.region}</span>
             <h3 class="text-lg font-bold text-slate-800 mt-1 group-hover:text-primary-600 transition">${d.name}</h3>
             <p class="text-slate-500 text-xs mt-1 line-clamp-2 leading-relaxed">${d.description}</p>
             <ul class="mt-3 space-y-1">
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between">
             <div><span class="text-[10px] text-slate-400 block">From</span><span class="text-xl font-extrabold text-teal-600 dp" data-usd="${d.priceUSD}">${fmtPrice(d.priceUSD)}</span><span class="text-[10px] text-slate-400"> /person</span></div>
             <div class="flex gap-2">
-              <a href="destination-details.html?id=${encodeURIComponent(d.id)}" class="view-dest-btn px-3.5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-lg transition" data-id="${d.id}">Details</a>
+              <a href="/destination-details?id=${encodeURIComponent(d.id)}" class="view-dest-btn px-3.5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-lg transition" data-id="${d.id}">Details</a>
               <button class="book-dest-btn px-3.5 py-2 bg-primary-500 hover:bg-primary-600 text-white text-xs font-bold rounded-lg shadow-sm shadow-primary-200 transition" data-id="${d.id}" data-name="${d.name}" data-price="${d.priceUSD}">Book</button>
             </div>
           </div>
@@ -113,12 +113,12 @@ document.addEventListener('DOMContentLoaded', () => {
   function bindDestEvents() {
     $$('.view-dest-btn').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();}));
     $$('.book-dest-btn').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();openBooking({name:b.dataset.name,price:b.dataset.price});}));
-    $$('.wishlist-btn').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();b.querySelector('i').classList.toggle('fa-solid');b.querySelector('i').classList.toggle('fa-regular');toast('Saved to Wishlist ❤️','success');}));
+    $$('.wishlist-btn').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();b.querySelector('i').classList.toggle('fa-solid');b.querySelector('i').classList.toggle('fa-regular');toast('Saved to Wishlist â¤ï¸','success');}));
   }
 
-  /* ══════════════════════════════════════════════════════════════════════
-     RENDER — Tour Packages
-     ══════════════════════════════════════════════════════════════════════ */
+  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     RENDER â€” Tour Packages
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
   function renderPkgs() {
     if (!pkgWrap) return;
     pkgWrap.innerHTML = travelData.packages.map(p=>{
@@ -162,13 +162,13 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       </div>`;
     }).join('');
-    $$('.view-package-btn').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();window.location.href=`package-details.html?id=${encodeURIComponent(b.dataset.id)}`;}));
+    $$('.view-package-btn').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();window.location.href=`/package-details?id=${encodeURIComponent(b.dataset.id)}`;}));
     initPkgSwiper();
   }
 
-  /* ══════════════════════════════════════════════════════════════════════
-     RENDER — Travel Styles
-     ══════════════════════════════════════════════════════════════════════ */
+  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     RENDER â€” Travel Styles
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
   function renderStyles() {
     if (!stylesWrap) return;
     const iconColors = ['text-primary-500 bg-primary-50','text-teal-600 bg-teal-50','text-amber-500 bg-amber-50','text-indigo-500 bg-indigo-50','text-rose-500 bg-rose-50','text-emerald-500 bg-emerald-50'];
@@ -185,9 +185,9 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>`).join('');
   }
 
-  /* ══════════════════════════════════════════════════════════════════════
-     RENDER — Testimonials
-     ══════════════════════════════════════════════════════════════════════ */
+  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     RENDER â€” Testimonials
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
   function renderRevs() {
     if (!revWrap) return;
     revWrap.innerHTML = travelData.testimonials.map(t=>`
@@ -209,9 +209,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initRevSwiper();
   }
 
-  /* ══════════════════════════════════════════════════════════════════════
-     RENDER — Blog
-     ══════════════════════════════════════════════════════════════════════ */
+  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     RENDER â€” Blog
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
   function renderBlog() {
     if (!blogWrap) return;
     blogWrap.innerHTML = travelData.blogPosts.map(p=>`
@@ -222,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         <div class="p-5 flex-1 flex flex-col justify-between">
           <div>
-            <div class="flex items-center gap-3 text-[11px] text-slate-400 mb-2"><span><i class="fa-regular fa-calendar mr-1"></i>${p.date}</span><span>•</span><span><i class="fa-regular fa-clock mr-1"></i>${p.readTime}</span></div>
+            <div class="flex items-center gap-3 text-[11px] text-slate-400 mb-2"><span><i class="fa-regular fa-calendar mr-1"></i>${p.date}</span><span>â€¢</span><span><i class="fa-regular fa-clock mr-1"></i>${p.readTime}</span></div>
             <h3 class="text-base font-bold text-slate-800 group-hover:text-primary-600 transition line-clamp-2 mb-1.5">${p.title}</h3>
             <p class="text-slate-500 text-xs line-clamp-3 leading-relaxed">${p.excerpt}</p>
           </div>
@@ -234,9 +234,9 @@ document.addEventListener('DOMContentLoaded', () => {
       </article>`).join('');
   }
 
-  /* ══════════════════════════════════════════════════════════════════════
-     RENDER — FAQs
-     ══════════════════════════════════════════════════════════════════════ */
+  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     RENDER â€” FAQs
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
   function renderFAQs() {
     if (!faqWrap) return;
     faqWrap.innerHTML = travelData.faqs.map((f,i)=>`
@@ -254,9 +254,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }));
   }
 
-  /* ══════════════════════════════════════════════════════════════════════
+  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
      SWIPERS
-     ══════════════════════════════════════════════════════════════════════ */
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
   let pkgSw=null, revSw=null;
   function initPkgSwiper() {
     if (typeof Swiper==='undefined') return;
@@ -269,25 +269,25 @@ document.addEventListener('DOMContentLoaded', () => {
     revSw = new Swiper('.reviews-swiper',{slidesPerView:1,spaceBetween:20,loop:true,autoplay:{delay:5000,disableOnInteraction:false},pagination:{el:'.reviews-pagination',clickable:true},breakpoints:{768:{slidesPerView:2},1280:{slidesPerView:3}}});
   }
 
-  /* ══════════════════════════════════════════════════════════════════════
+  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
      CURRENCY
-     ══════════════════════════════════════════════════════════════════════ */
-  function setCurr(c) { if(!travelData.currencies[c])return; S.currency=c; if(currSel)currSel.value=c; if(currSelM)currSelM.value=c; syncPrices(); reCalc(); toast(`Currency → ${travelData.currencies[c].label}`,'info'); }
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+  function setCurr(c) { if(!travelData.currencies[c])return; S.currency=c; if(currSel)currSel.value=c; if(currSelM)currSelM.value=c; syncPrices(); reCalc(); toast(`Currency â†’ ${travelData.currencies[c].label}`,'info'); }
   currSel?.addEventListener('change',e=>setCurr(e.target.value));
   currSelM?.addEventListener('change',e=>setCurr(e.target.value));
 
-  /* ══════════════════════════════════════════════════════════════════════
+  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
      FILTER BUTTONS
-     ══════════════════════════════════════════════════════════════════════ */
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
   $$('.dest-filter-btn').forEach(b=>b.addEventListener('click',()=>{
     $$('.dest-filter-btn').forEach(x=>{x.classList.remove('bg-primary-500','text-white');x.classList.add('bg-slate-100','text-slate-600');});
     b.classList.add('bg-primary-500','text-white'); b.classList.remove('bg-slate-100','text-slate-600');
     S.filter=b.dataset.filter||'All'; renderDest();
   }));
 
-  /* ══════════════════════════════════════════════════════════════════════
+  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
      SEARCH BAR
-     ══════════════════════════════════════════════════════════════════════ */
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
   const sInput=$('search-destination-input'), pageDestInput=$('destination-page-search'), sBtn=$('search-itineraries-btn'), bSlider=$('budget-slider'), bVal=$('budget-val'), acList=$('dest-autocomplete-list');
 
   // Autocomplete
@@ -296,7 +296,7 @@ document.addEventListener('DOMContentLoaded', () => {
       q=q.toLowerCase().trim(); if(!q){acList.classList.add('hidden');acList.innerHTML='';return;}
       const m=travelData.destinations.filter(d=>d.name.toLowerCase().includes(q)||d.country.toLowerCase().includes(q)||d.region.toLowerCase().includes(q));
       if(!m.length){acList.innerHTML=`<div class="p-3 text-xs text-slate-400 text-center">No matches</div>`;acList.classList.remove('hidden');return;}
-      acList.innerHTML=m.slice(0,5).map(d=>`<div class="ac-item p-3 hover:bg-primary-50 flex items-center justify-between cursor-pointer border-b border-slate-50 last:border-0 transition" data-name="${d.name}"><div class="flex items-center gap-3"><img src="${d.image}" class="w-9 h-9 rounded-lg object-cover"/><div><span class="text-xs font-bold text-slate-700">${d.name}</span><br><span class="text-[10px] text-slate-400">${d.country} · ${d.region}</span></div></div><span class="text-[11px] font-bold text-teal-600">${fmtPrice(d.priceUSD)}</span></div>`).join('');
+      acList.innerHTML=m.slice(0,5).map(d=>`<div class="ac-item p-3 hover:bg-primary-50 flex items-center justify-between cursor-pointer border-b border-slate-50 last:border-0 transition" data-name="${d.name}"><div class="flex items-center gap-3"><img src="${d.image}" class="w-9 h-9 rounded-lg object-cover"/><div><span class="text-xs font-bold text-slate-700">${d.name}</span><br><span class="text-[10px] text-slate-400">${d.country} Â· ${d.region}</span></div></div><span class="text-[11px] font-bold text-teal-600">${fmtPrice(d.priceUSD)}</span></div>`).join('');
       acList.classList.remove('hidden');
       acList.querySelectorAll('.ac-item').forEach(it=>it.addEventListener('click',()=>{sInput.value=it.dataset.name;acList.classList.add('hidden');S.keyword=it.dataset.name;renderDest();}));
     }
@@ -307,11 +307,11 @@ document.addEventListener('DOMContentLoaded', () => {
   pageDestInput?.addEventListener('input', e=>{S.keyword=e.target.value;renderDest();});
 
   if(bSlider&&bVal){bSlider.addEventListener('input',e=>{S.budget=+e.target.value;bVal.textContent=`$${S.budget.toLocaleString()}+`;renderDest();});}
-  sBtn?.addEventListener('click',()=>{if(sInput)S.keyword=sInput.value;renderDest();$('destinations')?.scrollIntoView({behavior:'smooth'});toast(`Searching for "${S.keyword||'All'}"…`,'info');});
+  sBtn?.addEventListener('click',()=>{if(sInput)S.keyword=sInput.value;renderDest();$('destinations')?.scrollIntoView({behavior:'smooth'});toast(`Searching for "${S.keyword||'All'}"â€¦`,'info');});
 
-  /* ══════════════════════════════════════════════════════════════════════
+  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
      TRAVELERS COUNTER
-     ══════════════════════════════════════════════════════════════════════ */
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
   const tBtn=$('travelers-dropdown-btn'), tMenu=$('travelers-dropdown-menu'), tSum=$('travelers-summary');
   tBtn?.addEventListener('click',e=>{e.stopPropagation();tMenu.classList.toggle('hidden');});
   document.addEventListener('click',e=>{if(tMenu&&!tMenu.contains(e.target)&&!tBtn.contains(e.target))tMenu.classList.add('hidden');});
@@ -321,17 +321,17 @@ document.addEventListener('DOMContentLoaded', () => {
   $('child-plus')?.addEventListener('click',()=>{if(S.travelers.children<8){S.travelers.children++;updTravelers();}});
   $('child-minus')?.addEventListener('click',()=>{if(S.travelers.children>0){S.travelers.children--;updTravelers();}});
 
-  /* ══════════════════════════════════════════════════════════════════════
+  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
      TRIP ESTIMATOR
-     ══════════════════════════════════════════════════════════════════════ */
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
   const cDest=$('calc-destination'),cSty=$('calc-style'),cDay=$('calc-days'),cGst=$('calc-guests'),cTot=$('calc-total-display'),cPP=$('calc-per-person-display');
   function reCalc(){if(!cDest||!cTot)return;const base={santorini:320,kyoto:280,serengeti:450,amalfi:350,swiss:390,bali:190,banff:310,tromso:420}[cDest.value]||300;const mul={comfort:1,luxury:1.6,bespoke:2.4}[cSty.value]||1.6;const d=+cDay.value||7,g=+cGst.value||2,pp=Math.round(base*mul*d),tot=pp*g;cTot.textContent=fmtPrice(tot);cPP.textContent=`${fmtPrice(pp)} / person`;}
   [cDest,cSty,cDay,cGst].forEach(el=>el?.addEventListener('change',reCalc));
   $('calc-quote-btn')?.addEventListener('click',()=>{const dn=cDest.options[cDest.selectedIndex].text;openBooking({name:`Custom Trip to ${dn} (${cDay.value}d, ${cGst.value} guests)`,price:2500});});
 
-  /* ══════════════════════════════════════════════════════════════════════
+  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
      MODALS
-     ══════════════════════════════════════════════════════════════════════ */
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
   const modal=$('generic-modal'), mContent=$('modal-dynamic-content'), mClose=$('modal-close-btn');
   function openModal(html){if(!modal||!mContent)return;mContent.innerHTML=html;modal.classList.remove('hidden');modal.classList.add('flex');document.body.style.overflow='hidden';}
   function closeModal(){if(!modal)return;modal.classList.add('hidden');modal.classList.remove('flex');document.body.style.overflow='';}
@@ -344,7 +344,7 @@ document.addEventListener('DOMContentLoaded', () => {
     openModal(`
       <div class="relative h-64 sm:h-80 rounded-xl overflow-hidden mb-6"><img src="${d.image}" alt="${d.name}" class="w-full h-full object-cover"/><div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
         <div class="absolute bottom-5 left-5 right-5 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
-          <div><span class="text-xs uppercase tracking-widest text-primary-300 font-bold block mb-1"><i class="fa-solid fa-map-location-dot mr-1"></i>${d.country} · ${d.region}</span><h2 class="text-2xl sm:text-3xl font-extrabold text-white">${d.name}</h2></div>
+          <div><span class="text-xs uppercase tracking-widest text-primary-300 font-bold block mb-1"><i class="fa-solid fa-map-location-dot mr-1"></i>${d.country} Â· ${d.region}</span><h2 class="text-2xl sm:text-3xl font-extrabold text-white">${d.name}</h2></div>
           <div class="bg-white/95 backdrop-blur px-4 py-2 rounded-xl text-right"><span class="text-xs text-slate-500 block">From</span><span class="text-xl font-extrabold text-teal-600">${fmtPrice(d.priceUSD)}</span><span class="text-xs text-slate-500"> /person</span></div>
         </div>
       </div>
@@ -368,7 +368,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const p=travelData.packages.find(x=>x.id===id);if(!p)return;
     openModal(`
       <div class="relative h-56 sm:h-72 rounded-xl overflow-hidden mb-6"><img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover"/><div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-        <div class="absolute bottom-5 left-5 right-5"><span class="px-2.5 py-1 bg-primary-500 text-white text-[11px] font-bold rounded-full">${p.badge} · ${p.category}</span><h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-2">${p.title}</h2></div>
+        <div class="absolute bottom-5 left-5 right-5"><span class="px-2.5 py-1 bg-primary-500 text-white text-[11px] font-bold rounded-full">${p.badge} Â· ${p.category}</span><h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-2">${p.title}</h2></div>
       </div>
       <div class="flex flex-wrap gap-4 bg-slate-50 p-4 rounded-xl mb-6 text-xs">
         <div><span class="text-slate-400 block">Duration</span><span class="font-bold text-slate-700"><i class="fa-solid fa-clock text-primary-400 mr-1"></i>${p.duration}</span></div>
@@ -382,7 +382,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <h4 class="font-bold text-slate-800 mb-2">Inclusions</h4>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6">${p.inclusions.map(i=>`<div class="flex items-center gap-2 text-xs text-slate-600"><i class="fa-solid fa-circle-check text-teal-500"></i>${i}</div>`).join('')}</div>
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-5 border-t border-slate-100">
-        <span class="text-xs text-slate-400"><i class="fa-solid fa-award text-amber-400 mr-1"></i>Guaranteed departures · Flexible cancellation</span>
+        <span class="text-xs text-slate-400"><i class="fa-solid fa-award text-amber-400 mr-1"></i>Guaranteed departures Â· Flexible cancellation</span>
         <button id="m-book-p" class="w-full sm:w-auto px-8 py-3 bg-teal-600 hover:bg-teal-700 text-white font-extrabold rounded-xl shadow-md transition">Book This Package</button>
       </div>`);
     $('m-book-p')?.addEventListener('click',()=>{closeModal();openBooking({name:p.title,price:p.currentPriceUSD});});
@@ -390,7 +390,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // -- Booking inquiry modal
   function openBooking({name,price}){
-    window.location.href = `book.html?journey=${encodeURIComponent(name)}&price=${encodeURIComponent(price)}`;
+    window.location.href = `/book?journey=${encodeURIComponent(name)}&price=${encodeURIComponent(price)}`;
     return;
     /* openModal(`
       <div class="max-w-lg mx-auto text-center">
@@ -407,21 +407,21 @@ document.addEventListener('DOMContentLoaded', () => {
             <div><label class="block text-xs font-semibold text-slate-600 mb-1">Phone *</label><input type="tel" required placeholder="+1 (555) 000-0000" class="w-full border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-primary-400"/></div>
             <div><label class="block text-xs font-semibold text-slate-600 mb-1">Travel Date</label><input type="date" class="w-full border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-primary-400"/></div>
           </div>
-          <div><label class="block text-xs font-semibold text-slate-600 mb-1">Special Requests</label><textarea rows="2" placeholder="Anniversary surprises, dietary needs…" class="w-full border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-primary-400"></textarea></div>
+          <div><label class="block text-xs font-semibold text-slate-600 mb-1">Special Requests</label><textarea rows="2" placeholder="Anniversary surprises, dietary needsâ€¦" class="w-full border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-primary-400"></textarea></div>
           <button type="submit" class="w-full py-3 bg-primary-500 hover:bg-primary-600 text-white font-extrabold text-sm rounded-xl shadow-md transition flex items-center justify-center gap-2">Confirm Request <i class="fa-solid fa-arrow-right text-xs"></i></button>
         </form>
       </div>`);
-    $('bk-form')?.addEventListener('submit',e=>{e.preventDefault();closeModal();confettiBurst();toast('🎉 Booking Submitted! Check your email.','success',6000);}); */
+    $('bk-form')?.addEventListener('submit',e=>{e.preventDefault();closeModal();confettiBurst();toast('ðŸŽ‰ Booking Submitted! Check your email.','success',6000);}); */
   }
 
-  /* ══════════════════════════════════════════════════════════════════════
+  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
      NEWSLETTER
-     ══════════════════════════════════════════════════════════════════════ */
-  $('newsletter-form')?.addEventListener('submit',e=>{e.preventDefault();const inp=e.target.querySelector('input[type="email"]');if(inp?.value){confettiBurst();toast('✨ Welcome! $150 credit sent to your inbox.','success');inp.value='';}});
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+  $('newsletter-form')?.addEventListener('submit',e=>{e.preventDefault();const inp=e.target.querySelector('input[type="email"]');if(inp?.value){confettiBurst();toast('âœ¨ Welcome! $150 credit sent to your inbox.','success');inp.value='';}});
 
-  /* ══════════════════════════════════════════════════════════════════════
+  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
      MOBILE MENU
-     ══════════════════════════════════════════════════════════════════════ */
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
   const mDraw=$('mobile-menu-drawer'),mBtn=$('mobile-menu-btn'),mXBtn=$('mobile-menu-close-btn'),mOver=$('mobile-overlay');
   function closeDraw(){mDraw?.classList.add('translate-x-full');document.body.style.overflow='';}
   mBtn?.addEventListener('click',()=>{mDraw.classList.remove('translate-x-full');document.body.style.overflow='hidden';});
@@ -429,9 +429,9 @@ document.addEventListener('DOMContentLoaded', () => {
   mOver?.addEventListener('click',closeDraw);
   $$('.mobile-nav-link').forEach(l=>l.addEventListener('click',closeDraw));
 
-  /* ══════════════════════════════════════════════════════════════════════
+  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
      SCROLL EFFECTS
-     ══════════════════════════════════════════════════════════════════════ */
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
   let scrollTicking = false;
   function updateScrollEffects() {
     const scrollY = window.scrollY;
@@ -469,10 +469,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   topBtn?.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 
-  /* ══════════════════════════════════════════════════════════════════════
+  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
      AOS INIT + FIRST PAINT
-     ══════════════════════════════════════════════════════════════════════ */
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
   if(typeof AOS!=='undefined') AOS.init({duration:750,once:true,offset:70,easing:'ease-out-cubic'});
   renderDest(); renderPkgs(); renderStyles(); renderRevs(); renderBlog(); renderFAQs(); reCalc();
   if(typeof AOS!=='undefined') AOS.refreshHard();
 });
+
+
+

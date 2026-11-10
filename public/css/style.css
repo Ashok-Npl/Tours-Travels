@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Wanderlux Tours & Travels — Premium Warm Light Theme
+   Veron Crest Tours & Travels — Premium Warm Light Theme
    ========================================================================== */
 
 /* ── Base ─────────────────────────────────────────────────────────────────── */
@@ -375,6 +375,41 @@ body {
     color: var(--ink);
     background: var(--sand);
   }
+
+/* Shared navbar partial must remain hidden even on pages that do not load Tailwind. */
+#mobile-menu-drawer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+}
+
+#mobile-menu-drawer:not(.translate-x-full) {
+  display: block;
+}
+
+#mobile-menu-drawer > .absolute:first-child {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, .3);
+}
+
+#mobile-menu-drawer > .absolute:last-child {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(20rem, 85vw);
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  box-shadow: -1rem 0 2rem rgba(16, 42, 54, .12);
+}
+
+#mobile-menu-drawer nav {
+  flex: 1;
+  overflow-y: auto;
+}
 
   #announcement-bar,
   body > div.bg-primary-600.text-white {
@@ -1039,9 +1074,10 @@ body {
 }
 
 /* ── Secondary page system ──────────────────────────────────────────────── */
-.page-shell { width: min(1120px, calc(100% - 2.5rem)); margin: 0 auto; }
+.page-shell { width: min(1300px, calc(100% - 2rem)); margin: 0 auto; }
 .nav-shell { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
-.brand-lockup { display: inline-flex; align-items: center; gap: .7rem; color: var(--ink); }
+.brand-lockup { display: inline-flex; align-items: center; color: var(--ink); }
+.brand-logo { display: block; width: min(290px, 32vw); height: 72px; object-fit: contain; object-position: left center; }
 .brand-lockup strong { display: block; font: 800 1.4rem/1 'Playfair Display', serif; }
 .brand-lockup strong span { color: var(--coral); }
 .brand-lockup small { display: block; margin-top: .18rem; color: #849198; font-size: .53rem; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; }
@@ -1478,7 +1514,7 @@ body {
   .value-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
-  .page-shell { width: min(100% - 1.5rem, 1120px);   }
+  .page-shell { width: min(100% - 1.5rem, 1200px);   }
 
   @media (max-width: 800px) {
     .page-hero.booking-hero { padding: 2.25rem 0 2rem; }
@@ -1504,10 +1540,17 @@ body {
     }
   }
   .nav-shell { min-height: 68px; }
+  .brand-logo { width: min(230px, 58vw); height: 58px; }
   .nav-shell .page-cta { padding: .65rem .8rem; font-size: .68rem; }
   .page-nav { display: none; }
   .nav-shell .page-cta { display: inline-flex; }
   #mobile-menu-btn { display: block; }
+  #mobile-menu-drawer {
+    display: none;
+  }
+  #mobile-menu-drawer:not(.translate-x-full) {
+    display: block;
+  }
   .page-hero h1, .contact-hero h1 { font-size: 3.2rem; }
   .page-hero-image { height: 300px; border-radius: 8rem 8rem 1rem 1rem; }
   .about-hero { padding: 3rem 0 4rem; }
@@ -1578,8 +1621,8 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding-right: clamp(1rem, 3vw, 3rem);
-  margin-left: -2rem;
+  /* padding-right: clamp(1rem, 3vw, 3rem); */
+  margin-left: -8rem;
 }
 .about-hero-image img {
   display: block;

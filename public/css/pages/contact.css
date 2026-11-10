@@ -1,0 +1,5 @@
+/* Contact page-specific styles. Shared primitives live in ../style.css. */
+.contact-page .contact-hero,
+.contact-page .contact-section {
+  width: 100%;
+}

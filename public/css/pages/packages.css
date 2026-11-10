@@ -1,0 +1,6 @@
+/* Packages page-specific styles. Shared primitives live in ../style.css. */
+.packages-page .packages-hero,
+.packages-page .packages-directory,
+.packages-page .packages-cta {
+  width: 100%;
+}

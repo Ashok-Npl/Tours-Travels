@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Destination Details | Veron Crest</title>
+  <meta name="description" content="Explore a tailored Veron Crest destination journey.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/pages/destination-details.css">
+</head>
+<body class="destination-detail-page bg-sand-50 text-slate-800 antialiased">
+  <%- include('partials/navbar', { activePage: activePage }) %>
+  <main id="destination-details">
+    <div class="destination-detail-loading page-shell">Loading your destination...</div>
+  </main>
+  <%- include('partials/footer') %>
+  <script src="/js/data.js"></script>
+  <script>
+    (function () {
+      var id = new URLSearchParams(window.location.search).get('id');
+      var destination = travelData.destinations.find(function (item) { return item.id === id; });
+      var root = document.getElementById('destination-details');
+      if (!destination) {
+        root.innerHTML = '<div class="page-shell destination-not-found"><span class="eyebrow">Destination not found</span><h1>Letâ€™s find another beautiful place.</h1><a class="page-button" href="/destinations">Browse destinations <i class="fa-solid fa-arrow-right"></i></a></div>';
+        return;
+      }
+      document.title = destination.name + ' | Veron Crest';
+      root.innerHTML =
+        '<section class="destination-detail-hero"><img src="' + destination.image + '" alt="' + destination.name + '" loading="eager"><div class="destination-detail-shade"></div><div class="page-shell destination-detail-hero-content"><span class="eyebrow">' + destination.country + ' Â· ' + destination.region + '</span><h1>' + destination.name + '</h1><p>' + destination.description + '</p><div class="destination-detail-meta"><span><i class="fa-solid fa-clock"></i>' + destination.duration + '</span><span><i class="fa-solid fa-star"></i>' + destination.rating + ' (' + destination.reviewsCount + ' reviews)</span></div></div></section>' +
+        '<section class="page-section destination-detail-body"><div class="page-shell destination-detail-grid"><div><span class="eyebrow">Your journey, considered</span><h2>Go beyond the postcard.</h2><p class="story-copy">A Veron Crest itinerary gives you the freedom to travel slowly, with thoughtful stays, local expertise and the flexibility to make the days your own.</p><div class="destination-highlight-list">' + destination.highlights.map(function (highlight) { return '<div><i class="fa-solid fa-check"></i><span>' + highlight + '</span></div>'; }).join('') + '</div></div><aside class="destination-detail-card"><span class="eyebrow">From</span><strong>$' + destination.priceUSD.toLocaleString() + '</strong><small>per person</small><div class="destination-detail-card-line"><span>Best season</span><b>' + destination.bestSeason + '</b></div><div class="destination-detail-card-line"><span>Weather</span><b>' + destination.weather + '</b></div><a href="/book?journey=' + encodeURIComponent(destination.name) + '" class="page-button">Plan this journey <i class="fa-solid fa-arrow-right"></i></a></aside></div></section>' +
+        '<section class="destination-detail-cta"><div class="page-shell"><span class="eyebrow">Not quite the one?</span><h2>Explore every possibility.</h2><a href="/destinations" class="text-link">Back to destinations <i class="fa-solid fa-arrow-right"></i></a></div></section>';
+    })();
+  </script>
+</body>
+</html>
+
+
+
+

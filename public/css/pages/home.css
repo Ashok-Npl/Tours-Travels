@@ -1,0 +1,8 @@
+/* Home page-specific styles. Shared primitives live in ../style.css. */
+.home-page .hero-section {
+  min-height: 560px;
+}
+
+.home-page .page-shell {
+  width: min(1240px, calc(100% - 2rem));
+}

@@ -1,0 +1,5 @@
+/* Package detail page-specific styles. Shared primitives live in ../style.css. */
+.package-detail-page .package-detail-hero,
+.package-detail-page .package-detail-body {
+  width: 100%;
+}

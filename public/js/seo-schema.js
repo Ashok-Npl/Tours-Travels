@@ -1,5 +1,5 @@
-/**
- * Wanderlux Tours & Travels - SEO Schema.org JSON-LD Generator
+﻿/**
+ * Veron Crest Tours & Travels - SEO Schema.org JSON-LD Generator
  * Injects structured schema markup for TravelAgency, WebSite, TouristTrip, and FAQPage.
  */
 
@@ -11,9 +11,9 @@ function generateAndInjectSEOData() {
     "@context": "https://schema.org",
     "@type": "TravelAgency",
     "@id": `${currentUrl}#travelagency`,
-    "name": "Wanderlux Luxury Tours & Travels",
-    "alternateName": "Wanderlux Expeditions",
-    "legalName": "Wanderlux Curated Journeys Ltd.",
+    "name": "Veron Crest Tours & Travels",
+    "alternateName": "Veron Crest Expeditions",
+    "legalName": "Veron Crest Tours and Travels",
     "url": currentUrl,
     "logo": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=400&q=80",
     "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
@@ -117,3 +117,4 @@ if (document.readyState === 'loading') {
 } else {
   generateAndInjectSEOData();
 }
+

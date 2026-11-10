@@ -1,0 +1,8 @@
+/* Admin dashboard-specific styles. Shared primitives live in ../style.css. */
+.admin-page {
+  min-height: 100vh;
+}
+
+.admin-page .page-section {
+  min-height: 70vh;
+}

@@ -1,0 +1,4 @@
+/* Error page-specific styles. Shared primitives live in ../style.css. */
+.error-page .page-section {
+  min-height: 70vh;
+}

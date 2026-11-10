@@ -1,5 +1,5 @@
-/**
- * Wanderlux Tours & Travels - Master Data Store
+﻿/**
+ * Veron Crest Tours & Travels - Master Data Store
  * Structured data for destinations, curated tour packages, reviews, FAQs, and blog articles.
  */
 
@@ -7,10 +7,10 @@ const travelData = {
   // Available currency rates relative to USD
   currencies: {
     USD: { symbol: '$', rate: 1.00, label: 'USD ($)' },
-    EUR: { symbol: '€', rate: 0.92, label: 'EUR (€)' },
-    GBP: { symbol: '£', rate: 0.79, label: 'GBP (£)' },
+    EUR: { symbol: 'â‚¬', rate: 0.92, label: 'EUR (â‚¬)' },
+    GBP: { symbol: 'Â£', rate: 0.79, label: 'GBP (Â£)' },
     AUD: { symbol: 'A$', rate: 1.53, label: 'AUD (A$)' },
-    INR: { symbol: '₹', rate: 83.50, label: 'INR (₹)' },
+    INR: { symbol: 'â‚¹', rate: 83.50, label: 'INR (â‚¹)' },
     CAD: { symbol: 'C$', rate: 1.36, label: 'CAD (C$)' }
   },
 
@@ -29,7 +29,7 @@ const travelData = {
       reviewsCount: 428,
       priceUSD: 1899,
       duration: '7 Days / 6 Nights',
-      weather: '26°C Sunny',
+      weather: '26Â°C Sunny',
       bestSeason: 'May - Oct',
       image: 'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=1200&q=80',
       description: 'Iconic whitewashed caldera cliffside villas, azure Aegean waters, and world-renowned sunset catamaran sailing.',
@@ -46,7 +46,7 @@ const travelData = {
       reviewsCount: 512,
       priceUSD: 2450,
       duration: '10 Days / 9 Nights',
-      weather: '19°C Pleasant',
+      weather: '19Â°C Pleasant',
       bestSeason: 'Mar - May & Oct - Nov',
       image: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80',
       description: 'Centuries-old bamboo groves, tranquil Zen shrines, Michelin-starred kaiseki dining, and bullet train journeys across Japan.',
@@ -63,7 +63,7 @@ const travelData = {
       reviewsCount: 389,
       priceUSD: 3200,
       duration: '8 Days / 7 Nights',
-      weather: '28°C Safari Warmth',
+      weather: '28Â°C Safari Warmth',
       bestSeason: 'Jun - Oct',
       image: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=80',
       description: 'Witness the iconic Great Wildebeest Migration, the Big Five, and drift in a sunrise hot air balloon over endless savannah.',
@@ -80,7 +80,7 @@ const travelData = {
       reviewsCount: 310,
       priceUSD: 2150,
       duration: '8 Days / 7 Nights',
-      weather: '25°C Coastal Breeze',
+      weather: '25Â°C Coastal Breeze',
       bestSeason: 'Apr - Oct',
       image: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=80',
       description: 'Limoncello groves clinging to rugged cliffs, historic pastel fishing hamlets, and private Riva yacht excursions to Capri.',
@@ -97,7 +97,7 @@ const travelData = {
       reviewsCount: 440,
       priceUSD: 2890,
       duration: '9 Days / 8 Nights',
-      weather: '16°C Crisp Alpine',
+      weather: '16Â°C Crisp Alpine',
       bestSeason: 'Year Round (Ski / Hike)',
       image: 'https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=1200&q=80',
       description: 'Panorama Excellence Class scenic railways, snow-capped Matterhorn peaks, fondue alpine chalets, and pristine glacial lakes.',
@@ -114,7 +114,7 @@ const travelData = {
       reviewsCount: 620,
       priceUSD: 1450,
       duration: '9 Days / 8 Nights',
-      weather: '29°C Tropical',
+      weather: '29Â°C Tropical',
       bestSeason: 'Apr - Nov',
       image: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=80',
       description: 'Lush terraced emerald rice paddies, spiritual Hindu water temples, luxury cliffside villas in Uluwatu, and manta ray diving.',
@@ -131,7 +131,7 @@ const travelData = {
       reviewsCount: 280,
       priceUSD: 2390,
       duration: '7 Days / 6 Nights',
-      weather: '18°C Mountain Fresh',
+      weather: '18Â°C Mountain Fresh',
       bestSeason: 'Jun - Sep & Dec - Mar',
       image: 'https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&w=1200&q=80',
       description: 'Vibrant turquoise glacial lakes, towering pine forests, Fairmont Chateau stays, and wild grizzly bear watching expeditions.',
@@ -139,7 +139,7 @@ const travelData = {
     },
     {
       id: 'tromso-norway',
-      name: 'Tromsø & Lofoten Northern Lights',
+      name: 'TromsÃ¸ & Lofoten Northern Lights',
       country: 'Norway',
       region: 'Arctic',
       badge: 'Aurora Adventure',
@@ -148,7 +148,7 @@ const travelData = {
       reviewsCount: 345,
       priceUSD: 2950,
       duration: '7 Days / 6 Nights',
-      weather: '-3°C Crisp Winter',
+      weather: '-3Â°C Crisp Winter',
       bestSeason: 'Oct - Mar',
       image: 'https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=1200&q=80',
       description: 'Chasing ethereal Aurora Borealis across Arctic fjords, husky sledding through snowdrifts, and sleeping under glass igloos.',
@@ -245,7 +245,7 @@ const travelData = {
       featured: false,
       badge: 'Adventure High',
       image: 'https://images.unsplash.com/photo-1527004013197-933c4bb611b3?auto=format&fit=crop&w=1200&q=80',
-      inclusions: ['Explora Torres del Paine Luxury Lodge', 'Crampon Ice Trekking on Perito Moreno Glacier', 'Private Catamaran Navigation on Lake Pehoé', 'All Mountain Guides & Safety Gear', 'Gourmet Patagonian Asado Wine Dinners'],
+      inclusions: ['Explora Torres del Paine Luxury Lodge', 'Crampon Ice Trekking on Perito Moreno Glacier', 'Private Catamaran Navigation on Lake PehoÃ©', 'All Mountain Guides & Safety Gear', 'Gourmet Patagonian Asado Wine Dinners'],
       overview: 'Hike among dramatic granite spires, witness thundering blue glacier calving, and discover the raw majesty at the very end of the Earth.',
       itinerary: [
         { day: 'Day 1-2', title: 'Buenos Aires to El Calafate', desc: 'Tango show welcome dinner, flight to Patagonia, artisanal craft brewery tour.' },
@@ -279,7 +279,7 @@ const travelData = {
     },
     {
       id: 'pkg-norway-northern-lights',
-      title: 'Arctic Aurora: Tromsø, Fjords & Glass Igloos',
+      title: 'Arctic Aurora: TromsÃ¸, Fjords & Glass Igloos',
       category: 'Polar & Winter',
       region: 'Arctic',
       duration: '7 Days / 6 Nights',
@@ -295,7 +295,7 @@ const travelData = {
       inclusions: ['Glass-Roof Igloo Cabin with Heated Floors', 'Professional Night Aurora Hunt Expeditions', 'Arctic Thermal Suits & Boots Provided', 'Husky Sledding & Sami Cultural Feast', 'Silent Hybrid Catamaran Fjord Cruise'],
       overview: 'Gaze into the green dancing skies from the comfort of a heated glass igloo, glide through silent snow forests, and immerse in authentic Sami Arctic culture.',
       itinerary: [
-        { day: 'Day 1-2', title: 'Arrival in Tromsø - Gateway to the Arctic', desc: 'Arctic Cathedral, Cable car ride over Tromsø island, evening aurora anticipation toast.' },
+        { day: 'Day 1-2', title: 'Arrival in TromsÃ¸ - Gateway to the Arctic', desc: 'Arctic Cathedral, Cable car ride over TromsÃ¸ island, evening aurora anticipation toast.' },
         { day: 'Day 3-4', title: 'Husky Musher Adventure & Glass Igloo Check-in', desc: 'Drive your own team of Alaskan huskies through powder snow, settle into your panoramic glass igloo.' },
         { day: 'Day 5-7', title: 'Reindeer Sledding & Fjord Cruise', desc: 'Hear ancient folk stories inside a traditional Lavvu tent, electric boat voyage into dramatic fjords.' }
       ]
@@ -323,7 +323,7 @@ const travelData = {
       rating: 5,
       date: 'Visited September 2026',
       badge: 'Verified Luxury Traveler',
-      comment: 'Wanderlux orchestrated the most seamless anniversary trip of our lives. From our private Riva boat arriving right at Capri to the breathtaking clifftop villa in Oia, every single detail was executed with Michelin-level perfection. We will never book travel anywhere else!'
+      comment: 'Veron Crest orchestrated the most seamless anniversary trip of our lives. From our private Riva boat arriving right at Capri to the breathtaking clifftop villa in Oia, every single detail was executed with Michelin-level perfection. We will never book travel anywhere else!'
     },
     {
       id: 2,
@@ -356,7 +356,7 @@ const travelData = {
       rating: 5,
       date: 'Visited February 2026',
       badge: 'Verified Polar Explorer',
-      comment: 'Sleeping under dancing emerald northern lights in Norway in a heated glass dome was a dream ticked off my bucket list. The husky sledding through snowdrifts made me feel like an Arctic pioneer. Wanderlux deserves 10 stars!'
+      comment: 'Sleeping under dancing emerald northern lights in Norway in a heated glass dome was a dream ticked off my bucket list. The husky sledding through snowdrifts made me feel like an Arctic pioneer. Veron Crest deserves 10 stars!'
     }
   ],
 
@@ -397,7 +397,7 @@ const travelData = {
   // Frequently Asked Questions (Structured for Schema.org FAQPage)
   faqs: [
     {
-      question: 'What is included in a Wanderlux signature tour package?',
+      question: 'What is included in a Veron Crest signature tour package?',
       answer: 'Our packages are all-inclusive luxury experiences. This includes hand-selected 5-star boutique accommodations or luxury glamping, private chauffeurs, premium domestic flights or high-speed rail, certified private local guides, VIP skip-the-line admissions, curated gastronomic dining experiences, 24/7 dedicated personal concierge support via WhatsApp or phone, and 100% financial protection.'
     },
     {
@@ -413,7 +413,7 @@ const travelData = {
       answer: 'Yes! Our dedicated Concierge Desk provides end-to-end visa concierge services, advising on required paperwork, scheduling biometric appointments, verifying passport validity requirements, and providing official invitation letters and safari permits.'
     },
     {
-      question: 'How does Wanderlux champion sustainable and eco-conscious travel?',
+      question: 'How does Veron Crest champion sustainable and eco-conscious travel?',
       answer: 'We believe travel should be regenerative. For every traveler who embarks on a journey with us, we invest in vetted local conservation and rewilding projects, offset 100% of carbon emissions (including flights), eliminate single-use plastics across our ground operations, and ensure at least 70% of tour expenditures stay directly within indigenous host communities.'
     }
   ]
@@ -422,3 +422,4 @@ const travelData = {
 if (typeof window !== 'undefined') {
   window.travelData = travelData;
 }
+

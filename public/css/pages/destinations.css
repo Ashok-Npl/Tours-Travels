@@ -1,0 +1,6 @@
+/* Destinations page-specific styles. Shared primitives live in ../style.css. */
+.destinations-page .destination-page-hero,
+.destinations-page .destination-directory,
+.destinations-page .destination-cta {
+  width: 100%;
+}
