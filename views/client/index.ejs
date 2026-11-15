@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
@@ -27,7 +27,7 @@
   <meta name="twitter:image" content="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>âœˆï¸</text></svg>" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -45,40 +45,19 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/tailwind.css" />
   <link rel="stylesheet" href="/css/pages/home.css" />
+  <link rel="stylesheet" href="/css/pages/gallery.css" />
 
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary:   { 50:'#fef7ed', 100:'#fdecd6', 200:'#f9d5ab', 300:'#f5b876', 400:'#f0933e', 500:'#e07a2f', 600:'#cc5f1a', 700:'#a94718', 800:'#873a1b', 900:'#703219' },
-            teal:      { 50:'#f0fdfa', 100:'#ccfbf1', 200:'#99f6e4', 300:'#5eead4', 400:'#2dd4bf', 500:'#14b8a6', 600:'#0d9488', 700:'#0f766e', 800:'#115e59', 900:'#134e4a' },
-            sand:      { 50:'#fdfcfb', 100:'#faf6f1', 200:'#f3ece2', 300:'#e8ddd0', 400:'#d6c8b5', 500:'#bfac95' },
-            slate:     { 50:'#f8fafc', 100:'#f1f5f9', 200:'#e2e8f0', 300:'#cbd5e1', 400:'#94a3b8', 500:'#64748b', 600:'#475569', 700:'#334155', 800:'#1e293b', 900:'#0f172a' }
-          },
-          fontFamily: {
-            sans:  ['"Plus Jakarta Sans"','system-ui','sans-serif'],
-            serif: ['"Playfair Display"','Georgia','serif']
-          },
-          animation: {
-            'spin-slow':'spin 18s linear infinite'
-          }
-        }
-      }
-    }
-  </script>
 </head>
 
 <body class="home-page bg-white text-slate-800 antialiased overflow-x-hidden">
 
 <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
-<!-- ═══════════════════════════════════════════════════════════════════════════
-     1 ▸ TOP ANNOUNCEMENT BAR
-     ═══════════════════════════════════════════════════════════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     1 â–¸ TOP ANNOUNCEMENT BAR
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <div class="bg-primary-600 text-white text-xs py-2.5 relative z-50">
   <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
     <div class="flex items-center gap-2 flex-wrap justify-center">
@@ -94,10 +73,10 @@
         <i class="fa-solid fa-coins text-yellow-300 text-[11px]"></i>
         <select id="currency-selector" class="bg-primary-700 text-white border border-primary-500 rounded-md text-xs px-2 py-0.5 focus:outline-none cursor-pointer">
           <option value="USD">USD ($)</option>
-          <option value="EUR">EUR (€)</option>
-          <option value="GBP">GBP (£)</option>
+          <option value="EUR">EUR (â‚¬)</option>
+          <option value="GBP">GBP (Â£)</option>
           <option value="AUD">AUD (A$)</option>
-          <option value="INR">INR (₹)</option>
+          <option value="INR">INR (â‚¹)</option>
           <option value="CAD">CAD (C$)</option>
         </select>
       </div>
@@ -105,21 +84,21 @@
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════════════════════════════
-     2 ▸ STICKY HEADER / NAVIGATION
-     ═══════════════════════════════════════════════════════════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     2 â–¸ STICKY HEADER / NAVIGATION
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <%- include('partials/navbar', { activePage: activePage }) %>
 
 <!-- Mobile Drawer -->
-<!-- ═══════════════════════════════════════════════════════════════════════════
-     3 ▸ HERO — Full-bleed cinematic image with search bar overlay
-     ═══════════════════════════════════════════════════════════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     3 â–¸ HERO â€” Full-bleed cinematic image with search bar overlay
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section class="hero-section relative flex items-center">
   <!-- Background image -->
   <picture class="hero-image-wrap absolute inset-0">
     <source media="(max-width: 640px)" srcset="/assets/images/mobile-hero.png" />
     <img id="hero-image" src="/assets/images/hero.png"
-         alt="Beautiful tropical beach at sunset — luxury travel destination"
+         alt="Beautiful tropical beach at sunset â€” luxury travel destination"
          class="w-full h-full object-cover" />
   </picture>
   <div class="hero-overlay absolute inset-0"></div>
@@ -141,7 +120,7 @@
     </div>
   </div>
 
-  <!-- ── Search bar floating at bottom ────────────────────────────────────── -->
+  <!-- â”€â”€ Search bar floating at bottom â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
   <div class="home-planner absolute bottom-0 left-0 right-0 translate-y-1/2 z-20 px-4">
     <div class="home-planner-card max-w-5xl mx-auto rounded-2xl p-4 sm:p-5">
       <div class="planner-intro">
@@ -180,11 +159,11 @@
           <div id="travelers-dropdown-menu" class="hidden absolute left-0 right-0 top-full mt-1 bg-white border border-slate-200 rounded-xl p-4 shadow-xl z-30 space-y-3">
             <div class="flex items-center justify-between text-xs">
               <div><span class="font-bold text-slate-700">Adults</span><span class="text-slate-400 block text-[10px]">Age 13+</span></div>
-              <div class="flex items-center gap-2"><button id="adult-minus" type="button" class="w-7 h-7 rounded-lg bg-slate-100 hover:bg-slate-200 font-bold">−</button><span id="adult-count" class="w-6 text-center font-bold">2</span><button id="adult-plus" type="button" class="w-7 h-7 rounded-lg bg-slate-100 hover:bg-slate-200 font-bold">+</button></div>
+              <div class="flex items-center gap-2"><button id="adult-minus" type="button" class="w-7 h-7 rounded-lg bg-slate-100 hover:bg-slate-200 font-bold">âˆ’</button><span id="adult-count" class="w-6 text-center font-bold">2</span><button id="adult-plus" type="button" class="w-7 h-7 rounded-lg bg-slate-100 hover:bg-slate-200 font-bold">+</button></div>
             </div>
             <div class="flex items-center justify-between text-xs pt-2 border-t border-slate-100">
-              <div><span class="font-bold text-slate-700">Children</span><span class="text-slate-400 block text-[10px]">Ages 0–12</span></div>
-              <div class="flex items-center gap-2"><button id="child-minus" type="button" class="w-7 h-7 rounded-lg bg-slate-100 hover:bg-slate-200 font-bold">−</button><span id="child-count" class="w-6 text-center font-bold">0</span><button id="child-plus" type="button" class="w-7 h-7 rounded-lg bg-slate-100 hover:bg-slate-200 font-bold">+</button></div>
+              <div><span class="font-bold text-slate-700">Children</span><span class="text-slate-400 block text-[10px]">Ages 0â€“12</span></div>
+              <div class="flex items-center gap-2"><button id="child-minus" type="button" class="w-7 h-7 rounded-lg bg-slate-100 hover:bg-slate-200 font-bold">âˆ’</button><span id="child-count" class="w-6 text-center font-bold">0</span><button id="child-plus" type="button" class="w-7 h-7 rounded-lg bg-slate-100 hover:bg-slate-200 font-bold">+</button></div>
             </div>
           </div>
         </div>
@@ -214,21 +193,21 @@
 <!-- spacer for floating search bar -->
 <div class="hero-planner-spacer bg-sand-50" aria-hidden="true"></div>
 
-<!-- ═══════════════════════════════════════════════════════════════════════════
-     4 ▸ TRUST / MEDIA BAR
-     ═══════════════════════════════════════════════════════════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     4 â–¸ TRUST / MEDIA BAR
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section class="home-trust-strip py-10 bg-sand-50 border-b border-slate-100">
   <div class="max-w-7xl mx-auto px-4">
     <p class="text-center text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-7">Featured &amp; Endorsed By</p>
     <div class="endorsement-marquee opacity-40 hover:opacity-70 transition-opacity duration-500">
       <div class="text-center font-serif text-xl font-bold tracking-widest text-slate-500">FORBES</div>
-      <div class="text-center font-serif text-lg font-bold tracking-wider text-slate-500">CONDÉ NAST</div>
+      <div class="text-center font-serif text-lg font-bold tracking-wider text-slate-500">CONDÃ‰ NAST</div>
       <div class="text-center font-serif text-lg font-semibold text-slate-500">NAT GEO</div>
       <div class="text-center font-serif text-base font-bold text-slate-500">TRAVEL+LEISURE</div>
       <div class="text-center font-sans text-sm font-black tracking-widest text-slate-500">LONELY PLANET</div>
       <div class="text-center font-serif text-lg italic font-bold text-slate-500">VOGUE</div>
       <div class="text-center font-serif text-xl font-bold tracking-widest text-slate-500" aria-hidden="true">FORBES</div>
-      <div class="text-center font-serif text-lg font-bold tracking-wider text-slate-500" aria-hidden="true">CONDÉ NAST</div>
+      <div class="text-center font-serif text-lg font-bold tracking-wider text-slate-500" aria-hidden="true">CONDÃ‰ NAST</div>
       <div class="text-center font-serif text-lg font-semibold text-slate-500" aria-hidden="true">NAT GEO</div>
       <div class="text-center font-serif text-base font-bold tracking-wider text-slate-500" aria-hidden="true">TRAVEL+LEISURE</div>
       <div class="text-center font-sans text-sm font-black tracking-widest text-slate-500" aria-hidden="true">LONELY PLANET</div>
@@ -237,9 +216,9 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════════════════════════
-     5 ▸ SEASONAL OFFERS — Editorial promotional band
-     ═══════════════════════════════════════════════════════════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     5 â–¸ SEASONAL OFFERS â€” Editorial promotional band
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section id="offers" class="offers-section">
   <div class="page-shell">
     <div class="offers-heading">
@@ -274,9 +253,9 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════════════════════════
-     6 ▸ DESTINATIONS — Filterable grid
-     ═══════════════════════════════════════════════════════════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     6 â–¸ DESTINATIONS â€” Filterable grid
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section id="destinations" class="py-20 sm:py-28 bg-white">
   <div class="max-w-7xl mx-auto px-4">
     <!-- Header -->
@@ -300,9 +279,9 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════════════════════════
-     6 ▸ TOUR PACKAGES — Swiper carousel
-     ═══════════════════════════════════════════════════════════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     6 â–¸ TOUR PACKAGES â€” Swiper carousel
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section id="packages" class="py-20 sm:py-28 bg-sand-50 relative overflow-hidden">
   <div class="max-w-7xl mx-auto px-4 relative z-10">
     <div class="package-promo mb-8" data-aos="fade-up">
@@ -318,7 +297,7 @@
       <div>
         <span class="text-xs font-extrabold uppercase tracking-widest text-teal-600 mb-2 block">Signature Expeditions</span>
         <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-black text-slate-800 leading-tight">Curated Tour Packages</h2>
-        <p class="text-slate-500 text-sm sm:text-base mt-2 max-w-xl">All-inclusive itineraries with 5-star stays, private guides, Michelin dining, and VIP access — all planned to perfection.</p>
+        <p class="text-slate-500 text-sm sm:text-base mt-2 max-w-xl">All-inclusive itineraries with 5-star stays, private guides, Michelin dining, and VIP access â€” all planned to perfection.</p>
       </div>
       <div class="flex items-center gap-3">
         <button class="packages-prev w-11 h-11 rounded-xl bg-white border border-slate-200 text-slate-600 hover:bg-primary-500 hover:text-white hover:border-primary-500 transition flex items-center justify-center shadow-sm"><i class="fa-solid fa-arrow-left text-sm"></i></button>
@@ -332,91 +311,27 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════════════════════════
-     7 ▸ TRAVEL STYLES — Icon bento grid
-     ═══════════════════════════════════════════════════════════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     7 â–¸ TRAVEL STYLES â€” Icon bento grid
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section id="styles" class="py-20 sm:py-28 bg-white">
   <div class="max-w-7xl mx-auto px-4">
     <div class="text-center max-w-2xl mx-auto mb-14">
       <span class="text-xs font-extrabold uppercase tracking-widest text-primary-500 mb-2 block">Tailored To Your Passion</span>
       <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-black text-slate-800">Choose Your Travel Style</h2>
-      <p class="text-slate-500 text-sm sm:text-base mt-3">Whether you seek high-altitude summits, intimate wine tastings, or overwater bungalows — we craft it for you.</p>
+      <p class="text-slate-500 text-sm sm:text-base mt-3">Whether you seek high-altitude summits, intimate wine tastings, or overwater bungalows â€” we craft it for you.</p>
     </div>
     <div id="styles-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════════════════════════
-     8 ▸ TRIP COST ESTIMATOR
-     ═══════════════════════════════════════════════════════════════════════ -->
-<section id="calculator" class="py-20 sm:py-28 bg-sand-50">
-  <div class="max-w-7xl mx-auto px-4">
-    <div class="bg-white rounded-3xl border border-slate-100 shadow-lg p-6 sm:p-10 lg:p-14 relative overflow-hidden">
-      <!-- Decorative circles -->
-      <div class="absolute -top-20 -right-20 w-64 h-64 bg-primary-50 rounded-full opacity-60 pointer-events-none"></div>
-      <div class="absolute -bottom-16 -left-16 w-48 h-48 bg-teal-50 rounded-full opacity-60 pointer-events-none"></div>
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     8 â–¸ TRIP COST ESTIMATOR
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
-        <!-- Left: inputs -->
-        <div class="lg:col-span-7">
-          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-50 text-primary-600 text-xs font-bold uppercase tracking-wider mb-4"><i class="fa-solid fa-calculator"></i> Interactive Estimator</span>
-          <h2 class="font-serif text-3xl sm:text-4xl font-extrabold text-slate-800 mb-3">Calculate Your Dream Vacation</h2>
-          <p class="text-slate-500 text-sm mb-8 leading-relaxed max-w-lg">Pick your destination, comfort tier, duration & group size for an instant transparent price estimate.</p>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-            <div>
-              <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">Destination</label>
-              <select id="calc-destination" class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary-400 transition">
-                <option value="santorini">Santorini, Greece</option><option value="kyoto">Kyoto & Tokyo, Japan</option><option value="serengeti">Serengeti, Tanzania</option><option value="amalfi">Amalfi Coast, Italy</option><option value="swiss">Swiss Alps, Switzerland</option><option value="bali">Bali, Indonesia</option><option value="banff">Banff, Canada</option><option value="tromso">Tromsø, Norway</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">Travel Tier</label>
-              <select id="calc-style" class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary-400 transition">
-                <option value="comfort">Comfort (4-Star)</option><option value="luxury" selected>Luxury (5-Star)</option><option value="bespoke">Ultra-Bespoke</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">Duration</label>
-              <select id="calc-days" class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary-400 transition">
-                <option value="5">5 Days</option><option value="7" selected>7 Days</option><option value="10">10 Days</option><option value="14">14 Days</option><option value="21">21 Days</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">Guests</label>
-              <select id="calc-guests" class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary-400 transition">
-                <option value="1">1 Solo</option><option value="2" selected>2 Couple</option><option value="4">4 Family</option><option value="6">6 Group</option><option value="10">10+ Charter</option>
-              </select>
-            </div>
-          </div>
-          <div class="flex items-center gap-4 text-xs text-slate-400">
-            <span><i class="fa-solid fa-check text-teal-500 mr-1"></i>Luxury stays included</span>
-            <span><i class="fa-solid fa-check text-teal-500 mr-1"></i>Private transfers</span>
-            <span><i class="fa-solid fa-check text-teal-500 mr-1"></i>English concierge</span>
-          </div>
-        </div>
-        <!-- Right: result -->
-        <div class="lg:col-span-5 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl p-6 sm:p-8 text-white shadow-lg">
-          <span class="text-xs uppercase tracking-widest opacity-80 block mb-1">Estimated Investment</span>
-          <div class="text-4xl sm:text-5xl font-black mb-1" id="calc-total-display">$3,584</div>
-          <span class="text-sm opacity-80" id="calc-per-person-display">$1,792 / person</span>
-          <div class="mt-6 pt-5 border-t border-white/20 space-y-3 text-xs">
-            <div class="flex justify-between"><span class="opacity-70">Deposit</span><span class="font-bold">Flexible 20%</span></div>
-            <div class="flex justify-between"><span class="opacity-70">Cancellation</span><span class="font-bold">Free up to 45 days</span></div>
-            <div class="flex justify-between"><span class="opacity-70">Carbon offset</span><span class="font-bold">100% verified</span></div>
-          </div>
-          <button id="calc-quote-btn" class="mt-6 w-full py-3.5 bg-white text-primary-600 font-extrabold text-sm rounded-xl shadow-md hover:shadow-lg transition flex items-center justify-center gap-2">
-            Request Custom Proposal <i class="fa-solid fa-file-arrow-down text-xs"></i>
-          </button>
-          <p class="text-[10px] text-center opacity-60 mt-2">Zero obligation • PDF to your inbox</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════════════════════════
-     9 ▸ WHY CHOOSE US — Value pillars
-     ═══════════════════════════════════════════════════════════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     9 â–¸ WHY CHOOSE US â€” Value pillars
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section class="py-20 sm:py-28 bg-white">
   <div class="max-w-7xl mx-auto px-4">
     <div class="text-center max-w-2xl mx-auto mb-14">
@@ -434,7 +349,7 @@
       <div class="soft-card p-7 text-center" data-aos="fade-up" data-aos-delay="80">
         <div class="w-14 h-14 rounded-2xl bg-teal-50 text-teal-600 flex items-center justify-center text-2xl mx-auto mb-5"><i class="fa-solid fa-headset"></i></div>
         <h3 class="text-lg font-bold text-slate-800 mb-2">24/7 Concierge</h3>
-        <p class="text-slate-500 text-xs leading-relaxed">Your private concierge is always one WhatsApp or phone call away — day or night.</p>
+        <p class="text-slate-500 text-xs leading-relaxed">Your private concierge is always one WhatsApp or phone call away â€” day or night.</p>
       </div>
       <div class="soft-card p-7 text-center" data-aos="fade-up" data-aos-delay="160">
         <div class="w-14 h-14 rounded-2xl bg-amber-50 text-amber-500 flex items-center justify-center text-2xl mx-auto mb-5"><i class="fa-solid fa-shield-halved"></i></div>
@@ -450,9 +365,9 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════════════════════════
-     10 ▸ REVIEWS — Swiper
-     ═══════════════════════════════════════════════════════════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     10 â–¸ REVIEWS â€” Swiper
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section id="reviews" class="py-20 sm:py-28 bg-sand-50">
   <div class="max-w-7xl mx-auto px-4">
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
@@ -477,10 +392,10 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════════════════════════
-<!-- ═══════════════════════════════════════════════════════════════════════════════
-     11 ▸ GALLERY PREVIEW — Masonry teaser
-     ════════════════════════════════════════════════════════════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     11 â–¸ GALLERY PREVIEW â€” Masonry teaser
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section id="gallery-preview" class="gallery-preview-section py-20 sm:py-28 bg-white">
   <div class="max-w-7xl mx-auto px-4">
     <!-- Section Header -->
@@ -492,7 +407,7 @@
         <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-black text-slate-800 leading-tight">
           Moments From<br><em class="text-primary-500 not-italic">Our Travels</em>
         </h2>
-        <p class="text-slate-500 text-sm sm:text-base mt-3 max-w-xl leading-relaxed">Breathtaking scenes captured across 120+ destinations — from Arctic igloos to tropical shores, every frame tells a story.</p>
+        <p class="text-slate-500 text-sm sm:text-base mt-3 max-w-xl leading-relaxed">Breathtaking scenes captured across 120+ destinations â€” from Arctic igloos to tropical shores, every frame tells a story.</p>
       </div>
       <a href="/gallery" class="inline-flex items-center gap-2 px-6 py-3 bg-slate-900 hover:bg-primary-500 text-white font-bold text-sm rounded-xl transition-all duration-300 group whitespace-nowrap shadow-lg hover:shadow-primary-200/50">
         View Full Gallery <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform duration-300"></i>
@@ -539,7 +454,7 @@
         <img src="https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=700&q=85" alt="Northern lights over snow-covered landscape" loading="lazy">
         <div class="gallery-preview-shade"></div>
         <div class="gallery-preview-info">
-          <small><i class="fa-solid fa-location-dot mr-1"></i>Tromsø, Norway</small>
+          <small><i class="fa-solid fa-location-dot mr-1"></i>TromsÃ¸, Norway</small>
           <strong>Aurora Magic</strong>
         </div>
         <span class="gallery-preview-tag"><i class="fa-solid fa-camera mr-1"></i>Arctic</span>
@@ -592,9 +507,9 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════════════════════════
-     12 ▸ FAQs
-     ═══════════════════════════════════════════════════════════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     12 â–¸ FAQs
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section id="faqs" class="py-20 sm:py-28 bg-sand-50">
   <div class="max-w-3xl mx-auto px-4">
     <div class="text-center mb-14">
@@ -615,9 +530,9 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════════════════════════
-     13 ▸ NEWSLETTER
-     ═══════════════════════════════════════════════════════════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     13 â–¸ NEWSLETTER
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section class="py-20 bg-white relative overflow-hidden">
   <div class="max-w-4xl mx-auto px-4 relative z-10">
     <div class="bg-gradient-to-r from-primary-500 to-primary-600 rounded-3xl p-8 sm:p-14 text-center text-white shadow-xl relative overflow-hidden">
@@ -627,7 +542,7 @@
         <h2 class="font-serif text-3xl sm:text-4xl font-black mb-3">Join the Private Circle</h2>
         <p class="text-white/80 text-sm sm:text-base max-w-lg mx-auto mb-8">Subscribe to receive secret villa offerings, unreleased departures, and an immediate <strong class="text-yellow-300">$150 journey voucher</strong>.</p>
         <form id="newsletter-form" class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
-          <input type="email" required placeholder="Your email address…" class="flex-1 bg-white/15 backdrop-blur-md border border-white/25 rounded-xl px-5 py-3 text-sm text-white placeholder-white/60 focus:outline-none focus:border-white/60" />
+          <input type="email" required placeholder="Your email addressâ€¦" class="flex-1 bg-white/15 backdrop-blur-md border border-white/25 rounded-xl px-5 py-3 text-sm text-white placeholder-white/60 focus:outline-none focus:border-white/60" />
           <button type="submit" class="px-8 py-3 bg-white text-primary-600 font-extrabold text-sm rounded-xl shadow-md hover:shadow-lg transition whitespace-nowrap">Claim $150</button>
         </form>
         <p class="text-[11px] mt-4 opacity-60"><i class="fa-solid fa-lock mr-1"></i>No spam. Unsubscribe anytime.</p>
@@ -636,23 +551,23 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════════════════════════
-     14 ▸ FOOTER
-     ═══════════════════════════════════════════════════════════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     14 â–¸ FOOTER
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <%- include('partials/footer') %>
 
-<!-- ═══════════════════════════════════════════════════════════════════════════
-     15 ▸ FLOATING UTILITIES — WhatsApp & Back-to-top
-     ═══════════════════════════════════════════════════════════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     15 â–¸ FLOATING UTILITIES â€” WhatsApp & Back-to-top
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <a href="https://wa.me/18009263375" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-40 w-14 h-14 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full flex items-center justify-center text-2xl shadow-lg shadow-emerald-300/30 transition transform hover:scale-110 group" aria-label="WhatsApp">
   <i class="fa-brands fa-whatsapp"></i>
   <span class="absolute right-16 px-3 py-1.5 bg-slate-800 text-white text-xs font-semibold rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition pointer-events-none whitespace-nowrap">Chat with Concierge</span>
 </a>
 <button id="back-to-top" class="fixed bottom-24 right-6 z-40 w-10 h-10 bg-white border border-slate-200 text-slate-500 hover:text-primary-500 rounded-full flex items-center justify-center shadow-md opacity-0 pointer-events-none transition-all duration-300 translate-y-4" aria-label="Back to top"><i class="fa-solid fa-arrow-up text-sm"></i></button>
 
-<!-- ═══════════════════════════════════════════════════════════════════════════
-     16 ▸ MODAL SHELL
-     ═══════════════════════════════════════════════════════════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     16 â–¸ MODAL SHELL
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <div id="generic-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/40 backdrop-blur-sm">
   <div class="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-white rounded-2xl shadow-2xl p-6 sm:p-8">
     <button id="modal-close-btn" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 text-slate-500 hover:text-slate-700 flex items-center justify-center transition"><i class="fa-solid fa-xmark"></i></button>
@@ -661,9 +576,9 @@
 </div>
 <div id="toast-container" class="fixed bottom-6 left-6 z-50 flex flex-col gap-2.5 pointer-events-none"></div>
 
-<!-- ═══════════════════════════════════════════════════════════════════════════
-     17 ▸ SCRIPTS
-     ═══════════════════════════════════════════════════════════════════════ -->
+<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     17 â–¸ SCRIPTS
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
@@ -672,6 +587,3 @@
 <script src="/js/client-app.js"></script>
 </body>
 </html>
-
-
-

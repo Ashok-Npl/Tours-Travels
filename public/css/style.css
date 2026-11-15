@@ -1,8 +1,8 @@
-/* ==========================================================================
-   Veron Crest Tours & Travels — Premium Warm Light Theme
+﻿/* ==========================================================================
+   Veron Crest Tours & Travels â€” Premium Warm Light Theme
    ========================================================================== */
 
-/* ── Base ─────────────────────────────────────────────────────────────────── */
+/* â”€â”€ Base â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -22,7 +22,7 @@ body {
   background: #ffffff;
 }
 
-/* ── Scroll progress and reveal polish ───────────────────────────────────── */
+/* â”€â”€ Scroll progress and reveal polish â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .scroll-progress {
   position: fixed;
   inset: 0 0 auto;
@@ -110,18 +110,18 @@ body {
   color: #fff;
 }
 
-/* ── Utility fonts ────────────────────────────────────────────────────────── */
+/* â”€â”€ Utility fonts â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .font-serif-luxury {
   font-family: 'Playfair Display', Georgia, Cambria, 'Times New Roman', serif;
 }
 
-/* ── Custom scrollbar ─────────────────────────────────────────────────────── */
+/* â”€â”€ Custom scrollbar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: #f8fafc; }
 ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 99px; }
 ::-webkit-scrollbar-thumb:hover { background: #e07a2f; }
 
-/* ── Glassmorphic nav ─────────────────────────────────────────────────────── */
+/* â”€â”€ Glassmorphic nav â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .glass-nav {
   background: rgba(255,255,255,0.82);
   backdrop-filter: blur(18px);
@@ -133,7 +133,7 @@ body {
   background: rgba(255,255,255,0.94);
 }
 
-/* ── Hero section ─────────────────────────────────────────────────────────── */
+/* â”€â”€ Hero section â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .hero-section {
   position: relative;
   overflow: visible;
@@ -258,7 +258,7 @@ body {
   );
 }
 
-/* ── Card hover zoom ──────────────────────────────────────────────────────── */
+/* â”€â”€ Card hover zoom â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .card-zoom img {
   transition: transform 0.65s cubic-bezier(0.16,1,0.3,1);
 }
@@ -266,7 +266,7 @@ body {
   transform: scale(1.07);
 }
 
-/* ── Shimmer button ───────────────────────────────────────────────────────── */
+/* â”€â”€ Shimmer button â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .btn-shimmer {
   position: relative;
   overflow: hidden;
@@ -285,7 +285,7 @@ body {
   transform: rotate(30deg) translateX(120%);
 }
 
-/* ── Active nav indicator ─────────────────────────────────────────────────── */
+/* â”€â”€ Active nav indicator â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .nav-link {
   position: relative;
 }
@@ -306,7 +306,7 @@ body {
   left: 0;
 }
 
-/* ── Swiper overrides ─────────────────────────────────────────────────────── */
+/* â”€â”€ Swiper overrides â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .swiper-pagination-bullet {
   background: #cbd5e1 !important;
   opacity: 0.6;
@@ -321,7 +321,7 @@ body {
   border-radius: 4px !important;
 }
 
-/* ── FAQ accordion ────────────────────────────────────────────────────────── */
+/* â”€â”€ FAQ accordion â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .faq-answer {
   max-height: 0;
   overflow: hidden;
@@ -335,7 +335,7 @@ body {
   transform: rotate(180deg);
 }
 
-/* ── Soft rounded cards used everywhere ───────────────────────────────────── */
+/* â”€â”€ Soft rounded cards used everywhere â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .soft-card {
   background: #ffffff;
   border: 1px solid #f1f5f9;
@@ -362,7 +362,7 @@ body {
   }
 }
 
-/* ── Coastal editorial art direction ────────────────────────────────────── */
+/* â”€â”€ Coastal editorial art direction â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 :root {
     --ink: #102a36;
     --muted-ink: #60737a;
@@ -735,7 +735,7 @@ body {
     .special-offer-stamp { top: 1rem; right: 1rem; }
   }
 
-  /* ── Final homepage hero layout ─────────────────────────────────────────── */
+  /* â”€â”€ Final homepage hero layout â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   .hero-section {
     min-height: 570px;
     overflow: visible;
@@ -1037,7 +1037,7 @@ body {
     .home-trust-strip { padding-top: 2.5rem !important; }
   }
 
-/* ── Section divider wave (top of light sections) ─────────────────────────── */
+/* â”€â”€ Section divider wave (top of light sections) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .section-wave {
   position: absolute;
   top: -1px;
@@ -1052,17 +1052,17 @@ body {
   height: 48px;
 }
 
-/* ── Pill tag badges ──────────────────────────────────────────────────────── */
+/* â”€â”€ Pill tag badges â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .pill { border-radius: 9999px; }
 
-/* ── No-scrollbar utility ─────────────────────────────────────────────────── */
+/* â”€â”€ No-scrollbar utility â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-/* ── Price tag accent ─────────────────────────────────────────────────────── */
+/* â”€â”€ Price tag accent â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .price-accent { color: #0d9488; }
 
-/* ── Toast animation helper ───────────────────────────────────────────────── */
+/* â”€â”€ Toast animation helper â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .toast-enter {
   transform: translateY(12px);
   opacity: 0;
@@ -1073,7 +1073,7 @@ body {
   opacity: 1;
 }
 
-/* ── Secondary page system ──────────────────────────────────────────────── */
+/* â”€â”€ Secondary page system â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .page-shell { width: min(1300px, calc(100% - 2rem)); margin: 0 auto; }
 .nav-shell { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
 .brand-lockup { display: inline-flex; align-items: center; color: var(--ink); }
@@ -1083,10 +1083,11 @@ body {
 .brand-lockup small { display: block; margin-top: .18rem; color: #849198; font-size: .53rem; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; }
 .brand-mark { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 12px; color: #fff; background: var(--coral); box-shadow: 0 7px 16px rgba(217,111,67,.2); transform: rotate(-8deg); }
 .brand-mark i { transform: rotate(8deg); }
-.page-nav { display: flex; align-items: center; gap: 1.35rem; font-size: .78rem; font-weight: 700; }
+.page-nav { display: flex; align-items: center; gap: 1.4rem; font-size: .9rem; font-weight: 700; }
 .page-nav a { color: var(--muted-ink); transition: color .2s ease; }
 .page-nav a:hover, .page-nav a.is-current { color: var(--coral); }
 .page-cta, .page-button { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; color: #fff; background: var(--coral); border-radius: 999px; padding: .8rem 1.25rem; font-size: .76rem; font-weight: 800; box-shadow: 0 8px 18px rgba(217,111,67,.18); transition: transform .2s ease, background .2s ease; }
+.page-cta { padding: .85rem 1.35rem; font-size: .86rem; }
 .page-cta:hover, .page-button:hover { color: #fff; background: #b95732; transform: translateY(-2px); }
 
 .booking-hero { background: linear-gradient(120deg, #f1e8dc 0%, #f8f4ee 55%, #e4efeb 100%); overflow: hidden; }
@@ -1160,7 +1161,7 @@ body {
   .booking-form input, .booking-form select, .booking-form textarea { font-size: .75rem; }
 }
 
-/* ── Homepage hero composition ─────────────────────────────────────────── */
+/* â”€â”€ Homepage hero composition â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .hero-section {
   min-height: 600px;
   overflow: visible;
@@ -1404,7 +1405,7 @@ body {
 .page-button-light { color: var(--ink); background: #edf3ef; }
 .page-button-light:hover { color: #fff; background: var(--teal-deep); }
 
-/* ── Standalone package details ─────────────────────────────────────────── */
+/* â”€â”€ Standalone package details â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .package-detail-page { color: var(--ink); background: #f7f5f0; }
 .package-detail-hero { padding: 2rem 0 5.5rem; color: #fff; background: var(--ink); }
 .package-back-link { display: inline-flex; align-items: center; gap: .5rem; color: rgba(255,255,255,.72); font-size: .72rem; font-weight: 800; }
@@ -1543,7 +1544,7 @@ body {
   .brand-logo { width: min(230px, 58vw); height: 58px; }
   .nav-shell .page-cta { padding: .65rem .8rem; font-size: .68rem; }
   .page-nav { display: none; }
-  .nav-shell .page-cta { display: inline-flex; }
+  .nav-shell .page-cta { display: none; }
   #mobile-menu-btn { display: block; }
   #mobile-menu-drawer {
     display: none;
@@ -1560,7 +1561,7 @@ body {
 }
 
 
-/* ── About Page Hero with 6rem left padding and image overlap ────────────── */
+/* â”€â”€ About Page Hero with 6rem left padding and image overlap â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .about-hero {
   min-height: calc(100svh - 76px);
   padding: 2.5rem 0 3.5rem;
@@ -1632,6 +1633,76 @@ body {
   max-height: 620px;
   object-fit: contain;
   pointer-events: none;
+}
+
+/* Refined light footer layout */
+.site-footer {
+  padding: 4rem 0 1.25rem;
+  color: #5e6e70;
+  background: #f7f5f0;
+  border-top: 1px solid #ece8df;
+}
+
+.site-footer-main {
+  display: grid;
+  grid-template-columns: minmax(240px, 1.05fr) minmax(300px, 1.2fr) minmax(250px, .95fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  padding-bottom: 3rem;
+}
+
+.site-footer-brand { max-width: 440px; }
+.site-footer-logo { display: block; width: min(100%, 350px); min-height: 0; padding: 0; border: 0; background: transparent; box-shadow: none; }
+.site-footer-logo img { display: block; width: 100%; height: auto; max-height: none; }
+.site-footer-brand p { margin: 1rem 0; color: #687779; font-size: .92rem; line-height: 1.8; }
+.site-footer-contact-link { color: #c85f37; font-size: .9rem; }
+.site-footer-contact-link:hover { color: #9f4827; }
+
+.site-footer-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.site-footer-column { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; padding-top: .4rem; }
+.site-footer-column h2 { margin-bottom: .45rem; color: #173944; font-size: 1.2rem; }
+.site-footer-column a { color: #5e6e70; font-size: .9rem; line-height: 1.5; }
+.site-footer-column a:hover { color: #c85f37; }
+.site-footer-contact p { margin: -.2rem 0 .35rem; color: #687779; font-size: .88rem; line-height: 1.7; }
+.site-footer-contact a { display: inline-flex; align-items: flex-start; gap: .65rem; font-size: .9rem; }
+.site-footer-contact a i { color: #c85f37; }
+
+.site-footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid #e2ddd3;
+  border-top-color: #e2ddd3;
+  color: #718083;
+  font-size: .78rem;
+}
+
+.site-footer-tagline { display: inline-flex; align-items: center; gap: .55rem; color: #718083; }
+.site-footer-tagline i { width: 3px; height: 3px; border-radius: 50%; background: #c85f37; }
+.site-footer-top { display: inline-flex; align-items: center; gap: .45rem; }
+.site-footer-tagline i { background: #c85f37; }
+.site-footer-top { color: #173944; font-size: .84rem; }
+.site-footer-top:hover { color: #c85f37; }
+
+@media (max-width: 900px) {
+  .site-footer-main { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); }
+  .site-footer-contact { grid-column: 1 / -1; }
+}
+
+@media (max-width: 600px) {
+  .site-footer { padding-top: 3rem; }
+  .site-footer-main { grid-template-columns: 1fr; gap: 2.25rem; }
+  .site-footer-brand, .site-footer-contact { grid-column: auto; }
+  .site-footer-logo { width: min(100%, 340px); }
+  .site-footer-links { gap: 1rem; }
+  .site-footer-column { gap: .85rem; }
+  .site-footer-bottom { align-items: flex-start; }
 }
 
 @media (max-width: 1024px) {

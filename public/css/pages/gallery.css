@@ -850,3 +850,89 @@
     width: 100%;
   }
 }
+
+/* Editorial page shell shared with destinations and packages. */
+.gallery-page-hero {
+  padding: clamp(5rem, 10vw, 8rem) 0 6rem;
+  background: var(--sand);
+}
+
+.gallery-page-hero-grid {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.gallery-page-hero h1 {
+  margin: .8rem 0 1.4rem;
+  color: var(--ink);
+  font: 800 clamp(3.2rem, 7vw, 6.4rem)/.95 'Playfair Display', serif;
+  letter-spacing: -.05em;
+}
+
+.gallery-page-hero h1 em {
+  color: var(--coral);
+  font-weight: 600;
+}
+
+.gallery-page-hero p {
+  max-width: 560px;
+  color: var(--muted-ink);
+  line-height: 1.8;
+}
+
+.gallery-page-hero-stat {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem 1.6rem;
+  border-left: 1px solid rgba(16, 42, 54, .18);
+  color: var(--muted-ink);
+  font-size: .68rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.gallery-page-hero-stat strong {
+  color: var(--ink);
+  font: 700 4rem/1 'Playfair Display', serif;
+}
+
+.gallery-page .gallery-main-section { padding: 5rem 0 8rem; }
+.gallery-page .gallery-main-toolbar h2 { color: var(--ink); letter-spacing: -.035em; }
+.gallery-page .gallery-filter-btn { border-color: #e4e9e5; background: #f7f9f7; }
+.gallery-page .gallery-filter-btn:hover,
+.gallery-page .gallery-filter-btn.is-active { border-color: var(--coral); background: var(--coral); color: #fff; }
+.gallery-page .gallery-card { border-radius: 1rem; box-shadow: 0 8px 26px rgba(16, 42, 54, .06); }
+
+.gallery-page-cta {
+  padding: 5rem 0;
+  background: #eaf2ef;
+}
+
+.gallery-page-cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.gallery-page-cta h2 {
+  margin: .65rem 0 0;
+  color: var(--ink);
+  font: 700 clamp(2rem, 4vw, 3.3rem)/1.05 'Playfair Display', serif;
+  letter-spacing: -.035em;
+}
+
+.gallery-page-cta h2 em { color: var(--coral); font-weight: 600; }
+.gallery-page-cta p { max-width: 480px; margin-top: .8rem; color: var(--muted-ink); font-size: .9rem; }
+.gallery-page-cta-actions { display: flex; flex-wrap: wrap; gap: .7rem; }
+
+@media (max-width: 850px) {
+  .gallery-page-hero-grid,
+  .gallery-page-cta-inner { align-items: flex-start; flex-direction: column; }
+  .gallery-page-hero-stat { margin-top: 1rem; }
+}

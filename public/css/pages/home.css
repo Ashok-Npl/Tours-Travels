@@ -1,8 +1,34 @@
-/* Home page-specific styles. Shared primitives live in ../style.css. */
+﻿/* Home page-specific styles. Shared primitives live in ../style.css. */
 .home-page .hero-section {
   min-height: 560px;
 }
 
 .home-page .page-shell {
   width: min(1240px, calc(100% - 2rem));
+}
+
+/* Keep the floating planner clear of the endorsement strip. */
+.home-page .hero-section .home-planner {
+  bottom: -104px;
+  transform: none !important;
+}
+
+.home-page .hero-planner-spacer {
+  min-height: 240px;
+}
+
+@media (max-width: 640px) {
+  .home-page .hero-section .home-planner {
+    position: relative !important;
+    inset: auto !important;
+    width: 100%;
+    margin-top: -1.25rem;
+    padding-inline: .75rem;
+    transform: none !important;
+  }
+
+  .home-page .hero-planner-spacer {
+    min-height: 0;
+    height: 0;
+  }
 }

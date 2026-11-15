@@ -22,28 +22,9 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/tailwind.css" />
   <link rel="stylesheet" href="/css/pages/gallery.css" />
 
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary:   { 50:'#fef7ed', 100:'#fdecd6', 200:'#f9d5ab', 300:'#f5b876', 400:'#f0933e', 500:'#e07a2f', 600:'#cc5f1a', 700:'#a94718', 800:'#873a1b', 900:'#703219' },
-            teal:      { 50:'#f0fdfa', 100:'#ccfbf1', 200:'#99f6e4', 300:'#5eead4', 400:'#2dd4bf', 500:'#14b8a6', 600:'#0d9488', 700:'#0f766e', 800:'#115e59', 900:'#134e4a' },
-            sand:      { 50:'#fdfcfb', 100:'#faf6f1', 200:'#f3ece2', 300:'#e8ddd0', 400:'#d6c8b5', 500:'#bfac95' },
-            slate:     { 50:'#f8fafc', 100:'#f1f5f9', 200:'#e2e8f0', 300:'#cbd5e1', 400:'#94a3b8', 500:'#64748b', 600:'#475569', 700:'#334155', 800:'#1e293b', 900:'#0f172a' }
-          },
-          fontFamily: {
-            sans:  ['"Plus Jakarta Sans"','system-ui','sans-serif'],
-            serif: ['"Playfair Display"','Georgia','serif']
-          }
-        }
-      }
-    }
-  </script>
 </head>
 
 <body class="gallery-page bg-white text-slate-800 antialiased overflow-x-hidden">
@@ -54,39 +35,20 @@
 <%- include('partials/navbar', { activePage: activePage }) %>
 
 <!-- ═══════════════════════ GALLERY HERO ═══════════════════════ -->
-<section class="gallery-hero-section relative overflow-hidden">
-  <div class="gallery-hero-bg">
-    <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1920&q=85" alt="Aerial view of tropical destination" class="w-full h-full object-cover">
-    <div class="gallery-hero-overlay"></div>
-  </div>
-  <div class="relative z-10 max-w-7xl mx-auto px-4 py-24 sm:py-36 text-center text-white">
-    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-xs font-bold uppercase tracking-widest mb-6" data-aos="fade-up">
-      <i class="fa-solid fa-camera text-primary-300"></i> Visual Journey
+<section class="gallery-page-hero">
+  <div class="page-shell gallery-page-hero-grid">
+    <div>
+      <span class="eyebrow">Moments worth keeping</span>
+      <h1>Places we’ve<br><em>come to know.</em></h1>
+      <p>Over 2,400 photographs from the places, people and small moments that make a journey memorable.</p>
     </div>
-    <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-black leading-tight mb-6" data-aos="fade-up" data-aos-delay="80">
-      Our Travel<br><em class="gallery-hero-accent">Gallery</em>
-    </h1>
-    <p class="text-white/80 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed" data-aos="fade-up" data-aos-delay="160">
-      Over 2,400 breathtaking moments captured across 48 countries. Every frame is an invitation to your next adventure.
-    </p>
-    <div class="flex items-center justify-center gap-6 text-sm text-white/70" data-aos="fade-up" data-aos-delay="240">
-      <span class="flex items-center gap-2"><i class="fa-solid fa-images text-primary-300"></i> 2,400+ Photos</span>
-      <span class="w-1 h-1 rounded-full bg-white/40"></span>
-      <span class="flex items-center gap-2"><i class="fa-solid fa-earth-americas text-teal-300"></i> 120+ Destinations</span>
-      <span class="w-1 h-1 rounded-full bg-white/40"></span>
-      <span class="flex items-center gap-2"><i class="fa-solid fa-flag text-primary-300"></i> 48 Countries</span>
-    </div>
-  </div>
-  <!-- Scroll indicator -->
-  <div class="gallery-scroll-hint absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60 text-xs flex flex-col items-center gap-2">
-    <span>Scroll to explore</span>
-    <span class="gallery-scroll-dot"></span>
+    <div class="gallery-page-hero-stat"><strong>48</strong><span>countries<br>in our collection</span></div>
   </div>
 </section>
 
 <!-- ═══════════════════════ GALLERY MAIN ═══════════════════════ -->
 <section class="gallery-main-section py-16 sm:py-20 bg-white">
-  <div class="max-w-7xl mx-auto px-4">
+  <div class="page-shell">
 
     <!-- Toolbar: title + search -->
     <div class="gallery-main-toolbar">
@@ -136,28 +98,16 @@
 </section>
 
 <!-- ═══════════════════════ GALLERY CTA ═══════════════════════ -->
-<section class="gallery-cta-section">
-  <div class="gallery-cta-bg">
-    <img src="https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&w=1920&q=85" alt="Mountain landscape at sunset" loading="lazy">
-    <div class="gallery-cta-overlay"></div>
-  </div>
-  <div class="relative z-10 max-w-4xl mx-auto px-4 py-24 sm:py-32 text-center text-white">
-    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-xs font-bold uppercase tracking-widest mb-6" data-aos="fade-up">
-      <i class="fa-solid fa-sparkles text-yellow-300"></i>Your Story Awaits
-    </span>
-    <h2 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-black leading-tight mb-6" data-aos="fade-up" data-aos-delay="80">
-      Ready to Create<br><em class="text-primary-300">Your Own Moments?</em>
-    </h2>
-    <p class="text-white/80 text-base sm:text-lg max-w-xl mx-auto mb-10 leading-relaxed" data-aos="fade-up" data-aos-delay="160">
-      Let our destination specialists craft a bespoke itinerary that becomes your personal collection of unforgettable memories.
-    </p>
-    <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="240">
-      <a href="/book" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-sm">
-        <i class="fa-solid fa-paper-plane"></i>Start Planning My Trip
-      </a>
-      <a href="/packages" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/15 backdrop-blur-md border border-white/30 hover:bg-white/25 text-white font-bold rounded-xl transition-all duration-300 text-sm">
-        <i class="fa-solid fa-suitcase-rolling"></i>Browse Packages
-      </a>
+<section class="gallery-page-cta">
+  <div class="page-shell gallery-page-cta-inner">
+    <div>
+      <span class="eyebrow">Your story awaits</span>
+      <h2>Make your own<br><em>memorable moments.</em></h2>
+      <p>Tell our travel designers what inspires you, and we’ll shape a journey around it.</p>
+    </div>
+    <div class="gallery-page-cta-actions">
+      <a href="/book" class="page-button">Start planning <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="/packages" class="page-button page-button-light">Browse packages</a>
     </div>
   </div>
 </section>

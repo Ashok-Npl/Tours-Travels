@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@source "../../views/**/*.ejs";
+@source "../../public/js/**/*.js";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+
+  --animate-spin-slow: spin 18s linear infinite;
+
+  --color-primary-50: #fef7ed;
+  --color-primary-100: #fdecd6;
+  --color-primary-200: #f9d5ab;
+  --color-primary-300: #f5b876;
+  --color-primary-400: #f0933e;
+  --color-primary-500: #e07a2f;
+  --color-primary-600: #cc5f1a;
+  --color-primary-700: #a94718;
+  --color-primary-800: #873a1b;
+  --color-primary-900: #703219;
+
+  --color-teal-50: #f0fdfa;
+  --color-teal-100: #ccfbf1;
+  --color-teal-200: #99f6e4;
+  --color-teal-300: #5eead4;
+  --color-teal-400: #2dd4bf;
+  --color-teal-500: #14b8a6;
+  --color-teal-600: #0d9488;
+  --color-teal-700: #0f766e;
+  --color-teal-800: #115e59;
+  --color-teal-900: #134e4a;
+
+  --color-sand-50: #fdfcfb;
+  --color-sand-100: #faf6f1;
+  --color-sand-200: #f3ece2;
+  --color-sand-300: #e8ddd0;
+  --color-sand-400: #d6c8b5;
+  --color-sand-500: #bfac95;
+
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+}
