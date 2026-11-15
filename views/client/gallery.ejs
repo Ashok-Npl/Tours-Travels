@@ -6,7 +6,7 @@
 
   <!-- SEO Meta -->
   <title>Travel Gallery | Veron Crest — Breathtaking Destinations Worldwide</title>
-  <meta name="description" content="Explore our curated travel gallery showcasing breathtaking photography from 120+ destinations worldwide. From Arctic auroras to tropical beaches and cultural wonders." />
+  <meta name="description" content="Explore sample travel photography from Nepal and outbound destinations." />
   <meta name="robots" content="index, follow" />
 
   <!-- Fonts -->
@@ -38,11 +38,11 @@
 <section class="gallery-page-hero">
   <div class="page-shell gallery-page-hero-grid">
     <div>
-      <span class="eyebrow">Moments worth keeping</span>
+      <span class="eyebrow">Nepal and beyond</span>
       <h1>Places we’ve<br><em>come to know.</em></h1>
-      <p>Over 2,400 photographs from the places, people and small moments that make a journey memorable.</p>
+      <p>Sample scenes from Nepal and outbound destinations to help you imagine your next journey.</p>
     </div>
-    <div class="gallery-page-hero-stat"><strong>48</strong><span>countries<br>in our collection</span></div>
+    <div class="gallery-page-hero-stat"><strong>Nepal</strong><span>local journeys<br>and global ideas</span></div>
   </div>
 </section>
 
@@ -54,7 +54,7 @@
     <div class="gallery-main-toolbar">
       <div>
         <span class="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest text-primary-500 mb-1"><span class="w-2 h-2 rounded-full bg-primary-400 animate-pulse"></span>Browse Collection</span>
-        <h2 class="font-serif text-3xl sm:text-4xl font-black text-slate-800">Discover Our World</h2>
+        <h2 class="font-serif text-3xl sm:text-4xl font-black text-slate-800">Nepal, in every direction</h2>
       </div>
       <div class="gallery-search-box">
         <i class="fa-solid fa-magnifying-glass text-slate-400 text-sm"></i>
@@ -65,6 +65,7 @@
     <!-- Filter tabs -->
     <div class="gallery-filter-row">
       <button class="gallery-filter-btn is-active" data-cat="All"><i class="fa-solid fa-globe mr-1.5"></i>All</button>
+      <button class="gallery-filter-btn" data-cat="Nepal"><i class="fa-solid fa-mountain mr-1.5"></i>Nepal</button>
       <button class="gallery-filter-btn" data-cat="Europe"><i class="fa-solid fa-landmark mr-1.5"></i>Europe</button>
       <button class="gallery-filter-btn" data-cat="Asia"><i class="fa-solid fa-torii-gate mr-1.5"></i>Asia</button>
       <button class="gallery-filter-btn" data-cat="Africa"><i class="fa-solid fa-paw mr-1.5"></i>Africa</button>
@@ -135,7 +136,7 @@
 </div>
 
 <!-- Floating utilities -->
-<a href="https://wa.me/18009263375" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-40 w-14 h-14 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full flex items-center justify-center text-2xl shadow-lg shadow-emerald-300/30 transition transform hover:scale-110 group" aria-label="WhatsApp">
+<a href="/contact" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-40 w-14 h-14 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full flex items-center justify-center text-2xl shadow-lg shadow-emerald-300/30 transition transform hover:scale-110 group" aria-label="Contact us">
   <i class="fa-brands fa-whatsapp"></i>
 </a>
 <button id="back-to-top" class="fixed bottom-24 right-6 z-40 w-10 h-10 bg-white border border-slate-200 text-slate-500 hover:text-primary-500 rounded-full flex items-center justify-center shadow-md opacity-0 pointer-events-none transition-all duration-300 translate-y-4" aria-label="Back to top"><i class="fa-solid fa-arrow-up text-sm"></i></button>
@@ -149,9 +150,9 @@
 <script>
 // ── Gallery Data ───────────────────────────────────────────────
 const galleryItems = [
-  { id:1,  title:'Aegean Caldera Sunrise',      location:'Santorini, Greece',      cat:'Europe',    img:'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=1200&q=85', size:'tall' },
-  { id:2,  title:'Great Migration River Cross',  location:'Serengeti, Tanzania',    cat:'Africa',    img:'https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=85', size:'wide' },
-  { id:3,  title:'Emerald Rice Terraces',        location:'Ubud, Bali',             cat:'Tropical',  img:'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=85', size:'normal' },
+  { id:1,  title:'Kathmandu Valley Heritage',   location:'Kathmandu, Nepal',       cat:'Nepal',     img:'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=85', size:'tall' },
+  { id:2,  title:'Annapurna Mountain Views',    location:'Pokhara, Nepal',         cat:'Nepal',     img:'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=85', size:'wide' },
+  { id:3,  title:'Chitwan Nature Journey',      location:'Chitwan, Nepal',         cat:'Nepal',     img:'https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=85', size:'normal' },
   { id:4,  title:'Aurora Borealis Dance',        location:'Tromsø, Norway',         cat:'Arctic',    img:'https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=1200&q=85', size:'tall' },
   { id:5,  title:'Kyoto Autumn Temple',          location:'Kyoto, Japan',           cat:'Asia',      img:'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=85', size:'normal' },
   { id:6,  title:'Maldives Crystal Lagoon',      location:'North Malé Atoll',       cat:'Tropical',  img:'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=85', size:'wide' },

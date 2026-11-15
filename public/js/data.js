@@ -4,20 +4,96 @@
  */
 
 const travelData = {
-  // Available currency rates relative to USD
-  currencies: {
-    USD: { symbol: '$', rate: 1.00, label: 'USD ($)' },
-    EUR: { symbol: '€', rate: 0.92, label: 'EUR (€)' },
-    GBP: { symbol: '£', rate: 0.79, label: 'GBP (£)' },
-    AUD: { symbol: 'A$', rate: 1.53, label: 'AUD (A$)' },
-    INR: { symbol: '₹', rate: 83.50, label: 'INR (₹)' },
-    CAD: { symbol: 'C$', rate: 1.36, label: 'CAD (C$)' }
-  },
-
-  currentCurrency: 'USD',
+  currencies: window.TravelCurrency ? window.TravelCurrency.currencies : {},
+  currentCurrency: window.TravelCurrency ? window.TravelCurrency.getCurrency() : 'NPR',
 
   // Curated Destinations
   destinations: [
+    {
+      id: 'kathmandu-valley-nepal',
+      name: 'Kathmandu Valley Heritage',
+      country: 'Nepal',
+      region: 'Nepal',
+      badge: 'Culture & Heritage',
+      badgeColor: 'bg-amber-500 shadow-amber-500/30',
+      rating: 4.8,
+      reviewsCount: 24,
+      priceUSD: 320,
+      duration: '4 Days / 3 Nights',
+      weather: 'Mild valley climate',
+      bestSeason: 'Sep - May',
+      image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=80',
+      description: 'Explore Kathmandu, Patan and Bhaktapur through temple squares, old-city lanes, local food and living craft traditions.',
+      highlights: ['Kathmandu Durbar Square', 'Patan and Bhaktapur heritage walks', 'Boudhanath and Pashupatinath', 'Local guide and private transfers']
+    },
+    {
+      id: 'pokhara-nepal',
+      name: 'Pokhara & Phewa Lake',
+      country: 'Nepal',
+      region: 'Nepal',
+      badge: 'Lake & Mountains',
+      badgeColor: 'bg-teal-600 shadow-teal-600/30',
+      rating: 4.8,
+      reviewsCount: 18,
+      priceUSD: 420,
+      duration: '4 Days / 3 Nights',
+      weather: 'Pleasant lakeside climate',
+      bestSeason: 'Sep - May',
+      image: 'https://cms.altitudehimalaya.com/media/Activities/MultiDay-Tours/Short-Nepal-Tour-Package.jpeg',
+      description: 'Slow down beside Phewa Lake, visit hilltop viewpoints and enjoy an easy introduction to Nepal’s mountain scenery.',
+      highlights: ['Phewa Lake boat ride', 'Sarangkot sunrise viewpoint', 'World Peace Pagoda', 'Optional paragliding and day hikes']
+    },
+    {
+      id: 'annapurna-nepal',
+      name: 'Annapurna Foothills Trek',
+      country: 'Nepal',
+      region: 'Nepal',
+      badge: 'Trekking',
+      badgeColor: 'bg-indigo-500 shadow-indigo-500/30',
+      rating: 4.9,
+      reviewsCount: 31,
+      priceUSD: 1250,
+      duration: '9 Days / 8 Nights',
+      weather: 'Cool mountain conditions',
+      bestSeason: 'Mar - May & Sep - Nov',
+      image: '/assets/images/hero.png',
+      description: 'A sample guided trek through mountain villages and forest trails, with time to enjoy views of the Annapurna range.',
+      highlights: ['Licensed trekking guide', 'Village guesthouse stays', 'Daily walking stages planned to your pace', 'Route and permit support']
+    },
+    {
+      id: 'chitwan-nepal',
+      name: 'Chitwan Jungle & Wildlife',
+      country: 'Nepal',
+      region: 'Nepal',
+      badge: 'Wildlife',
+      badgeColor: 'bg-emerald-600 shadow-emerald-600/30',
+      rating: 4.8,
+      reviewsCount: 16,
+      priceUSD: 510,
+      duration: '3 Days / 2 Nights',
+      weather: 'Warm subtropical climate',
+      bestSeason: 'Oct - Mar',
+      image: 'https://images.unsplash.com/photo-1759755488069-4376a7fa6b95?auto=format&fit=crop&w=1200&q=80',
+      description: 'Spend time around Chitwan National Park with guided nature activities and a comfortable lodge stay.',
+      highlights: ['Guided park activities', 'Birdwatching and nature walks', 'Local Tharu culture', 'Lodge and ground transfers']
+    },
+    {
+      id: 'lumbini-nepal',
+      name: 'Lumbini & Sacred Gardens',
+      country: 'Nepal',
+      region: 'Nepal',
+      badge: 'Pilgrimage & Culture',
+      badgeColor: 'bg-rose-500 shadow-rose-500/30',
+      rating: 4.7,
+      reviewsCount: 12,
+      priceUSD: 390,
+      duration: '3 Days / 2 Nights',
+      weather: 'Warm plains climate',
+      bestSeason: 'Oct - Mar',
+      image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=80',
+      description: 'Visit the sacred garden, monasteries and archaeological sites of Lumbini with time for reflection and local context.',
+      highlights: ['Maya Devi Temple and sacred garden', 'Monastic zone visits', 'Local guide', 'Transfers from Bhairahawa']
+    },
     {
       id: 'santorini-greece',
       name: 'Santorini & Cyclades',
@@ -139,7 +215,7 @@ const travelData = {
     },
     {
       id: 'tromso-norway',
-      name: 'Tromsø & Lofoten Northern Lights',
+      name: 'TromsÃ¸ & Lofoten Northern Lights',
       country: 'Norway',
       region: 'Arctic',
       badge: 'Aurora Adventure',
@@ -158,6 +234,30 @@ const travelData = {
 
   // Detailed Curated Tour Packages
   packages: [
+    {
+      id: 'pkg-nepal-highlights',
+      title: 'Nepal Highlights: Kathmandu, Pokhara & Chitwan',
+      category: 'Culture, Nature & Wildlife',
+      region: 'Nepal',
+      duration: '8 Days / 7 Nights',
+      groupSize: 'Private or small group',
+      difficulty: 'Easy / Moderate',
+      rating: 4.8,
+      reviewsCount: 0,
+      originalPriceUSD: 1450,
+      currentPriceUSD: 1180,
+      featured: true,
+      badge: 'Sample Nepal Tour',
+      image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=80',
+      inclusions: ['Kathmandu Valley guided heritage visits', 'Pokhara lakeside stay and local transfers', 'Chitwan nature activities with a local guide', 'Accommodation and breakfast (sample)', 'Private transport between destinations'],
+      overview: 'A sample route combining Kathmandu Valley heritage, Pokhara mountain and lake scenery, and a wildlife stay in Chitwan. Adjust the pace, accommodation and activities to suit your travel dates.',
+      itinerary: [
+        { day: 'Day 1-2', title: 'Arrive in Kathmandu', desc: 'Settle in, explore the old city and visit selected heritage sites with a local guide.' },
+        { day: 'Day 3-4', title: 'Pokhara and Phewa Lake', desc: 'Travel to Pokhara for lakeside time, viewpoints and optional short walks.' },
+        { day: 'Day 5-6', title: 'Chitwan nature stay', desc: 'Enjoy guided nature activities and learn about local conservation.' },
+        { day: 'Day 7-8', title: 'Return to Kathmandu', desc: 'Travel back for a final evening and departure.' }
+      ]
+    },
     {
       id: 'pkg-mediterranean-odyssey',
       title: 'Grand Mediterranean Odyssey: Greece & Italy',
@@ -245,7 +345,7 @@ const travelData = {
       featured: false,
       badge: 'Adventure High',
       image: 'https://images.unsplash.com/photo-1527004013197-933c4bb611b3?auto=format&fit=crop&w=1200&q=80',
-      inclusions: ['Explora Torres del Paine Luxury Lodge', 'Crampon Ice Trekking on Perito Moreno Glacier', 'Private Catamaran Navigation on Lake Pehoé', 'All Mountain Guides & Safety Gear', 'Gourmet Patagonian Asado Wine Dinners'],
+      inclusions: ['Explora Torres del Paine Luxury Lodge', 'Crampon Ice Trekking on Perito Moreno Glacier', 'Private Catamaran Navigation on Lake PehoÃ©', 'All Mountain Guides & Safety Gear', 'Gourmet Patagonian Asado Wine Dinners'],
       overview: 'Hike among dramatic granite spires, witness thundering blue glacier calving, and discover the raw majesty at the very end of the Earth.',
       itinerary: [
         { day: 'Day 1-2', title: 'Buenos Aires to El Calafate', desc: 'Tango show welcome dinner, flight to Patagonia, artisanal craft brewery tour.' },
@@ -279,7 +379,7 @@ const travelData = {
     },
     {
       id: 'pkg-norway-northern-lights',
-      title: 'Arctic Aurora: Tromsø, Fjords & Glass Igloos',
+      title: 'Arctic Aurora: TromsÃ¸, Fjords & Glass Igloos',
       category: 'Polar & Winter',
       region: 'Arctic',
       duration: '7 Days / 6 Nights',
@@ -295,7 +395,7 @@ const travelData = {
       inclusions: ['Glass-Roof Igloo Cabin with Heated Floors', 'Professional Night Aurora Hunt Expeditions', 'Arctic Thermal Suits & Boots Provided', 'Husky Sledding & Sami Cultural Feast', 'Silent Hybrid Catamaran Fjord Cruise'],
       overview: 'Gaze into the green dancing skies from the comfort of a heated glass igloo, glide through silent snow forests, and immerse in authentic Sami Arctic culture.',
       itinerary: [
-        { day: 'Day 1-2', title: 'Arrival in Tromsø - Gateway to the Arctic', desc: 'Arctic Cathedral, Cable car ride over Tromsø island, evening aurora anticipation toast.' },
+        { day: 'Day 1-2', title: 'Arrival in TromsÃ¸ - Gateway to the Arctic', desc: 'Arctic Cathedral, Cable car ride over TromsÃ¸ island, evening aurora anticipation toast.' },
         { day: 'Day 3-4', title: 'Husky Musher Adventure & Glass Igloo Check-in', desc: 'Drive your own team of Alaskan huskies through powder snow, settle into your panoramic glass igloo.' },
         { day: 'Day 5-7', title: 'Reindeer Sledding & Fjord Cruise', desc: 'Hear ancient folk stories inside a traditional Lavvu tent, electric boat voyage into dramatic fjords.' }
       ]

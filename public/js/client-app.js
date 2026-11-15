@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* â”€â”€ State â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   const S = {
-    currency: 'USD',
+    currency: window.TravelCurrency ? window.TravelCurrency.getCurrency() : 'NPR',
     filter: 'All',
     keyword: '',
     budget: 5000,
@@ -22,16 +22,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const revWrap        = $('reviews-container');
   const blogWrap       = $('blog-container');
   const faqWrap        = $('faqs-container');
-  const currSel        = $('currency-selector');
-  const currSelM       = $('mobile-currency-selector');
   const nav            = $('main-nav');
   const topBtn         = $('back-to-top');
   const progressBar    = $('scroll-progress');
 
   /* â”€â”€ Helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   function fmtPrice(usd) {
-    const c = travelData.currencies[S.currency] || travelData.currencies.USD;
-    return `${c.symbol}${Math.round(usd * c.rate).toLocaleString()}`;
+    return window.TravelCurrency ? window.TravelCurrency.format(usd, S.currency) : `$${Math.round(usd).toLocaleString()}`;
   }
 
   /* â”€â”€ TOAST â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
@@ -57,8 +54,13 @@ document.addEventListener('DOMContentLoaded', () => {
      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
   function renderDest() {
     if (!destGrid) return;
-    let list = travelData.destinations;
-    if (S.filter!=='All') list = list.filter(d=>d.region.toLowerCase()===S.filter.toLowerCase());
+    const isHomeDestinations = document.body.classList.contains('home-page');
+    const featuredHomeIds = ['kathmandu-valley-nepal', 'annapurna-nepal', 'kyoto-japan'];
+    let list = isHomeDestinations
+      ? travelData.destinations.filter(d=>featuredHomeIds.includes(d.id))
+      : travelData.destinations;
+    if (S.filter === 'Outbound') list = list.filter(d=>d.region !== 'Nepal');
+    else if (S.filter!=='All') list = list.filter(d=>d.region.toLowerCase()===S.filter.toLowerCase());
     if (S.keyword.trim()) { const q=S.keyword.toLowerCase(); list=list.filter(d=>d.name.toLowerCase().includes(q)||d.country.toLowerCase().includes(q)||d.description.toLowerCase().includes(q)); }
     list = list.filter(d=>d.priceUSD<=S.budget);
 
@@ -70,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <p class="text-slate-400 text-sm max-w-md mx-auto mb-6">Try adjusting your filters or budget range.</p>
           <button id="reset-filters" class="px-6 py-2.5 bg-primary-500 hover:bg-primary-600 text-white font-bold rounded-xl transition text-sm">Reset Filters</button>
         </div>`;
-      $('reset-filters')?.addEventListener('click',()=>{ S.filter='All'; S.keyword=''; S.budget=5000; $$('.dest-filter-btn').forEach(b=>{b.classList.remove('bg-primary-500','text-white');b.classList.add('bg-slate-100','text-slate-600');}); document.querySelector('.dest-filter-btn[data-filter="All"]')?.classList.add('bg-primary-500','text-white'); const sl=$('budget-slider');if(sl)sl.value=5000; const bv=$('budget-val');if(bv)bv.textContent='$5,000+'; renderDest(); });
+      $('reset-filters')?.addEventListener('click',()=>{ S.filter='All'; S.keyword=''; S.budget=5000; $$('.dest-filter-btn').forEach(b=>{b.classList.remove('bg-primary-500','text-white');b.classList.add('bg-slate-100','text-slate-600');}); document.querySelector('.dest-filter-btn[data-filter="All"]')?.classList.add('bg-primary-500','text-white'); const sl=$('budget-slider');if(sl)sl.value=5000; const bv=$('budget-val');if(bv)bv.textContent=fmtPrice(5000)+'+'; renderDest(); });
       return;
     }
 
@@ -272,15 +274,13 @@ document.addEventListener('DOMContentLoaded', () => {
   /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
      CURRENCY
      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
-  function setCurr(c) { if(!travelData.currencies[c])return; S.currency=c; if(currSel)currSel.value=c; if(currSelM)currSelM.value=c; syncPrices(); reCalc(); toast(`Currency â†’ ${travelData.currencies[c].label}`,'info'); }
-  currSel?.addEventListener('change',e=>setCurr(e.target.value));
-  currSelM?.addEventListener('change',e=>setCurr(e.target.value));
+  window.addEventListener('currencychange', e => { S.currency = e.detail.currency; syncPrices(); });
 
   /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
      FILTER BUTTONS
      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
   $$('.dest-filter-btn').forEach(b=>b.addEventListener('click',()=>{
-    $$('.dest-filter-btn').forEach(x=>{x.classList.remove('bg-primary-500','text-white');x.classList.add('bg-slate-100','text-slate-600');});
+    $$('.dest-filter-btn').forEach(x=>{x.classList.remove('bg-primary-500','text-white');x.classList.add('bg-slate-100','text-slate-600');x.classList.toggle('active',x===b);});
     b.classList.add('bg-primary-500','text-white'); b.classList.remove('bg-slate-100','text-slate-600');
     S.filter=b.dataset.filter||'All'; renderDest();
   }));
@@ -306,7 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   pageDestInput?.addEventListener('input', e=>{S.keyword=e.target.value;renderDest();});
 
-  if(bSlider&&bVal){bSlider.addEventListener('input',e=>{S.budget=+e.target.value;bVal.textContent=`$${S.budget.toLocaleString()}+`;renderDest();});}
+  if(bSlider&&bVal){bVal.textContent=fmtPrice(S.budget)+'+';bSlider.addEventListener('input',e=>{S.budget=+e.target.value;bVal.textContent=fmtPrice(S.budget)+'+';renderDest();});}
   sBtn?.addEventListener('click',()=>{if(sInput)S.keyword=sInput.value;renderDest();$('destinations')?.scrollIntoView({behavior:'smooth'});toast(`Searching for "${S.keyword||'All'}"â€¦`,'info');});
 
   /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
@@ -409,7 +409,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
      NEWSLETTER
      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
-  $('newsletter-form')?.addEventListener('submit',e=>{e.preventDefault();const inp=e.target.querySelector('input[type="email"]');if(inp?.value){confettiBurst();toast('âœ¨ Welcome! $150 credit sent to your inbox.','success');inp.value='';}});
+  $('newsletter-form')?.addEventListener('submit',e=>{e.preventDefault();const inp=e.target.querySelector('input[type="email"]');if(inp?.value){confettiBurst();toast('Thanks for joining the travel updates list.','success');inp.value='';}});
 
   /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
      MOBILE MENU
@@ -465,7 +465,7 @@ document.addEventListener('DOMContentLoaded', () => {
      AOS INIT + FIRST PAINT
      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
   if(typeof AOS!=='undefined') AOS.init({duration:750,once:true,offset:70,easing:'ease-out-cubic'});
-  renderDest(); renderPkgs(); renderStyles(); renderRevs(); renderBlog(); renderFAQs(); reCalc();
+  renderDest(); renderPkgs(); renderStyles(); renderRevs(); renderBlog(); renderFAQs();
   if(typeof AOS!=='undefined') AOS.refreshHard();
 });
 

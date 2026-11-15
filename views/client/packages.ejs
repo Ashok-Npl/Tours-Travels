@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Luxury Tour Packages | Veron Crest</title>
-  <meta name="description" content="Explore Veron Crest signature small-group and private luxury tour packages.">
+  <title>Nepal & Outbound Tour Packages | Veron Crest</title>
+  <meta name="description" content="Browse sample Nepal tours and outbound holidays from Veron Crest Tours and Travels.">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="/css/style.css">
@@ -15,10 +15,10 @@
   <%- include('partials/navbar', { activePage: activePage }) %>
 
   <main>
-    <section class="packages-hero"><div class="page-shell packages-hero-grid"><div><span class="eyebrow">Curated ways to travel</span><h1>Go further.<br><em>Travel beautifully.</em></h1><p>Signature itineraries with the right balance of discovery, comfort and unhurried moments. Choose a starting point, then make it entirely yours.</p></div><div class="packages-hero-stat"><strong>6</strong><span>signature journeys<br>across the world</span></div></div></section>
+    <section class="packages-hero"><div class="page-shell packages-hero-grid"><div><span class="eyebrow">Nepal tours & outbound holidays</span><h1>Find your next<br><em>great journey.</em></h1><p>Browse sample trips in Nepal and beyond. Each itinerary can be adjusted for your dates, travel style and budget.</p></div><div class="packages-hero-stat"><strong>Custom</strong><span>inbound and outbound<br>travel planning</span></div></div></section>
     <section class="packages-directory"><div class="page-shell">
       <div class="packages-toolbar"><div><span class="eyebrow">The collection</span><h2>Find your next chapter.</h2></div><div class="packages-search"><i class="fa-solid fa-magnifying-glass"></i><input id="package-search" type="search" placeholder="Search packages" aria-label="Search tour packages"></div></div>
-      <div id="package-filters" class="packages-filters"><button class="package-filter is-active" data-filter="All">All journeys</button><button class="package-filter" data-filter="Europe">Europe</button><button class="package-filter" data-filter="Africa">Africa</button><button class="package-filter" data-filter="Asia">Asia</button><button class="package-filter" data-filter="Americas">Americas</button></div>
+      <div id="package-filters" class="packages-filters"><button class="package-filter is-active" data-filter="All">All journeys</button><button class="package-filter" data-filter="Nepal">Nepal</button><button class="package-filter" data-filter="Europe">Europe</button><button class="package-filter" data-filter="Africa">Africa</button><button class="package-filter" data-filter="Asia">Asia</button><button class="package-filter" data-filter="Americas">Americas</button></div>
       <div id="packages-grid" class="packages-grid"></div>
     </div></section>
     <section class="packages-cta"><div class="page-shell packages-cta-inner"><div><span class="eyebrow">Nothing off the shelf?</span><h2>We can make it bespoke.</h2><p>Tell us the feeling you are chasing and a destination designer will create the route around you.</p></div><a href="/book" class="page-button">Build my journey <i class="fa-solid fa-arrow-right"></i></a></div></section>
@@ -30,7 +30,8 @@
       var grid = document.getElementById('packages-grid');
       var search = document.getElementById('package-search');
       var active = 'All';
-      function money(value) { return '$' + value.toLocaleString(); }
+      function money(value) { return window.TravelCurrency ? window.TravelCurrency.format(value) : '$' + value.toLocaleString(); }
+      window.addEventListener('currencychange', render);
       function render() {
         var term = search.value.toLowerCase().trim();
         var list = travelData.packages.filter(function (item) {
@@ -39,7 +40,7 @@
           return matchesRegion && matchesSearch;
         });
         grid.innerHTML = list.length ? list.map(function (item) {
-          return '<article class="package-page-card"><div class="package-page-image"><img src="' + item.image + '" alt="' + item.title + '" loading="lazy"><span>' + item.badge + '</span></div><div class="package-page-content"><div class="package-page-meta"><span>' + item.category + '</span><span><i class="fa-solid fa-star"></i> ' + item.rating + '</span></div><h3>' + item.title + '</h3><p>' + item.overview + '</p><div class="package-page-facts"><span><i class="fa-solid fa-clock"></i>' + item.duration + '</span><span><i class="fa-solid fa-users"></i>' + item.groupSize + '</span></div><div class="package-page-footer"><div><small>From</small><strong>' + money(item.currentPriceUSD) + '</strong><del>' + money(item.originalPriceUSD) + '</del><small>/ person</small></div><div class="package-page-actions"><a href="/package-details?id=' + encodeURIComponent(item.id) + '" class="page-button page-button-light">View details <i class="fa-solid fa-arrow-right"></i></a><a href="/book?journey=' + encodeURIComponent(item.title) + '" class="page-button">Book this journey <i class="fa-solid fa-arrow-right"></i></a></div></div></div></article>';
+          return '<article class="package-page-card"><div class="package-page-image"><img src="' + item.image + '" alt="' + item.title + '" loading="lazy"><span>' + item.badge + '</span></div><div class="package-page-content"><div class="package-page-meta"><span>' + item.category + '</span><span><i class="fa-solid fa-star"></i> ' + item.rating + '</span></div><h3>' + item.title + '</h3><p>' + item.overview + '</p><div class="package-page-facts"><span><i class="fa-solid fa-clock"></i>' + item.duration + '</span><span><i class="fa-solid fa-users"></i>' + item.groupSize + '</span></div><div class="package-page-footer"><div><small>From</small><strong data-price-usd="' + item.currentPriceUSD + '">' + money(item.currentPriceUSD) + '</strong><del data-price-usd="' + item.originalPriceUSD + '">' + money(item.originalPriceUSD) + '</del><small>/ person</small></div><div class="package-page-actions"><a href="/package-details?id=' + encodeURIComponent(item.id) + '" class="page-button page-button-light">View details <i class="fa-solid fa-arrow-right"></i></a><a href="/book?journey=' + encodeURIComponent(item.title) + '" class="page-button">Book this journey <i class="fa-solid fa-arrow-right"></i></a></div></div></div></article>';
         }).join('') : '<div class="packages-empty"><i class="fa-solid fa-compass"></i><h3>No journeys found</h3><p>Try another region or search term.</p></div>';
       }
       document.querySelectorAll('.package-filter').forEach(function (button) { button.addEventListener('click', function () { active = button.dataset.filter; document.querySelectorAll('.package-filter').forEach(function (item) { item.classList.toggle('is-active', item === button); }); render(); }); });
