@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO Meta -->
+  <title>Travel Gallery | Veron Crest — Breathtaking Destinations Worldwide</title>
+  <meta name="description" content="Explore our curated travel gallery showcasing breathtaking photography from 120+ destinations worldwide. From Arctic auroras to tropical beaches and cultural wonders." />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- AOS CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/pages/gallery.css" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary:   { 50:'#fef7ed', 100:'#fdecd6', 200:'#f9d5ab', 300:'#f5b876', 400:'#f0933e', 500:'#e07a2f', 600:'#cc5f1a', 700:'#a94718', 800:'#873a1b', 900:'#703219' },
+            teal:      { 50:'#f0fdfa', 100:'#ccfbf1', 200:'#99f6e4', 300:'#5eead4', 400:'#2dd4bf', 500:'#14b8a6', 600:'#0d9488', 700:'#0f766e', 800:'#115e59', 900:'#134e4a' },
+            sand:      { 50:'#fdfcfb', 100:'#faf6f1', 200:'#f3ece2', 300:'#e8ddd0', 400:'#d6c8b5', 500:'#bfac95' },
+            slate:     { 50:'#f8fafc', 100:'#f1f5f9', 200:'#e2e8f0', 300:'#cbd5e1', 400:'#94a3b8', 500:'#64748b', 600:'#475569', 700:'#334155', 800:'#1e293b', 900:'#0f172a' }
+          },
+          fontFamily: {
+            sans:  ['"Plus Jakarta Sans"','system-ui','sans-serif'],
+            serif: ['"Playfair Display"','Georgia','serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="gallery-page bg-white text-slate-800 antialiased overflow-x-hidden">
+
+<div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+<!-- Navbar -->
+<%- include('partials/navbar', { activePage: activePage }) %>
+
+<!-- ═══════════════════════ GALLERY HERO ═══════════════════════ -->
+<section class="gallery-hero-section relative overflow-hidden">
+  <div class="gallery-hero-bg">
+    <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1920&q=85" alt="Aerial view of tropical destination" class="w-full h-full object-cover">
+    <div class="gallery-hero-overlay"></div>
+  </div>
+  <div class="relative z-10 max-w-7xl mx-auto px-4 py-24 sm:py-36 text-center text-white">
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-xs font-bold uppercase tracking-widest mb-6" data-aos="fade-up">
+      <i class="fa-solid fa-camera text-primary-300"></i> Visual Journey
+    </div>
+    <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-black leading-tight mb-6" data-aos="fade-up" data-aos-delay="80">
+      Our Travel<br><em class="gallery-hero-accent">Gallery</em>
+    </h1>
+    <p class="text-white/80 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed" data-aos="fade-up" data-aos-delay="160">
+      Over 2,400 breathtaking moments captured across 48 countries. Every frame is an invitation to your next adventure.
+    </p>
+    <div class="flex items-center justify-center gap-6 text-sm text-white/70" data-aos="fade-up" data-aos-delay="240">
+      <span class="flex items-center gap-2"><i class="fa-solid fa-images text-primary-300"></i> 2,400+ Photos</span>
+      <span class="w-1 h-1 rounded-full bg-white/40"></span>
+      <span class="flex items-center gap-2"><i class="fa-solid fa-earth-americas text-teal-300"></i> 120+ Destinations</span>
+      <span class="w-1 h-1 rounded-full bg-white/40"></span>
+      <span class="flex items-center gap-2"><i class="fa-solid fa-flag text-primary-300"></i> 48 Countries</span>
+    </div>
+  </div>
+  <!-- Scroll indicator -->
+  <div class="gallery-scroll-hint absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60 text-xs flex flex-col items-center gap-2">
+    <span>Scroll to explore</span>
+    <span class="gallery-scroll-dot"></span>
+  </div>
+</section>
+
+<!-- ═══════════════════════ GALLERY MAIN ═══════════════════════ -->
+<section class="gallery-main-section py-16 sm:py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4">
+
+    <!-- Toolbar: title + search -->
+    <div class="gallery-main-toolbar">
+      <div>
+        <span class="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest text-primary-500 mb-1"><span class="w-2 h-2 rounded-full bg-primary-400 animate-pulse"></span>Browse Collection</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-black text-slate-800">Discover Our World</h2>
+      </div>
+      <div class="gallery-search-box">
+        <i class="fa-solid fa-magnifying-glass text-slate-400 text-sm"></i>
+        <input type="text" id="gallery-search" placeholder="Search destinations…" autocomplete="off">
+      </div>
+    </div>
+
+    <!-- Filter tabs -->
+    <div class="gallery-filter-row">
+      <button class="gallery-filter-btn is-active" data-cat="All"><i class="fa-solid fa-globe mr-1.5"></i>All</button>
+      <button class="gallery-filter-btn" data-cat="Europe"><i class="fa-solid fa-landmark mr-1.5"></i>Europe</button>
+      <button class="gallery-filter-btn" data-cat="Asia"><i class="fa-solid fa-torii-gate mr-1.5"></i>Asia</button>
+      <button class="gallery-filter-btn" data-cat="Africa"><i class="fa-solid fa-paw mr-1.5"></i>Africa</button>
+      <button class="gallery-filter-btn" data-cat="Americas"><i class="fa-solid fa-mountain mr-1.5"></i>Americas</button>
+      <button class="gallery-filter-btn" data-cat="Arctic"><i class="fa-solid fa-snowflake mr-1.5"></i>Arctic</button>
+      <button class="gallery-filter-btn" data-cat="Tropical"><i class="fa-solid fa-umbrella-beach mr-1.5"></i>Tropical</button>
+      <button class="gallery-filter-btn" data-cat="Adventure"><i class="fa-solid fa-person-hiking mr-1.5"></i>Adventure</button>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div id="gallery-grid" class="gallery-masonry-grid">
+      <!-- Cards injected by JS -->
+    </div>
+
+    <!-- Empty state -->
+    <div id="gallery-empty" class="gallery-empty-state hidden">
+      <i class="fa-solid fa-camera-slash"></i>
+      <h3>No photos found</h3>
+      <p>Try a different category or search term</p>
+      <button onclick="document.getElementById('gallery-search').value=''; filterGallery('All')" class="mt-4 px-6 py-2.5 bg-primary-500 text-white text-sm font-bold rounded-xl hover:bg-primary-600 transition">Reset Filters</button>
+    </div>
+
+    <!-- Load More -->
+    <div class="gallery-load-more-wrap" id="load-more-wrap">
+      <button id="load-more-btn" class="gallery-load-more-btn">
+        <i class="fa-solid fa-plus mr-2"></i>Load More Photos
+        <span id="load-more-count" class="gallery-load-more-count">12 remaining</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ GALLERY CTA ═══════════════════════ -->
+<section class="gallery-cta-section">
+  <div class="gallery-cta-bg">
+    <img src="https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&w=1920&q=85" alt="Mountain landscape at sunset" loading="lazy">
+    <div class="gallery-cta-overlay"></div>
+  </div>
+  <div class="relative z-10 max-w-4xl mx-auto px-4 py-24 sm:py-32 text-center text-white">
+    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-xs font-bold uppercase tracking-widest mb-6" data-aos="fade-up">
+      <i class="fa-solid fa-sparkles text-yellow-300"></i>Your Story Awaits
+    </span>
+    <h2 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-black leading-tight mb-6" data-aos="fade-up" data-aos-delay="80">
+      Ready to Create<br><em class="text-primary-300">Your Own Moments?</em>
+    </h2>
+    <p class="text-white/80 text-base sm:text-lg max-w-xl mx-auto mb-10 leading-relaxed" data-aos="fade-up" data-aos-delay="160">
+      Let our destination specialists craft a bespoke itinerary that becomes your personal collection of unforgettable memories.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="240">
+      <a href="/book" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-sm">
+        <i class="fa-solid fa-paper-plane"></i>Start Planning My Trip
+      </a>
+      <a href="/packages" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/15 backdrop-blur-md border border-white/30 hover:bg-white/25 text-white font-bold rounded-xl transition-all duration-300 text-sm">
+        <i class="fa-solid fa-suitcase-rolling"></i>Browse Packages
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ LIGHTBOX ═══════════════════════ -->
+<div id="gallery-lightbox" class="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <div class="gallery-lightbox-backdrop" id="lb-backdrop"></div>
+  <div class="gallery-lightbox-container">
+    <button class="gallery-lb-close" id="lb-close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    <button class="gallery-lb-nav gallery-lb-prev" id="lb-prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+    <button class="gallery-lb-nav gallery-lb-next" id="lb-next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+    <div class="gallery-lb-image-wrap">
+      <img id="lb-image" src="" alt="">
+      <div class="gallery-lb-loader" id="lb-loader"><div class="gallery-lb-spinner"></div></div>
+    </div>
+    <div class="gallery-lb-info">
+      <div class="gallery-lb-info-left">
+        <span class="gallery-lb-category" id="lb-category"></span>
+        <strong class="gallery-lb-title" id="lb-title"></strong>
+        <span class="gallery-lb-location" id="lb-location"><i class="fa-solid fa-location-dot mr-1"></i><span id="lb-location-text"></span></span>
+      </div>
+      <div class="gallery-lb-counter" id="lb-counter"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Floating utilities -->
+<a href="https://wa.me/18009263375" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-40 w-14 h-14 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full flex items-center justify-center text-2xl shadow-lg shadow-emerald-300/30 transition transform hover:scale-110 group" aria-label="WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+<button id="back-to-top" class="fixed bottom-24 right-6 z-40 w-10 h-10 bg-white border border-slate-200 text-slate-500 hover:text-primary-500 rounded-full flex items-center justify-center shadow-md opacity-0 pointer-events-none transition-all duration-300 translate-y-4" aria-label="Back to top"><i class="fa-solid fa-arrow-up text-sm"></i></button>
+
+<!-- Footer -->
+<%- include('partials/footer') %>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="/js/mobile-menu.js"></script>
+<script>
+// ── Gallery Data ───────────────────────────────────────────────
+const galleryItems = [
+  { id:1,  title:'Aegean Caldera Sunrise',      location:'Santorini, Greece',      cat:'Europe',    img:'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=1200&q=85', size:'tall' },
+  { id:2,  title:'Great Migration River Cross',  location:'Serengeti, Tanzania',    cat:'Africa',    img:'https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=85', size:'wide' },
+  { id:3,  title:'Emerald Rice Terraces',        location:'Ubud, Bali',             cat:'Tropical',  img:'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=85', size:'normal' },
+  { id:4,  title:'Aurora Borealis Dance',        location:'Tromsø, Norway',         cat:'Arctic',    img:'https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=1200&q=85', size:'tall' },
+  { id:5,  title:'Kyoto Autumn Temple',          location:'Kyoto, Japan',           cat:'Asia',      img:'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=85', size:'normal' },
+  { id:6,  title:'Maldives Crystal Lagoon',      location:'North Malé Atoll',       cat:'Tropical',  img:'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=85', size:'wide' },
+  { id:7,  title:'Amalfi Cliffside Villages',   location:'Amalfi Coast, Italy',    cat:'Europe',    img:'https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=85', size:'normal' },
+  { id:8,  title:'Torres del Paine Spires',      location:'Patagonia, Chile',       cat:'Adventure', img:'https://images.unsplash.com/photo-1527004013197-933c4bb611b3?auto=format&fit=crop&w=1200&q=85', size:'tall' },
+  { id:9,  title:'Matterhorn Majesty',           location:'Zermatt, Switzerland',   cat:'Europe',    img:'https://images.unsplash.com/photo-1527668752968-14dc70a27c95?auto=format&fit=crop&w=1200&q=85', size:'normal' },
+  { id:10, title:'Banff Turquoise Lake',         location:'Banff, Canada',          cat:'Americas',  img:'https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&w=1200&q=85', size:'wide' },
+  { id:11, title:'African Elephant Sunset',      location:'Amboseli, Kenya',        cat:'Africa',    img:'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=1200&q=85', size:'normal' },
+  { id:12, title:'Glacial Ice Trek',             location:'El Calafate, Argentina', cat:'Adventure', img:'https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1200&q=85', size:'tall' },
+  { id:13, title:'Swiss Alpine Village',         location:'Lauterbrunnen, Swiss',   cat:'Europe',    img:'https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=1200&q=85', size:'normal' },
+  { id:14, title:'Tokyo Neon Nights',            location:'Shinjuku, Tokyo',        cat:'Asia',      img:'https://images.unsplash.com/photo-1492571350019-22de08371fd3?auto=format&fit=crop&w=1200&q=85', size:'wide' },
+  { id:15, title:'Sahara Dune Sunrise',          location:'Merzouga, Morocco',      cat:'Africa',    img:'https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=85', size:'normal' },
+  { id:16, title:'Norwegian Fjord Silence',      location:'Geirangerfjord, Norway', cat:'Arctic',    img:'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1200&q=85', size:'tall' },
+  { id:17, title:'Santorini Infinity Pool',      location:'Oia, Santorini',         cat:'Europe',    img:'https://images.unsplash.com/photo-1555993539-1732b0258235?auto=format&fit=crop&w=1200&q=85', size:'normal' },
+  { id:18, title:'Amazon Rainforest Canopy',     location:'Manaus, Brazil',         cat:'Americas',  img:'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=85', size:'wide' },
+  { id:19, title:'Angkor Wat Sunrise Mist',      location:'Siem Reap, Cambodia',    cat:'Asia',      img:'https://images.unsplash.com/photo-1569525927-5e0ad3dbf454?auto=format&fit=crop&w=1200&q=85', size:'normal' },
+  { id:20, title:'Husky Sled Arctic Trail',      location:'Lapland, Finland',       cat:'Arctic',    img:'https://images.unsplash.com/photo-1455541504462-57ebb2a9cec1?auto=format&fit=crop&w=1200&q=85', size:'tall' },
+  { id:21, title:'Positano Pastel Harbor',       location:'Positano, Italy',        cat:'Europe',    img:'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1200&q=85', size:'normal' },
+  { id:22, title:'Mount Fuji Cherry Blossom',    location:'Fujiyoshida, Japan',     cat:'Asia',      img:'https://images.unsplash.com/photo-1480796927426-f609979314bd?auto=format&fit=crop&w=1200&q=85', size:'wide' },
+  { id:23, title:'Okavango Delta Boat',          location:'Botswana, Africa',       cat:'Africa',    img:'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=1200&q=85', size:'normal' },
+  { id:24, title:'Grand Canyon Sunrise Vista',   location:'Arizona, USA',           cat:'Americas',  img:'https://images.unsplash.com/photo-1474044159687-1ee9f3a51722?auto=format&fit=crop&w=1200&q=85', size:'tall' },
+];
+
+// ── State ──────────────────────────────────────────────────────
+let currentCat = 'All';
+let currentSearch = '';
+const INITIAL_COUNT = 12;
+let shownCount = INITIAL_COUNT;
+let currentLBIndex = 0;
+let filteredItems = [];
+
+// ── Filter logic ───────────────────────────────────────────────
+function getFiltered() {
+  return galleryItems.filter(item => {
+    const catMatch = currentCat === 'All' || item.cat === currentCat;
+    const searchMatch = !currentSearch ||
+      item.title.toLowerCase().includes(currentSearch) ||
+      item.location.toLowerCase().includes(currentSearch) ||
+      item.cat.toLowerCase().includes(currentSearch);
+    return catMatch && searchMatch;
+  });
+}
+
+function renderGallery() {
+  filteredItems = getFiltered();
+  const grid = document.getElementById('gallery-grid');
+  const empty = document.getElementById('gallery-empty');
+  const loadWrap = document.getElementById('load-more-wrap');
+  const loadCount = document.getElementById('load-more-count');
+
+  grid.innerHTML = '';
+
+  if (filteredItems.length === 0) {
+    empty.classList.remove('hidden');
+    loadWrap.classList.add('hidden');
+    return;
+  }
+
+  empty.classList.add('hidden');
+  const visible = filteredItems.slice(0, shownCount);
+
+  visible.forEach((item, idx) => {
+    const card = document.createElement('div');
+    card.className = `gallery-card gallery-card--${item.size}`;
+    card.setAttribute('data-index', idx);
+    card.setAttribute('data-aos', 'fade-up');
+    card.setAttribute('data-aos-delay', Math.min(idx * 40, 400));
+    card.innerHTML = `
+      <img src="${item.img}" alt="${item.title}" loading="lazy">
+      <div class="gallery-card-overlay">
+        <div class="gallery-card-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        <div class="gallery-card-body">
+          <span class="gallery-card-cat"><i class="fa-solid fa-tag mr-1"></i>${item.cat}</span>
+          <strong class="gallery-card-title">${item.title}</strong>
+          <span class="gallery-card-loc"><i class="fa-solid fa-location-dot mr-1"></i>${item.location}</span>
+        </div>
+      </div>
+    `;
+    card.addEventListener('click', () => openLightbox(idx));
+    grid.appendChild(card);
+  });
+
+  // Load more
+  const remaining = filteredItems.length - shownCount;
+  if (remaining > 0) {
+    loadWrap.classList.remove('hidden');
+    loadCount.textContent = `${remaining} remaining`;
+  } else {
+    loadWrap.classList.add('hidden');
+  }
+
+  // Re-init AOS
+  if (window.AOS) AOS.refreshHard();
+}
+
+function filterGallery(cat) {
+  currentCat = cat;
+  shownCount = INITIAL_COUNT;
+  document.querySelectorAll('.gallery-filter-btn').forEach(b => {
+    b.classList.toggle('is-active', b.dataset.cat === cat);
+  });
+  renderGallery();
+}
+
+// ── Lightbox ───────────────────────────────────────────────────
+function openLightbox(idx) {
+  currentLBIndex = idx;
+  updateLightbox();
+  document.getElementById('gallery-lightbox').classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('gallery-lightbox').classList.remove('is-open');
+  document.body.style.overflow = '';
+}
+function updateLightbox() {
+  const item = filteredItems[currentLBIndex];
+  const img = document.getElementById('lb-image');
+  const loader = document.getElementById('lb-loader');
+  loader.style.display = 'flex';
+  img.style.opacity = '0';
+  img.onload = () => { loader.style.display = 'none'; img.style.opacity = '1'; };
+  img.src = item.img.replace('w=1200', 'w=1800');
+  img.alt = item.title;
+  document.getElementById('lb-title').textContent = item.title;
+  document.getElementById('lb-location-text').textContent = item.location;
+  document.getElementById('lb-category').textContent = item.cat;
+  document.getElementById('lb-counter').textContent = `${currentLBIndex + 1} / ${filteredItems.length}`;
+}
+
+// ── Init ───────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  renderGallery();
+
+  AOS.init({ once: true, duration: 650, easing: 'ease-out-cubic' });
+
+  // Filter buttons
+  document.querySelectorAll('.gallery-filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => filterGallery(btn.dataset.cat));
+  });
+
+  // Search
+  document.getElementById('gallery-search').addEventListener('input', e => {
+    currentSearch = e.target.value.toLowerCase().trim();
+    shownCount = INITIAL_COUNT;
+    renderGallery();
+  });
+
+  // Load more
+  document.getElementById('load-more-btn').addEventListener('click', () => {
+    shownCount += INITIAL_COUNT;
+    renderGallery();
+  });
+
+  // Lightbox
+  document.getElementById('lb-close').addEventListener('click', closeLightbox);
+  document.getElementById('lb-backdrop').addEventListener('click', closeLightbox);
+  document.getElementById('lb-prev').addEventListener('click', () => {
+    currentLBIndex = (currentLBIndex - 1 + filteredItems.length) % filteredItems.length;
+    updateLightbox();
+  });
+  document.getElementById('lb-next').addEventListener('click', () => {
+    currentLBIndex = (currentLBIndex + 1) % filteredItems.length;
+    updateLightbox();
+  });
+  document.addEventListener('keydown', e => {
+    const lb = document.getElementById('gallery-lightbox');
+    if (!lb.classList.contains('is-open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') { currentLBIndex = (currentLBIndex - 1 + filteredItems.length) % filteredItems.length; updateLightbox(); }
+    if (e.key === 'ArrowRight') { currentLBIndex = (currentLBIndex + 1) % filteredItems.length; updateLightbox(); }
+  });
+
+  // Scroll progress
+  const bar = document.getElementById('scroll-progress');
+  window.addEventListener('scroll', () => {
+    const pct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+    if (bar) bar.style.width = pct + '%';
+  });
+
+  // Back to top
+  const btt = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => {
+    if (btt) {
+      if (window.scrollY > 400) { btt.classList.remove('opacity-0','pointer-events-none','translate-y-4'); }
+      else { btt.classList.add('opacity-0','pointer-events-none','translate-y-4'); }
+    }
+  });
+  if (btt) btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+});
+</script>
+</body>
+</html>

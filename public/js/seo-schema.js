@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Veron Crest Tours & Travels - SEO Schema.org JSON-LD Generator
  * Injects structured schema markup for TravelAgency, WebSite, TouristTrip, and FAQPage.
  */

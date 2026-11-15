@@ -14,3 +14,4 @@ exports.packages = renderClientPage('packages', 'Luxury Tour Packages | Veron Cr
 exports.packageDetails = renderClientPage('package-details', 'Package Details | Veron Crest', 'packages');
 exports.book = renderClientPage('book', 'Book Your Journey | Veron Crest', 'book');
 exports.contact = renderClientPage('contact', 'Contact Veron Crest | Plan Your Journey', 'contact');
+exports.gallery = renderClientPage('gallery', 'Travel Gallery | Veron Crest — Breathtaking Destinations Worldwide', 'gallery');

@@ -10,5 +10,6 @@ router.get('/packages', controller.packages);
 router.get('/package-details', controller.packageDetails);
 router.get('/book', controller.book);
 router.get('/contact', controller.contact);
+router.get('/gallery', controller.gallery);
 
 module.exports = router;
