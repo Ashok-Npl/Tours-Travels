@@ -7,13 +7,28 @@
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/tailwind.css">
   <link rel="stylesheet" href="/css/pages/404.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body class="error-page bg-sand-50 text-slate-800 antialiased">
-  <main class="page-shell page-section">
-    <span class="eyebrow">404</span>
-    <h1>We could not find that page.</h1>
-    <a class="page-button" href="/">Return home</a>
+  <%- include('partials/navbar', { activePage: 'home' }) %>
+  <main class="error-main">
+    <section class="error-card page-shell" aria-labelledby="error-title">
+      <div class="error-copy">
+        <span class="eyebrow"><i class="fa-solid fa-compass" aria-hidden="true"></i> A little off course</span>
+        <h1 id="error-title">Looks like this page wandered off.</h1>
+        <p>The page you’re looking for may have moved or taken a different route. Let’s get you back to planning somewhere wonderful.</p>
+        <div class="error-actions">
+          <a class="page-button" href="/"><i class="fa-solid fa-house" aria-hidden="true"></i> Back to home</a>
+          <a class="error-secondary-link" href="/destinations">Explore destinations <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <div class="error-art-wrap">
+        <img class="error-art" src="/assets/images/404.png" alt="A traveler wondering where the missing page went" fetchpriority="high">
+        <span class="error-code" aria-hidden="true">404</span>
+      </div>
+    </section>
   </main>
+  <%- include('partials/footer') %>
 </body>
 </html>
 

@@ -1,5 +1,5 @@
 ﻿/* ==========================================================================
-   Veron Crest Tours & Travels â€” Premium Warm Light Theme
+   Veron Crest Tours & Travels — Premium Warm Light Theme
    ========================================================================== */
 
 /* â”€â”€ Base â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
@@ -1087,6 +1087,7 @@ body {
 .page-nav a { color: var(--muted-ink); transition: color .2s ease; }
 .page-nav a:hover, .page-nav a.is-current { color: var(--coral); }
   .nav-currency-picker { min-height: 40px; padding: .45rem 1.8rem .45rem .75rem; border: 1px solid rgba(23,57,68,.14); border-radius: 999px; background: #fff; color: var(--ink); font: 700 .8rem 'Plus Jakarta Sans', sans-serif; }
+.currency-picker { min-height: 2.35rem; padding: .4rem .65rem; border: 1px solid rgba(23,57,68,.2); border-radius: .65rem; color: var(--ink); background: #fff; font: inherit; font-size: .8rem; }
 .page-cta, .page-button { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; color: #fff; background: var(--coral); border-radius: 999px; padding: .8rem 1.25rem; font-size: .76rem; font-weight: 800; box-shadow: 0 8px 18px rgba(217,111,67,.18); transition: transform .2s ease, background .2s ease; }
 .page-cta { padding: .85rem 1.35rem; font-size: .86rem; }
 .page-cta:hover, .page-button:hover { color: #fff; background: #b95732; transform: translateY(-2px); }
@@ -1378,13 +1379,14 @@ body {
 .destination-detail-card .page-button { margin-top: 1rem; }
 .destination-detail-cta { padding: 5rem 0; background: #eaf2ef; }
 
-.packages-hero { padding: clamp(5rem, 10vw, 8rem) 0 6rem; background: var(--sand); }
+.packages-hero { padding: clamp(4rem, 8vw, 7rem) 0 5rem; background: var(--sand); }
 .packages-hero-grid { display: flex; align-items: end; justify-content: space-between; gap: 3rem; }
 .packages-hero h1 { margin: .8rem 0 1.4rem; color: var(--ink); font: 800 clamp(3.2rem, 7vw, 6.4rem)/.95 'Playfair Display', serif; letter-spacing: -.05em; }
 .packages-hero h1 em { color: var(--coral); font-weight: 600; }
 .packages-hero p { max-width: 560px; color: var(--muted-ink); line-height: 1.8; }
-.packages-hero-stat { display: flex; align-items: center; gap: 1rem; padding: 1.2rem 1.6rem; border-left: 1px solid rgba(16,42,54,.18); color: var(--muted-ink); font-size: .68rem; font-weight: 700; line-height: 1.5; text-transform: uppercase; letter-spacing: .08em; }
-.packages-hero-stat strong { color: var(--ink); font: 700 4rem/1 'Playfair Display', serif; }
+.packages-hero-stat { display: grid; gap: .35rem; min-width: 250px; padding: .75rem 0 .75rem 1.5rem; border-left: 1px solid rgba(16,42,54,.18); color: var(--muted-ink); font-size: .78rem; font-weight: 600; line-height: 1.5; }
+.packages-hero-stat-kicker { color: var(--coral); font-size: .65rem; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; }
+.packages-hero-stat strong { color: var(--ink); font: 700 clamp(1.35rem, 2.2vw, 1.85rem)/1.15 'Playfair Display', serif; }
 .packages-directory { padding: 5rem 0 8rem; background: #fff; }
 .packages-toolbar { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-bottom: 2rem; }
 .packages-toolbar h2, .packages-cta h2 { margin: .65rem 0 0; color: var(--ink); font: 700 clamp(2rem, 4vw, 3.3rem)/1.05 'Playfair Display', serif; letter-spacing: -.035em; }
@@ -1465,8 +1467,10 @@ body {
 .packages-cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
 .packages-cta p { max-width: 480px; margin-top: .8rem; color: var(--muted-ink); font-size: .9rem; }
 @media (max-width: 760px) {
-  .packages-hero-grid, .packages-toolbar, .packages-cta-inner { align-items: flex-start; flex-direction: column; }
-  .packages-hero-stat { margin-top: 1rem; }
+  .packages-hero { padding: 3rem 0 3.5rem; }
+  .packages-hero-grid, .packages-toolbar, .packages-cta-inner { align-items: stretch; flex-direction: column; gap: 1.5rem; }
+  .packages-hero h1 { font-size: clamp(2.8rem, 11vw, 4.2rem); }
+  .packages-hero-stat { min-width: 0; margin-top: .25rem; padding: 1rem 1.1rem; border: 1px solid rgba(16,42,54,.1); border-left: 3px solid var(--coral); border-radius: .9rem; background: rgba(255,255,255,.72); }
   .packages-search { width: 100%; }
   .packages-grid { grid-template-columns: 1fr; }
   .package-page-actions { align-items: stretch; flex-direction: column; }
@@ -1504,10 +1508,10 @@ body {
 @media (max-width: 480px) {
   .package-promo-cta { margin-left: 0; }
 }
-@media (max-width: 850px) {
+@media (max-width: 1180px) {
   .nav-currency-picker { display: none; }
-  .page-nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .75rem; }
-  .page-cta { display: none; }
+  .page-nav, .nav-shell .page-cta { display: none; }
+  #mobile-menu-btn { display: block; }
   .page-hero-grid, .story-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
   .about-hero .page-hero-grid { grid-template-columns: 1fr; }
   .about-hero-copy { padding-right: 0; }
@@ -1671,7 +1675,8 @@ body {
 .site-footer-column a:hover { color: #c85f37; }
 .site-footer-contact p { margin: -.2rem 0 .35rem; color: #687779; font-size: .88rem; line-height: 1.7; }
 .site-footer-contact a { display: inline-flex; align-items: flex-start; gap: .65rem; font-size: .9rem; }
-.site-footer-contact a i { color: #c85f37; }
+.site-footer-contact a i, .site-footer-contact > span i { flex: 0 0 auto; color: #c85f37; }
+.site-footer-contact > span { display: flex; align-items: flex-start; gap: .65rem; font-size: .9rem; line-height: 1.5; }
 
 .site-footer-bottom {
   display: flex;
@@ -1692,7 +1697,7 @@ body {
 .site-footer-top { color: #173944; font-size: .84rem; }
 .site-footer-top:hover { color: #c85f37; }
 
-@media (max-width: 900px) {
+@media (max-width: 1020px) {
   .site-footer-main { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); }
   .site-footer-contact { grid-column: 1 / -1; }
 }
@@ -1704,7 +1709,8 @@ body {
   .site-footer-logo { width: min(100%, 340px); }
   .site-footer-links { gap: 1rem; }
   .site-footer-column { gap: .85rem; }
-  .site-footer-bottom { align-items: flex-start; }
+  .site-footer-bottom { align-items: flex-start; flex-direction: column; }
+  .site-footer-contact a, .site-footer-contact > span { min-width: 0; overflow-wrap: anywhere; }
 }
 
 @media (max-width: 1024px) {

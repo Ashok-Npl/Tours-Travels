@@ -1,5 +1,5 @@
-﻿/**
- * Veron Crest Tours & Travels â€” Main Application (Light-Theme Version)
+/**
+ * Veron Crest Tours & Travels — Main Application (Light-Theme Version)
  */
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function syncPrices() { $$('.dp').forEach(e=>{const u=parseFloat(e.dataset.usd);if(!isNaN(u))e.textContent=fmtPrice(u);}); }
 
   /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-     RENDER â€” Destinations
+     RENDER — Destinations
      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
   function renderDest() {
     if (!destGrid) return;
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     destGrid.innerHTML = list.map(d=>`
       <div class="group soft-card overflow-hidden flex flex-col" data-aos="fade-up">
         <div class="relative h-60 overflow-hidden card-zoom">
-          <img src="${d.image}" alt="${d.name}, ${d.country} â€” luxury tour" loading="lazy" class="w-full h-full object-cover"/>
+          <img src="${d.image}" alt="${d.name}, ${d.country} — luxury tour" loading="lazy" class="w-full h-full object-cover"/>
           <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
           <div class="absolute top-3 left-3 flex gap-2 flex-wrap">
             <span class="px-2.5 py-1 rounded-full text-[11px] font-bold text-white shadow ${d.badgeColor}">${d.badge}</span>
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         <div class="p-5 flex-1 flex flex-col justify-between">
           <div>
-            <span class="text-[11px] font-bold uppercase tracking-wider text-primary-500"><i class="fa-solid fa-location-dot mr-1"></i>${d.country} Â· ${d.region}</span>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-primary-500"><i class="fa-solid fa-location-dot mr-1"></i>${d.country} · ${d.region}</span>
             <h3 class="text-lg font-bold text-slate-800 mt-1 group-hover:text-primary-600 transition">${d.name}</h3>
             <p class="text-slate-500 text-xs mt-1 line-clamp-2 leading-relaxed">${d.description}</p>
             <ul class="mt-3 space-y-1">
@@ -115,11 +115,11 @@ document.addEventListener('DOMContentLoaded', () => {
   function bindDestEvents() {
     $$('.view-dest-btn').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();}));
     $$('.book-dest-btn').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();openBooking({name:b.dataset.name,price:b.dataset.price});}));
-    $$('.wishlist-btn').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();b.querySelector('i').classList.toggle('fa-solid');b.querySelector('i').classList.toggle('fa-regular');toast('Saved to Wishlist â¤ï¸','success');}));
+    $$('.wishlist-btn').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();b.querySelector('i').classList.toggle('fa-solid');b.querySelector('i').classList.toggle('fa-regular');toast('Saved to wishlist','success');}));
   }
 
   /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-     RENDER â€” Tour Packages
+     RENDER — Tour Packages
      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
   function renderPkgs() {
     if (!pkgWrap) return;
@@ -169,26 +169,25 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-     RENDER â€” Travel Styles
+     RENDER — Travel Styles
      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
   function renderStyles() {
     if (!stylesWrap) return;
     const iconColors = ['text-primary-500 bg-primary-50','text-teal-600 bg-teal-50','text-amber-500 bg-amber-50','text-indigo-500 bg-indigo-50','text-rose-500 bg-rose-50','text-emerald-500 bg-emerald-50'];
     stylesWrap.innerHTML = travelData.travelStyles.map((s,i)=>`
-      <div class="group soft-card p-6 flex flex-col justify-between hover:border-primary-200" data-aos="fade-up" data-aos-delay="${i*60}">
-        <div>
-          <div class="w-12 h-12 rounded-xl ${iconColors[i%iconColors.length]} flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition"><i class="fa-solid ${s.icon}"></i></div>
-          <h4 class="text-base font-bold text-slate-800 mb-1.5">${s.title}</h4>
-          <p class="text-slate-500 text-xs leading-relaxed">${s.desc}</p>
+      <article class="travel-style-card" data-aos="fade-up" data-aos-delay="${i*60}">
+        <div class="travel-style-card-top">
+          <span class="travel-style-icon ${iconColors[i%iconColors.length]}"><i class="fa-solid ${s.icon}"></i></span>
+          <span class="travel-style-meta">${s.meta}</span>
         </div>
-        <div class="flex items-center justify-between text-xs text-primary-500 font-semibold pt-4 mt-4 border-t border-slate-100">
-          <span>${s.count}</span><i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-        </div>
-      </div>`).join('');
+        <h3>${s.title}</h3>
+        <p>${s.desc}</p>
+        <a class="travel-style-link" href="/book?journey=${encodeURIComponent(s.title)}">Plan this kind of trip <i class="fa-solid fa-arrow-right"></i></a>
+      </article>`).join('');
   }
 
   /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-     RENDER â€” Testimonials
+     RENDER — Testimonials
      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
   function renderRevs() {
     if (!revWrap) return;
@@ -212,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-     RENDER â€” Blog
+     RENDER — Blog
      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
   function renderBlog() {
     if (!blogWrap) return;
@@ -224,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         <div class="p-5 flex-1 flex flex-col justify-between">
           <div>
-            <div class="flex items-center gap-3 text-[11px] text-slate-400 mb-2"><span><i class="fa-regular fa-calendar mr-1"></i>${p.date}</span><span>â€¢</span><span><i class="fa-regular fa-clock mr-1"></i>${p.readTime}</span></div>
+            <div class="flex items-center gap-3 text-[11px] text-slate-400 mb-2"><span><i class="fa-regular fa-calendar mr-1"></i>${p.date}</span><span>•</span><span><i class="fa-regular fa-clock mr-1"></i>${p.readTime}</span></div>
             <h3 class="text-base font-bold text-slate-800 group-hover:text-primary-600 transition line-clamp-2 mb-1.5">${p.title}</h3>
             <p class="text-slate-500 text-xs line-clamp-3 leading-relaxed">${p.excerpt}</p>
           </div>
@@ -237,7 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-     RENDER â€” FAQs
+     RENDER — FAQs
      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
   function renderFAQs() {
     if (!faqWrap) return;
@@ -296,7 +295,7 @@ document.addEventListener('DOMContentLoaded', () => {
       q=q.toLowerCase().trim(); if(!q){acList.classList.add('hidden');acList.innerHTML='';return;}
       const m=travelData.destinations.filter(d=>d.name.toLowerCase().includes(q)||d.country.toLowerCase().includes(q)||d.region.toLowerCase().includes(q));
       if(!m.length){acList.innerHTML=`<div class="p-3 text-xs text-slate-400 text-center">No matches</div>`;acList.classList.remove('hidden');return;}
-      acList.innerHTML=m.slice(0,5).map(d=>`<div class="ac-item p-3 hover:bg-primary-50 flex items-center justify-between cursor-pointer border-b border-slate-50 last:border-0 transition" data-name="${d.name}"><div class="flex items-center gap-3"><img src="${d.image}" class="w-9 h-9 rounded-lg object-cover"/><div><span class="text-xs font-bold text-slate-700">${d.name}</span><br><span class="text-[10px] text-slate-400">${d.country} Â· ${d.region}</span></div></div><span class="text-[11px] font-bold text-teal-600">${fmtPrice(d.priceUSD)}</span></div>`).join('');
+      acList.innerHTML=m.slice(0,5).map(d=>`<div class="ac-item p-3 hover:bg-primary-50 flex items-center justify-between cursor-pointer border-b border-slate-50 last:border-0 transition" data-name="${d.name}"><div class="flex items-center gap-3"><img src="${d.image}" class="w-9 h-9 rounded-lg object-cover"/><div><span class="text-xs font-bold text-slate-700">${d.name}</span><br><span class="text-[10px] text-slate-400">${d.country} · ${d.region}</span></div></div><span class="text-[11px] font-bold text-teal-600">${fmtPrice(d.priceUSD)}</span></div>`).join('');
       acList.classList.remove('hidden');
       acList.querySelectorAll('.ac-item').forEach(it=>it.addEventListener('click',()=>{sInput.value=it.dataset.name;acList.classList.add('hidden');S.keyword=it.dataset.name;renderDest();}));
     }
@@ -307,7 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
   pageDestInput?.addEventListener('input', e=>{S.keyword=e.target.value;renderDest();});
 
   if(bSlider&&bVal){bVal.textContent=fmtPrice(S.budget)+'+';bSlider.addEventListener('input',e=>{S.budget=+e.target.value;bVal.textContent=fmtPrice(S.budget)+'+';renderDest();});}
-  sBtn?.addEventListener('click',()=>{if(sInput)S.keyword=sInput.value;renderDest();$('destinations')?.scrollIntoView({behavior:'smooth'});toast(`Searching for "${S.keyword||'All'}"â€¦`,'info');});
+  sBtn?.addEventListener('click',()=>{if(sInput)S.keyword=sInput.value;renderDest();$('destinations')?.scrollIntoView({behavior:'smooth'});toast(`Searching for "${S.keyword||'All'}"…`,'info');});
 
   /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
      TRAVELERS COUNTER
@@ -336,7 +335,7 @@ document.addEventListener('DOMContentLoaded', () => {
     openModal(`
       <div class="relative h-64 sm:h-80 rounded-xl overflow-hidden mb-6"><img src="${d.image}" alt="${d.name}" class="w-full h-full object-cover"/><div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
         <div class="absolute bottom-5 left-5 right-5 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
-          <div><span class="text-xs uppercase tracking-widest text-primary-300 font-bold block mb-1"><i class="fa-solid fa-map-location-dot mr-1"></i>${d.country} Â· ${d.region}</span><h2 class="text-2xl sm:text-3xl font-extrabold text-white">${d.name}</h2></div>
+          <div><span class="text-xs uppercase tracking-widest text-primary-300 font-bold block mb-1"><i class="fa-solid fa-map-location-dot mr-1"></i>${d.country} · ${d.region}</span><h2 class="text-2xl sm:text-3xl font-extrabold text-white">${d.name}</h2></div>
           <div class="bg-white/95 backdrop-blur px-4 py-2 rounded-xl text-right"><span class="text-xs text-slate-500 block">From</span><span class="text-xl font-extrabold text-teal-600">${fmtPrice(d.priceUSD)}</span><span class="text-xs text-slate-500"> /person</span></div>
         </div>
       </div>
@@ -360,7 +359,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const p=travelData.packages.find(x=>x.id===id);if(!p)return;
     openModal(`
       <div class="relative h-56 sm:h-72 rounded-xl overflow-hidden mb-6"><img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover"/><div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-        <div class="absolute bottom-5 left-5 right-5"><span class="px-2.5 py-1 bg-primary-500 text-white text-[11px] font-bold rounded-full">${p.badge} Â· ${p.category}</span><h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-2">${p.title}</h2></div>
+        <div class="absolute bottom-5 left-5 right-5"><span class="px-2.5 py-1 bg-primary-500 text-white text-[11px] font-bold rounded-full">${p.badge} · ${p.category}</span><h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-2">${p.title}</h2></div>
       </div>
       <div class="flex flex-wrap gap-4 bg-slate-50 p-4 rounded-xl mb-6 text-xs">
         <div><span class="text-slate-400 block">Duration</span><span class="font-bold text-slate-700"><i class="fa-solid fa-clock text-primary-400 mr-1"></i>${p.duration}</span></div>
@@ -374,7 +373,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <h4 class="font-bold text-slate-800 mb-2">Inclusions</h4>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6">${p.inclusions.map(i=>`<div class="flex items-center gap-2 text-xs text-slate-600"><i class="fa-solid fa-circle-check text-teal-500"></i>${i}</div>`).join('')}</div>
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-5 border-t border-slate-100">
-        <span class="text-xs text-slate-400"><i class="fa-solid fa-award text-amber-400 mr-1"></i>Guaranteed departures Â· Flexible cancellation</span>
+        <span class="text-xs text-slate-400"><i class="fa-solid fa-award text-amber-400 mr-1"></i>Guaranteed departures · Flexible cancellation</span>
         <button id="m-book-p" class="w-full sm:w-auto px-8 py-3 bg-teal-600 hover:bg-teal-700 text-white font-extrabold rounded-xl shadow-md transition">Book This Package</button>
       </div>`);
     $('m-book-p')?.addEventListener('click',()=>{closeModal();openBooking({name:p.title,price:p.currentPriceUSD});});
@@ -399,7 +398,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div><label class="block text-xs font-semibold text-slate-600 mb-1">Phone *</label><input type="tel" required placeholder="+1 (555) 000-0000" class="w-full border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-primary-400"/></div>
             <div><label class="block text-xs font-semibold text-slate-600 mb-1">Travel Date</label><input type="date" class="w-full border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-primary-400"/></div>
           </div>
-          <div><label class="block text-xs font-semibold text-slate-600 mb-1">Special Requests</label><textarea rows="2" placeholder="Anniversary surprises, dietary needsâ€¦" class="w-full border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-primary-400"></textarea></div>
+          <div><label class="block text-xs font-semibold text-slate-600 mb-1">Special Requests</label><textarea rows="2" placeholder="Anniversary surprises, dietary needs…" class="w-full border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-primary-400"></textarea></div>
           <button type="submit" class="w-full py-3 bg-primary-500 hover:bg-primary-600 text-white font-extrabold text-sm rounded-xl shadow-md transition flex items-center justify-center gap-2">Confirm Request <i class="fa-solid fa-arrow-right text-xs"></i></button>
         </form>
       </div>`);

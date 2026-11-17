@@ -215,7 +215,7 @@ const travelData = {
     },
     {
       id: 'tromso-norway',
-      name: 'TromsÃ¸ & Lofoten Northern Lights',
+      name: 'Tromsø & Lofoten Northern Lights',
       country: 'Norway',
       region: 'Arctic',
       badge: 'Aurora Adventure',
@@ -345,7 +345,7 @@ const travelData = {
       featured: false,
       badge: 'Adventure High',
       image: 'https://images.unsplash.com/photo-1527004013197-933c4bb611b3?auto=format&fit=crop&w=1200&q=80',
-      inclusions: ['Explora Torres del Paine Luxury Lodge', 'Crampon Ice Trekking on Perito Moreno Glacier', 'Private Catamaran Navigation on Lake PehoÃ©', 'All Mountain Guides & Safety Gear', 'Gourmet Patagonian Asado Wine Dinners'],
+      inclusions: ['Explora Torres del Paine Luxury Lodge', 'Crampon Ice Trekking on Perito Moreno Glacier', 'Private Catamaran Navigation on Lake Pehoé', 'All Mountain Guides & Safety Gear', 'Gourmet Patagonian Asado Wine Dinners'],
       overview: 'Hike among dramatic granite spires, witness thundering blue glacier calving, and discover the raw majesty at the very end of the Earth.',
       itinerary: [
         { day: 'Day 1-2', title: 'Buenos Aires to El Calafate', desc: 'Tango show welcome dinner, flight to Patagonia, artisanal craft brewery tour.' },
@@ -379,7 +379,7 @@ const travelData = {
     },
     {
       id: 'pkg-norway-northern-lights',
-      title: 'Arctic Aurora: TromsÃ¸, Fjords & Glass Igloos',
+      title: 'Arctic Aurora: Tromsø, Fjords & Glass Igloos',
       category: 'Polar & Winter',
       region: 'Arctic',
       duration: '7 Days / 6 Nights',
@@ -395,7 +395,7 @@ const travelData = {
       inclusions: ['Glass-Roof Igloo Cabin with Heated Floors', 'Professional Night Aurora Hunt Expeditions', 'Arctic Thermal Suits & Boots Provided', 'Husky Sledding & Sami Cultural Feast', 'Silent Hybrid Catamaran Fjord Cruise'],
       overview: 'Gaze into the green dancing skies from the comfort of a heated glass igloo, glide through silent snow forests, and immerse in authentic Sami Arctic culture.',
       itinerary: [
-        { day: 'Day 1-2', title: 'Arrival in TromsÃ¸ - Gateway to the Arctic', desc: 'Arctic Cathedral, Cable car ride over TromsÃ¸ island, evening aurora anticipation toast.' },
+        { day: 'Day 1-2', title: 'Arrival in Tromsø - Gateway to the Arctic', desc: 'Arctic Cathedral, Cable car ride over Tromsø island, evening aurora anticipation toast.' },
         { day: 'Day 3-4', title: 'Husky Musher Adventure & Glass Igloo Check-in', desc: 'Drive your own team of Alaskan huskies through powder snow, settle into your panoramic glass igloo.' },
         { day: 'Day 5-7', title: 'Reindeer Sledding & Fjord Cruise', desc: 'Hear ancient folk stories inside a traditional Lavvu tent, electric boat voyage into dramatic fjords.' }
       ]
@@ -404,12 +404,12 @@ const travelData = {
 
   // Travel Experience Styles
   travelStyles: [
-    { title: 'Luxury & Bespoke', icon: 'fa-gem', count: '45+ Tours', desc: 'Private charters, 5-star palatial stays, and bespoke personalized concierges.' },
-    { title: 'Adventure & Trekking', icon: 'fa-mountain-sun', count: '38+ Tours', desc: 'Summit high peaks, glacial ice treks, and deep jungle excursions with master guides.' },
-    { title: 'Wildlife & Safaris', icon: 'fa-paw', count: '29+ Tours', desc: 'Responsible conservation safaris, tracking rare predators, and glamping under constellations.' },
-    { title: 'Cultural Immersion', icon: 'fa-landmark', count: '52+ Tours', desc: 'Living traditions, ancient temple rites, artisan ateliers, and private archaeological access.' },
-    { title: 'Tropical & Beaches', icon: 'fa-umbrella-beach', count: '34+ Tours', desc: 'Overwater bungalows, pristine coral atolls, and secluded private island sanctuaries.' },
-    { title: 'Culinary & Wine', icon: 'fa-wine-glass', count: '24+ Tours', desc: 'Michelin star journeys, truffle foraging with locals, and private vineyard masterclasses.' }
+    { title: 'Himalayan Trekking', icon: 'fa-mountain-sun', meta: 'Nepal · Walking journeys', desc: 'Follow mountain trails with a local guide, with walking days and stays matched to your pace.' },
+    { title: 'Culture & Heritage', icon: 'fa-landmark', meta: 'Nepal · Cities and traditions', desc: 'Explore Kathmandu Valley heritage, sacred places, crafts and local food with context.' },
+    { title: 'Wildlife & Nature', icon: 'fa-paw', meta: 'Nepal · Forest and plains', desc: 'Discover Chitwan and Nepal’s varied landscapes through thoughtful, guided experiences.' },
+    { title: 'Pilgrimage & Wellbeing', icon: 'fa-spa', meta: 'Nepal · Meaningful escapes', desc: 'Make room for sacred sites, quiet stays and restorative time along the way.' },
+    { title: 'Family & Soft Adventure', icon: 'fa-person-hiking', meta: 'Nepal · Easy to active', desc: 'Mix gentle walks, wildlife, lakeside days and activities for different ages.' },
+    { title: 'Outbound Holidays', icon: 'fa-plane-departure', meta: 'From Nepal · Beyond borders', desc: 'Plan an international holiday with the right destination, season and budget in mind.' }
   ],
 
   // Customer Reviews & Social Proof
